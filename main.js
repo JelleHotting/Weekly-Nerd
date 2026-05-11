@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let scrollLeft, scrollTop;
   let activeModel = null;
 
+  const isMobile = () => window.innerWidth < 640;
+
   const instructionText = document.querySelector(".instruction-text");
   const modelsLayer = document.getElementById("models-layer");
   const overlay = document.querySelector(".glass-overlay");
@@ -99,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Bereken offset t.o.v. de huidige positie op je scherm
       const dx = centerX - (rect.left + rect.width / 2);
       const dy = centerY - (rect.top + rect.height / 2);
-      viewer.setAttribute("camera-orbit", "100deg 0deg 90%");
+      const activeOrbit = wrapper.dataset.activeOrbit || "100deg 0deg 90%";
       viewer.setAttribute("camera-controls", "false");
 
       const instruction = wrapper.querySelector(".model-instruction");
@@ -108,13 +110,43 @@ document.addEventListener("DOMContentLoaded", () => {
       wrapper.dataset.gsapX = gsap.getProperty(wrapper, "x") || 0;
       wrapper.dataset.gsapY = gsap.getProperty(wrapper, "y") || 0;
 
-      // Sweep naar het midden (met grote offset naar links voor tekst), maak groter met mooie ease
+      // Parse current and target orbit values to animate between them
+      const currentOrbit = viewer.getAttribute("camera-orbit") || "0deg 75deg 105%";
+      const parseOrbit = (str) => {
+        const parts = str.trim().split(/\s+/);
+        return {
+          theta: parseFloat(parts[0]),
+          phi: parseFloat(parts[1]),
+          radius: parts[2],
+        };
+      };
+      const fromOrbit = parseOrbit(currentOrbit);
+      const toOrbit = parseOrbit(activeOrbit);
+      const orbitProxy = { theta: fromOrbit.theta, phi: fromOrbit.phi };
+
+      // Sweep naar het midden — op mobile omhoog schuiven, op desktop naar links
+      const mobile = isMobile();
       gsap.to(wrapper, {
-        x: parseFloat(wrapper.dataset.gsapX) + dx - 320, // Increased shift to make room for larger panel
-        y: parseFloat(wrapper.dataset.gsapY) + dy,
-        scale: 2.2,
+        x: parseFloat(wrapper.dataset.gsapX) + dx - (mobile ? 0 : 320),
+        y: parseFloat(wrapper.dataset.gsapY) + dy - (mobile ? window.innerHeight * 0.34 : 0),
+        width:  mobile ? 180 : 352,
+        height: mobile ? 270 : 528,
         duration: 1.2,
         ease: "power4.out",
+      });
+
+      // Animate camera orbit in sync with the wrapper movement
+      gsap.to(orbitProxy, {
+        theta: toOrbit.theta,
+        phi: toOrbit.phi,
+        duration: 1.2,
+        ease: "power4.out",
+        onUpdate: () => {
+          viewer.setAttribute(
+            "camera-orbit",
+            `${orbitProxy.theta}deg ${orbitProxy.phi}deg ${toOrbit.radius}`
+          );
+        },
       });
 
       // Show blog panel with template content
@@ -141,8 +173,30 @@ document.addEventListener("DOMContentLoaded", () => {
     blogPanel.classList.remove("active");
     viewport.style.overflow = "auto";
 
-    viewer.setAttribute("camera-orbit", "0deg 75deg 105%");
+    const defaultOrbit = wrapper.dataset.defaultOrbit || "0deg 75deg 105%";
     viewer.removeAttribute("camera-controls");
+
+    // Animate camera back to default orbit in sync with the collapse
+    const currentOrbit = viewer.getAttribute("camera-orbit") || defaultOrbit;
+    const parseOrbit = (str) => {
+      const parts = str.trim().split(/\s+/);
+      return { theta: parseFloat(parts[0]), phi: parseFloat(parts[1]), radius: parts[2] };
+    };
+    const fromOrbit = parseOrbit(currentOrbit);
+    const toOrbit = parseOrbit(defaultOrbit);
+    const orbitProxy = { theta: fromOrbit.theta, phi: fromOrbit.phi };
+    gsap.to(orbitProxy, {
+      theta: toOrbit.theta,
+      phi: toOrbit.phi,
+      duration: 1.0,
+      ease: "power3.inOut",
+      onUpdate: () => {
+        viewer.setAttribute(
+          "camera-orbit",
+          `${orbitProxy.theta}deg ${orbitProxy.phi}deg ${toOrbit.radius}`
+        );
+      },
+    });
 
     const instruction = wrapper.querySelector(".model-instruction");
     if (instruction)
@@ -151,7 +205,8 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.to(wrapper, {
       x: parseFloat(wrapper.dataset.gsapX),
       y: parseFloat(wrapper.dataset.gsapY),
-      scale: 1,
+      width:  isMobile() ? 100 : 160,
+      height: isMobile() ? 150 : 240,
       duration: 1.0,
       ease: "power3.inOut",
       onComplete: () => {

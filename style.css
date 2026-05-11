@@ -1,5 +1,3 @@
-
-
 body {
   margin: 0;
   overflow: hidden;
@@ -50,7 +48,6 @@ body {
   background-blend-mode: overlay, normal, normal, normal, normal;
 }
 #svg-container,
-#images-layer,
 #models-layer {
   display: flex;
   flex-direction: column;
@@ -130,6 +127,11 @@ body {
   margin-left: -240px;
 }
 
+.magnify-wrapper {
+  margin-top: 800px;
+  margin-left: 1000px;
+}
+
 .interactive-model {
   width: 100%;
   height: 100%;
@@ -147,7 +149,7 @@ body {
 }
 
 .instruction-text {
-  font-family: "Public Sans", sans-serif;
+  font-family: "Architects Daughter", cursive;
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.85);
   margin-top: 0;
@@ -168,7 +170,7 @@ body {
 }
 
 h1#title {
-  font-family: "Clash Display", sans-serif;
+  font-family: "Cabin Sketch", sans-serif;
   font-size: 5rem;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
@@ -178,6 +180,16 @@ h1#title {
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+
+#svg-container p {
+  font-family: "Architects Daughter", cursive;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
 svg {
   width: auto;
   height: auto;
@@ -185,59 +197,25 @@ svg {
   transform-style: preserve-3d;
 }
 
-.scatter-image {
-  position: absolute;
-  max-width: 320px;
-  height: auto;
-  pointer-events: none;
-  z-index: 5;
-  /* Layered Isometric Shadow: Sharp contact shadow + soft cast shadow */
-  filter: drop-shadow(2px 2px 2px rgba(0, 20, 50, 0.4))
-    drop-shadow(8px 8px 10px rgba(0, 20, 50, 0.2))
-    drop-shadow(15px 15px 25px rgba(0, 20, 50, 0.1));
 
-  /* Subtle perspective tilt to make them look like they have thickness/presence */
-  transform: perspective(1200px) rotateX(5deg) rotate(var(--img-rotation, 0deg));
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.keycaps-img {
-  top: -400px;
-  right: -500px;
-  --img-rotation: 15deg;
-}
-
-.klok-img {
-  top: -600px;
-  left: -450px;
-  --img-rotation: -10deg;
-}
-
-.lineaal-img {
-  bottom: -500px;
-  left: -600px;
-  --img-rotation: -25deg;
-}
-
-.motor-img {
-  bottom: -450px;
-  right: -400px;
-  --img-rotation: 12deg;
-}
 .blog-panel {
   position: fixed;
   top: 50%;
   right: 40px;
-  transform: translateY(-50%) translateX(40px);
+  transform: translateY(-50%) translateX(40px) rotate(0.4deg);
   width: 45vw;
   max-width: 750px;
   height: 85vh;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 40px;
-  padding: 48px;
+  /* Aged paper look */
+  background-color: #f5f0e8;
+  background-image:
+    url("assets/images/noise.png"),
+    linear-gradient(160deg, #fdfaf3 0%, #f0e9d6 60%, #ede3cb 100%);
+  background-blend-mode: overlay, normal;
+  background-size: 200px 200px, 100% 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 48px 48px 48px 72px;
   box-sizing: border-box;
   opacity: 0;
   pointer-events: none;
@@ -247,7 +225,7 @@ svg {
     transform 0.8s cubic-bezier(0.23, 1, 0.32, 1),
     opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 
-  /* Premium scrollbar styling */
+  /* Subtle scrollbar */
   &::-webkit-scrollbar {
     width: 6px;
   }
@@ -255,69 +233,61 @@ svg {
     background: transparent;
   }
   &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(120, 90, 50, 0.2);
     border-radius: 10px;
   }
   &::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(120, 90, 50, 0.35);
   }
 }
 
 .blog-panel.active {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(-50%) translateX(0);
-}
-
-.blog-panel-content {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  transform: translateY(-50%) translateX(0) rotate(0.4deg);
 }
 
 .blog-title {
-  font-family: "Clash Display", sans-serif;
-  font-size: 2.2rem;
-  color: #ffffff;
+  font-family: "Architects Daughter", cursive;
+  font-size: 2rem;
+  color: #2c1a0e;
   margin-top: 0;
   margin-bottom: 8px;
-  line-height: 1.1;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
 }
 
 .blog-text {
-  font-family: "Public Sans", sans-serif;
-  font-size: 1.15rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.85);
+  font-family: "Architects Daughter", cursive;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #3a2510;
   margin: 0;
 }
 
 .blog-text a {
-  color: #ffcc66;
+  color: #7a3b0f;
   text-decoration: underline;
   text-underline-offset: 4px;
   transition: color 0.3s ease;
 }
 
 .blog-text a:hover {
-  color: #ffffff;
+  color: #2c1a0e;
 }
 
 .blog-subtitle {
-  font-family: "Clash Display", sans-serif;
-  font-size: 1.6rem;
-  color: #ffffff;
+  font-family: "Architects Daughter", cursive;
+  font-size: 1.4rem;
+  color: #2c1a0e;
   margin-top: 16px;
   margin-bottom: 4px;
-  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
 .blog-list {
-  font-family: "Public Sans", sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.85);
+  font-family: "Architects Daughter", cursive;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #3a2510;
   margin: 8px 0;
   padding-left: 24px;
 }
@@ -327,19 +297,19 @@ svg {
 }
 
 .blog-list code {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(80, 50, 20, 0.1);
   padding: 2px 6px;
   border-radius: 4px;
   font-family: "Fira Code", monospace;
-  font-size: 0.9rem;
-  color: #a5d6ff;
+  font-size: 0.85rem;
+  color: #6b3a10;
 }
 
 .blog-code {
   margin: 16px 0;
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  background: rgba(60, 40, 15, 0.06);
+  border: 1px solid rgba(100, 70, 30, 0.2);
+  border-radius: 4px;
   padding: 20px;
   overflow-x: auto;
 }
@@ -347,36 +317,264 @@ svg {
 .blog-code pre {
   margin: 0;
   font-family: "Fira Code", monospace;
-  font-size: 0.95rem;
-  color: #88d4ff; /* Blueprint cyan */
-  line-height: 1.4;
+  font-size: 0.9rem;
+  color: #4a2e0a;
+  line-height: 1.5;
 }
 
 .blog-code code {
   font-family: inherit;
-  color: #ffcc66; /* Soft gold for code content */
+  color: #7a3b0f;
 }
 
 .blog-panel img {
   max-width: 100%;
   height: auto;
-  border-radius: 16px;
+  border-radius: 4px;
   margin: 16px 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(100, 70, 30, 0.15);
 }
 
-/* Add a subtle highlight to the top of the panel */
-.blog-panel::before {
-  content: "";
+/* Ruled-line texture and red margin live on the content so they scroll */
+.blog-panel-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Faint horizontal ruled lines */
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(160, 120, 70, 0.12) 27px,
+    rgba(160, 120, 70, 0.12) 28px
+  );
+  /* Red margin rule */
+  border-left: 1px solid rgba(200, 80, 80, 0.3);
+  padding-left: 16px;
+}
+
+/* Paper Screenshots Layer */
+#paper-layer {
   position: absolute;
   top: 0;
-  left: 32px;
-  right: 32px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let clicks pass through the layer itself */
+  z-index: 2; /* Below the models-layer (z-index: 20) and glass-overlay (z-index: 10) */
+}
+
+.paper-screenshot {
+  position: absolute;
+  margin: 0;
+  background-color: #fcfcfc;
+  padding: 12px 12px 48px 12px; /* Polaroid style padding */
+  box-shadow: 2px 8px 24px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  pointer-events: auto; /* Make the paper clickable/hoverable */
+  transform-origin: center top;
+  /* Use CSS variable for base rotation so hover can easily override while maintaining rotation */
+  --base-rotation: 0deg;
+  transform: rotate(var(--base-rotation));
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), z-index 0.3s step-end;
+}
+
+/* Individual Positioning and Rotations */
+.screenshot-1 { top: 600px; left: 800px; --base-rotation: -8deg; }
+.screenshot-2 { top: 1200px; left: 3200px; --base-rotation: 5deg; }
+.screenshot-3 { top: 2800px; left: 600px; --base-rotation: -3deg; }
+.screenshot-4 { top: 3200px; left: 2800px; --base-rotation: 6deg; }
+.screenshot-5 { top: 1800px; left: 400px; --base-rotation: -12deg; }
+.screenshot-6 { top: 300px; left: 2500px; --base-rotation: 4deg; }
+.screenshot-7 { top: 2400px; left: 3400px; --base-rotation: -7deg; }
+.screenshot-8 { top: 3500px; left: 1500px; --base-rotation: 9deg; }
+
+/* Clean hover state using CSS variable */
+.paper-screenshot:hover {
+  transform: rotate(var(--base-rotation)) scale(1.05) translateY(-5px);
+  box-shadow: 4px 16px 32px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), z-index 0s step-start;
+}
+
+.paper-screenshot img {
+  width: 380px;
+  height: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* Tape effect */
+.paper-screenshot::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 120px;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+/* Add slight random rotation to tape for variation */
+.paper-screenshot:nth-child(even)::before {
+  transform: translateX(-50%) rotate(3deg);
+  width: 100px;
+}
+.paper-screenshot:nth-child(3n)::before {
+  transform: translateX(-40%) rotate(-4deg);
+  width: 130px;
+}
+
+/* Decorations */
+.coffee-stain {
+  position: absolute;
+  top: 1750px;
+  left: 2200px;
+  width: 450px;
+  height: auto;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+  transform: rotate(35deg);
+}
+
+
+
+/* Sticky Notes */
+.sticky-note {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  padding: 24px;
+  background-color: #ffed74; /* Default yellow */
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
+  font-family: "Caveat", cursive;
+  font-size: 2rem;
+  color: #333;
+  pointer-events: auto;
+  z-index: 3;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* Curling bottom right corner */
+  border-bottom-right-radius: 40px 10px;
+  --base-rotation: 0deg;
+  transform: rotate(var(--base-rotation));
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* Fold effect */
+.sticky-note::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.1) 100%);
+  border-bottom-right-radius: 10px;
+  pointer-events: none;
+}
+
+.sticky-note p {
+  margin: 0;
+}
+
+.note-1 { 
+  top: 900px; 
+  left: 1400px; 
+  --base-rotation: -5deg; 
+}
+.note-2 { 
+  top: 2100px; 
+  left: 2600px; 
+  --base-rotation: 8deg; 
+  background-color: #ff9ee2; /* Pink note */
+}
+
+/* Eraser & Graphite Smudges */
+.eraser-smudge {
+  position: absolute;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.graphite-smudge {
+  position: absolute;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+/* =====================
+   Responsive — Mobile
+   ===================== */
+@media (max-width: 640px) {
+  h1#title {
+    font-size: 2.4rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+  }
+
+  #svg-container p,
+  .instruction-text {
+    font-size: 1rem;
+  }
+
+  /* Smaller default model size on mobile */
+  .interactive-model-wrapper {
+    width: 100px;
+    height: 150px;
+  }
+
+  /* Blog panel: bottom sheet instead of right sidebar */
+  .blog-panel {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 68vh;
+    border-radius: 20px 20px 0 0;
+    padding: 40px 20px 20px 28px;
+    /* Slide up from below — no rotation on a bottom sheet */
+    transform: translateY(100%);
+    rotate: 0deg;
+  }
+
+  .blog-panel.active {
+    transform: translateY(0);
+    rotate: 0deg;
+  }
+
+  /* Drag handle indicator */
+  .blog-panel::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: rgba(160, 120, 70, 0.35);
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 2;
+  }
 }

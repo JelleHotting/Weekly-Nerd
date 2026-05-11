@@ -8,8 +8,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     <!-- GSAP for smooth animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <!-- Google Model Viewer -->
@@ -19,31 +20,79 @@
     ></script>
   <body>
 
-    <div id="viewport">
+    <main id="viewport">
 
-      <div id="canvas-area">
+      <section id="canvas-area">
         
+        <!-- Decorations -->
+        <span class="eraser-smudge" aria-hidden="true" style="top: 400px; left: 1200px; width: 400px; height: 150px; transform: rotate(15deg);"></span>
+        <span class="eraser-smudge" aria-hidden="true" style="top: 2500px; left: 2200px; width: 500px; height: 200px; transform: rotate(-30deg);"></span>
+        
+        <span class="graphite-smudge" aria-hidden="true" style="top: 700px; left: 900px; width: 250px; height: 100px; transform: rotate(45deg);"></span>
+        <span class="graphite-smudge" aria-hidden="true" style="top: 3000px; left: 1500px; width: 350px; height: 150px; transform: rotate(-15deg);"></span>
 
-        <div class="glass-overlay"></div>
+          
+          <!-- Shaving 2 -->
+          <g transform="translate(2600, 2200) rotate(-60) scale(0.6)">
+            <path d="M 0 0 Q 20 -20, 40 0 Q 60 -20, 80 0 Q 100 -20, 120 0 Q 100 20, 80 0 Q 60 20, 40 0 Q 20 20, 0 0" fill="#e0ad6c" opacity="0.9"/>
+            <path d="M 0 0 Q 20 20, 40 0 Q 60 20, 80 0 Q 100 20, 120 0 Q 100 25, 80 5 Q 60 25, 40 5 Q 20 25, 0 0" fill="#222" opacity="0.8"/>
+            <path d="M 0 0 Q 20 -20, 40 0 Q 60 -20, 80 0 Q 100 -20, 120 0 Q 100 -25, 80 -5 Q 60 -25, 40 -5 Q 20 -25, 0 0" fill="#b02c20" opacity="0.9"/>
+          </g>
 
-        <div id="svg-container">
+          <!-- Graphite Dust / Crumbs -->
+          <circle cx="720" cy="880" r="3" fill="#222" opacity="0.7"/>
+          <circle cx="680" cy="920" r="2" fill="#222" opacity="0.6"/>
+          <circle cx="750" cy="950" r="4" fill="#222" opacity="0.8"/>
+          <circle cx="710" cy="980" r="1.5" fill="#222" opacity="0.5"/>
+          <circle cx="660" cy="890" r="2.5" fill="#222" opacity="0.7"/>
+
+          <circle cx="2650" cy="2150" r="2" fill="#222" opacity="0.6"/>
+          <circle cx="2580" cy="2230" r="3" fill="#222" opacity="0.8"/>
+          <circle cx="2620" cy="2260" r="1.5" fill="#222" opacity="0.5"/>
+          <circle cx="2550" cy="2180" r="2.5" fill="#222" opacity="0.7"/>
+        </svg>
+        
+        <img src="assets/images/coffee-stain.png" alt="Coffee Stain" class="coffee-stain" />
+        
+        <aside class="sticky-note note-1">
+          <p>TODO: ping-pong winnen van Jad</p>
+        </aside>
+        <aside class="sticky-note note-2">
+          <p>REMINDER: Dinsdag op tijd komen!</p>
+        </aside>
+
+        <!-- Paper Screenshots Layer -->
+        <section id="paper-layer">
+          <figure class="paper-screenshot screenshot-1">
+            <img src="assets/images/API.png" alt="API Blueprint Screenshot" />
+          </figure>
+          <figure class="paper-screenshot screenshot-6">
+            <img src="assets/images/CSS.png" alt="CSS Project Screenshot" />
+          </figure>
+          <figure class="paper-screenshot screenshot-7">
+            <img src="assets/images/HCD.png" alt="HCD Project Screenshot" />
+          </figure>
+          <figure class="paper-screenshot screenshot-8">
+            <img src="assets/images/bt.png" alt="BT Project Screenshot" />
+          </figure>
+        </section>
+
+        <span class="glass-overlay" aria-hidden="true"></span>
+
+        <header id="svg-container">
           <h1 id="title">Web Design and Development</h1>
-        </div>
+          <p>Gebruik je muis om over de pagina heen te gaan</p>
+        </header>
 
 
-        <div id="images-layer">
-          <img src="assets/images/keycaps.png" class="scatter-image keycaps-img" alt="Keycaps">
-          <img src="assets/images/klok.png" class="scatter-image klok-img" alt="Klok">
-          <img src="assets/images/lineaal.png" class="scatter-image lineaal-img" alt="Lineaal">
-          <img src="assets/images/motor.png" class="scatter-image motor-img" alt="Motor">
-        </div>
+
 
 
         <!-- <div class="glass-overlay"></div> -->
 
 
-        <div id="models-layer">
-      <div class="interactive-model-wrapper pencil-wrapper">
+        <section id="models-layer">
+      <article class="interactive-model-wrapper pencil-wrapper" data-active-orbit="25deg 75deg 100%" data-default-orbit="45deg 75deg 105%">
         <template class="blog-content-source">
           <h2 class="blog-title">Conceptuele Uitleg</h2>
           <p class="blog-text">Deze lezing behandelt de interne werking van webbrowsers en de geschiedenis van browserontwikkeling. Het begrijpen van hoe browsers HTML, CSS en JavaScript verwerken is cruciaal voor het optimaliseren van webpagina's en het voorkomen van performance problemen. De <strong>rendering engine</strong> en <strong>JavaScript engine</strong> zijn aparte componenten die elk hun eigen taak hebben in het verwerken van webpagina's.</p>
@@ -52,7 +101,7 @@
           <h2 class="blog-title">Code Voorbeelden & Syntax</h2>
           <h3 class="blog-subtitle">Script Loading Strategieën</h3>
           <p class="blog-text">Browsers hebben verschillende manieren om JavaScript te laden zonder de HTML parsing te blokkeren:</p>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>&lt;!-- Async: laad het script parallel, voer uit zodra het klaar is --&gt;
 &lt;script async src="script.js"&gt;&lt;/script&gt;
 
@@ -61,12 +110,12 @@
 
 &lt;!-- Standaard: blokkeert HTML parsing tot script is uitgevoerd --&gt;
 &lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
-          </div>
+          </figure>
           <p class="blog-text"><strong>Defer</strong> is meestal de veiligste keuze voor scripts die de DOM manipuleren. De oude truc was om scripts onderaan de pagina te plaatsen, wat nog steeds werkt.</p>
 
           <h3 class="blog-subtitle">Legacy HTML Features (nog steeds werkend)</h3>
           <p class="blog-text">Door <strong>backward compatibility</strong> werken oude HTML features nog steeds in moderne browsers:</p>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>&lt;!-- Document.all - werkt nog steeds maar gebruik het niet --&gt;
 &lt;script&gt;
   // Gebruik querySelector in plaats daarvan
@@ -85,11 +134,11 @@
   // Moderne manier (gebruik deze)
   document.querySelector('form[name="myForm"] input[name="username"]').value;
 &lt;/script&gt;</code></pre>
-          </div>
+          </figure>
 
           <h3 class="blog-subtitle">Quirks Mode vs Standards Mode</h3>
           <p class="blog-text">Het <strong>doctype</strong> bepaalt welke rendering mode de browser gebruikt:</p>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>&lt;!-- MET doctype: Standards Mode (gebruik dit altijd) --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -107,7 +156,7 @@
     &lt;!-- Dit triggert Internet Explorer 6 CSS compatibiliteit --&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-          </div>
+          </figure>
 
           <h2 class="blog-title">Best Practices & Tips</h2>
           <h3 class="blog-subtitle">✅ Do's</h3>
@@ -168,9 +217,9 @@
           interaction-prompt="none"
         >
         </model-viewer>
-      </div>
+      </article>
 
-      <div class="interactive-model-wrapper compass-wrapper">
+      <article class="interactive-model-wrapper compass-wrapper" data-active-orbit="100deg 0deg 90%" data-default-orbit="0deg 75deg 105%">
         <template class="blog-content-source">
           <h2 class="blog-title">Conceptuele Uitleg</h2>
           <p class="blog-text">Deze lezing gaat over het overbruggen van de kloof tussen creatieve coding en praktische webontwikkeling. De spreker (Nils van Nine Elements) betoogt dat moderne tools zoals Figma, Tailwind en AI ervoor hebben gezorgd dat we steeds sneller dezelfde saaie layouts kunnen bouwen, maar dat CSS veel meer mogelijkheden biedt dan wat in Figma mogelijk is. Het doel is om te laten zien hoe je met moderne CSS-technieken creatieve, unieke websites kunt bouwen die zich onderscheiden van de standaard "hero + three boxes + CTA + footer" layouts.</p>
@@ -179,7 +228,7 @@
           <h2 class="blog-title">Code Voorbeelden & Syntax</h2>
           <h3 class="blog-subtitle">Grid Layout met FR Units voor White Space Distributie</h3>
           <p class="blog-text">Het <strong>FR (fraction) unit</strong> verdeelt beschikbare ruimte proportioneel.</p>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>.container {
   display: grid;
   grid-template-columns: 2fr 3fr auto 1fr;
@@ -195,12 +244,12 @@
   grid-column: 3 / 4;
   max-width: 65ch; /* Geeft de auto-kolom een breedte */
 }</code></pre>
-          </div>
+          </figure>
           <p class="blog-text">Dit zorgt voor dynamische layouts waarbij white space automatisch wordt verdeeld wanneer er ruimte beschikbaar is.</p>
 
           <h3 class="blog-subtitle">Steps Animation voor Flipbook Effecten</h3>
           <p class="blog-text">In plaats van video's kun je een image strip gebruiken met <strong>steps()</strong> timing function.</p>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>.keyvisual {
   background-image: url('sprite-strip-32-frames.png');
   background-size: 3200% 100%; /* 32 frames naast elkaar */
@@ -216,12 +265,12 @@
     background-position: 100% 100%;
   }
 }</code></pre>
-          </div>
+          </figure>
           <p class="blog-text"><strong>Steps()</strong> zorgt ervoor dat de animatie niet smooth overgaat maar in discrete stappen springt, waardoor je een flipbook-effect krijgt zonder video te gebruiken.</p>
 
           <h3 class="blog-subtitle">Subgrid voor Multi-Stage Timetables</h3>
           <p class="blog-text"><strong>Subgrid</strong> laat child elements de grid tracks van hun parent hergebruiken.</p>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>.timetable-body {
   display: grid;
   grid-template-rows: repeat(288, 1fr); 
@@ -240,11 +289,11 @@
   --end: 180;   /* 15:00 = row 180 */
   grid-row: var(--start) / var(--end);
 }</code></pre>
-          </div>
+          </figure>
           <p class="blog-text">Voordeel: wanneer één sessie groter wordt (meer tekst), groeien alle parallelle tracks mee.</p>
 
           <h3 class="blog-subtitle">Sticky Elements in Horizontale Scroll Container</h3>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>.timetable-body {
   overflow-x: auto;
   overflow-y: visible;
@@ -254,9 +303,9 @@
   position: sticky;
   left: 0; /* Sticky binnen horizontal scroll container */
 }</code></pre>
-          </div>
+          </figure>
           <p class="blog-text">Voor verticale sticky headers buiten de scroll container gebruik je een <strong>fake element</strong> met scroll-driven animation.</p>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>.timetable-head {
   position: sticky;
   top: 0;
@@ -268,10 +317,10 @@
   from { transform: translateX(0); }
   to { transform: translateX(var(--scroll-distance)); }
 }</code></pre>
-          </div>
+          </figure>
 
           <h3 class="blog-subtitle">First-Line Selector voor Outline Effect</h3>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>p::first-line {
   font-size: 1.2rem;
   font-weight: bold;
@@ -280,11 +329,11 @@
   -webkit-text-stroke: 1px black;
   -webkit-text-fill-color: transparent;
 }</code></pre>
-          </div>
+          </figure>
           <p class="blog-text">De <strong>::first-line</strong> pseudo-element past styling toe op alleen de eerste regel van een tekstblok. Dit past dynamisch aan bij viewport changes.</p>
 
           <h3 class="blog-subtitle">View Transitions voor Page Navigatie</h3>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>/* Geef elementen een view-transition-name */
 .logo {
   view-transition-name: site-logo;
@@ -293,16 +342,16 @@
 .page-indicator {
   view-transition-name: nav-indicator;
 }</code></pre>
-          </div>
+          </figure>
           <p class="blog-text">Wanneer je navigeert naar een nieuwe pagina met dezelfde <strong>view-transition-name</strong>, animeert de browser automatisch tussen de twee posities. Werkt als "Smart Animate" in Figma.</p>
 
           <h3 class="blog-subtitle">Blend Modes voor Kleur Inversie</h3>
-          <div class="blog-code">
+          <figure class="blog-code">
             <pre><code>.keyvisual {
   background-image: url('black-white-image.png');
   mix-blend-mode: difference; /* Inverteert achtergrondkleuren */
 }</code></pre>
-          </div>
+          </figure>
           <p class="blog-text">Een zwart-wit image met <strong>blend mode difference</strong> inverteert de kleuren van de achtergrond, waardoor je verschillende kleureffecten krijgt op verschillende achtergronden zonder meerdere assets.</p>
 
           <h2 class="blog-title">Best Practices & Tips</h2>
@@ -338,17 +387,145 @@
           interaction-prompt="none"
         >
         </model-viewer>
-      </div>
-    </div>
+      </article>
+      <article class="interactive-model-wrapper magnify-wrapper" data-active-orbit="45deg 75deg 100%" data-default-orbit="0deg 0deg 105%">
+        <template class="blog-content-source">
+          <h2 class="blog-title">Peter Paul Koch - Browser Architectuur en Geschiedenis</h2>
+          
+          <h2 class="blog-title">Conceptuele Uitleg</h2>
+          <p class="blog-text">Deze lezing behandelt de interne werking van webbrowsers en de geschiedenis van browserontwikkeling. Het begrijpen van hoe browsers HTML, CSS en JavaScript verwerken is cruciaal voor het optimaliseren van webpagina's en het voorkomen van performance problemen. De <strong>rendering engine</strong> en <strong>JavaScript engine</strong> zijn aparte componenten die elk hun eigen taak hebben in het verwerken van webpagina's.</p>
+          <p class="blog-text"><strong>Waarom is dit belangrijk?</strong> Verkeerd gebruik van scripts en CSS kan leiden tot geblokkeerde rendering en trage laadtijden. Door te begrijpen hoe browsers werken, kun je slimmere keuzes maken over waar je scripts plaatst en hoe je ze laadt.</p>
+
+          <h2 class="blog-title">Code Voorbeelden & Syntax</h2>
+          <h3 class="blog-subtitle">Script Loading Strategieën</h3>
+          <p class="blog-text">Browsers hebben verschillende manieren om JavaScript te laden zonder de HTML parsing te blokkeren:</p>
+          <figure class="blog-code">
+            <pre><code>&lt;!-- Async: laad het script parallel, voer uit zodra het klaar is --&gt;
+&lt;script async src="script.js"&gt;&lt;/script&gt;
+
+&lt;!-- Defer: laad parallel, maar voer pas uit na HTML parsing --&gt;
+&lt;script defer src="script.js"&gt;&lt;/script&gt;
+
+&lt;!-- Standaard: blokkeert HTML parsing tot script is uitgevoerd --&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+          </figure>
+          <p class="blog-text"><strong>Defer</strong> is meestal de veiligste keuze voor scripts die de DOM manipuleren. De oude truc was om scripts onderaan de pagina te plaatsen, wat nog steeds werkt.</p>
+
+          <h3 class="blog-subtitle">Legacy HTML Features (nog steeds werkend)</h3>
+          <p class="blog-text">Door <strong>backward compatibility</strong> werken oude HTML features nog steeds in moderne browsers:</p>
+          <figure class="blog-code">
+            <pre><code>&lt;!-- Document.all - werkt nog steeds maar gebruik het niet --&gt;
+&lt;script&gt;
+  // Gebruik querySelector in plaats daarvan
+  const element = document.querySelector('.classname');
+&lt;/script&gt;
+
+&lt;!-- Forms collecties --&gt;
+&lt;form name="myForm"&gt;
+  &lt;input name="username" type="text"&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+  // Legacy manier (werkt nog steeds)
+  document.forms.myForm.elements.username.value;
+  
+  // Moderne manier (gebruik deze)
+  document.querySelector('form[name="myForm"] input[name="username"]').value;
+&lt;/script&gt;</code></pre>
+          </figure>
+
+          <h3 class="blog-subtitle">Quirks Mode vs Standards Mode</h3>
+          <p class="blog-text">Het <strong>doctype</strong> bepaalt welke rendering mode de browser gebruikt:</p>
+          <figure class="blog-code">
+            <pre><code>&lt;!-- MET doctype: Standards Mode (gebruik dit altijd) --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Moderne pagina&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Content --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- ZONDER doctype: Quirks Mode (gebruik NOOIT) --&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;!-- Dit triggert Internet Explorer 6 CSS compatibiliteit --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </figure>
+
+          <h2 class="blog-title">Best Practices & Tips</h2>
+          <h3 class="blog-subtitle">✅ Do's</h3>
+          <ul class="blog-list">
+            <li><strong>Gebruik altijd een doctype</strong> om quirks mode te vermijden</li>
+            <li><strong>Plaats scripts onderaan</strong> of gebruik <code>defer</code> om HTML parsing niet te blokkeren</li>
+            <li><strong>Hou layout berekeningen simpel</strong> - complexe layouts zijn duur voor de browser</li>
+            <li><strong>Gebruik media queries en container queries</strong> om layout van tevoren te bepalen</li>
+            <li><strong>Begrijp rendering engines</strong> - Chromium/Blink wordt gebruikt door Chrome, Edge, Vivaldi, Opera en meer</li>
+          </ul>
+
+          <h3 class="blog-subtitle">❌ Don'ts</h3>
+          <ul class="blog-list">
+            <li><strong>Geen scripts in de &lt;head&gt; zonder defer/async</strong> - dit blokkeert de hele pagina</li>
+            <li><strong>Vermijd layout thrashing</strong> - wijzig layout niet tijdens rendering</li>
+            <li><strong>Geen quirks mode</strong> - vergeet nooit je doctype</li>
+            <li><strong>Gebruik geen legacy features</strong> zoals <code>document.all</code>, <code>&lt;blink&gt;</code>, <code>&lt;marquee&gt;</code> en <code>&lt;frameset&gt;</code></li>
+          </ul>
+
+          <h3 class="blog-subtitle">Browser Geschiedenis & Engines</h3>
+          <p class="blog-text"><strong>Belangrijke momenten:</strong></p>
+          <ul class="blog-list">
+            <li><strong>Tim Berners-Lee</strong> ontwikkelde de eerste browser (1990)</li>
+            <li><strong>Mosaic</strong> (1993) was de eerste user-friendly browser en introduceerde de <code>&lt;img&gt;</code> tag</li>
+            <li><strong>Internet Explorer</strong> was de eerste browser op macOS</li>
+            <li><strong>Konqueror</strong> (Linux) werd de basis voor <strong>Safari</strong> via WebKit</li>
+            <li><strong>WebKit</strong> werd later geforkt door Google naar <strong>Blink</strong></li>
+          </ul>
+          <p class="blog-text"><strong>Moderne rendering engines:</strong></p>
+          <ul class="blog-list">
+            <li><strong>Blink</strong> (Chromium): Chrome, Edge, Opera, Vivaldi, Brave</li>
+            <li><strong>WebKit</strong>: Safari</li>
+            <li><strong>Gecko</strong>: Firefox</li>
+          </ul>
+          <p class="blog-text"><strong>Nieuwe browsers in ontwikkeling:</strong></p>
+          <ul class="blog-list">
+            <li><strong>Flow</strong> en <strong>Ladybird</strong> - onafhankelijke browsers die niet gebaseerd zijn op bestaande engines</li>
+          </ul>
+
+          <h3 class="blog-subtitle">Browser Architectuur</h3>
+          <p class="blog-text"><strong>Belangrijke componenten:</strong></p>
+          <ul class="blog-list">
+            <li><strong>Rendering engine</strong> - verwerkt HTML, CSS en het DOM</li>
+            <li><strong>JavaScript engine</strong> - interpreteert JavaScript code (volledig gescheiden)</li>
+            <li><strong>Parser</strong> - leest HTML/CSS/JS streams en vertaalt naar browser instructies</li>
+            <li><strong>Layout engine</strong> - berekent hoe elementen op het scherm moeten worden weergegeven</li>
+          </ul>
+          <p class="blog-text"><strong>Toegankelijkheid:</strong></p>
+          <ul class="blog-list">
+            <li><strong>AOM</strong> (Accessibility Object Model) - maakt webpaginas toegankelijk voor assistive technologies</li>
+          </ul>
+        </template>        <model-viewer
+          class="interactive-model"
+          src="assets/models/magnify.glb"
+          alt="3D Loep"
+          camera-orbit="0deg 0deg 105%"
+          interaction-prompt="none"
+        >
+        </model-viewer>
+      </article>
+    </section>
+
 
     <!-- Blog Panel -->
-    <div id="blog-panel" class="blog-panel">
-      <div id="blog-panel-content" class="blog-panel-content">
+    <aside id="blog-panel" class="blog-panel">
+      <section id="blog-panel-content" class="blog-panel-content">
         <!-- Content will be injected here from templates -->
-      </div>
-    </div>
-    </div>
-    </div>
+      </section>
+    </aside>
+    </section>
+    </main>
 
     <script src="main.js" defer></script>
   </body>
