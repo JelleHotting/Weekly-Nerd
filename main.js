@@ -17,6 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.querySelector(".glass-overlay");
   const blogPanel = document.getElementById("blog-panel");
   const blogPanelContent = document.getElementById("blog-panel-content");
+  const closeButton = document.getElementById("close-blog-panel");
+
+  if (closeButton) {
+    closeButton.addEventListener("click", () => {
+      if (activeModel) overlay.click();
+    });
+  }
 
   // Center starting position
   viewport.scrollLeft = (canvasArea.offsetWidth - viewport.clientWidth) / 2;
@@ -111,7 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
       wrapper.dataset.gsapY = gsap.getProperty(wrapper, "y") || 0;
 
       // Parse current and target orbit values to animate between them
-      const currentOrbit = viewer.getAttribute("camera-orbit") || "0deg 75deg 105%";
+      const currentOrbit =
+        viewer.getAttribute("camera-orbit") || "0deg 75deg 105%";
       const parseOrbit = (str) => {
         const parts = str.trim().split(/\s+/);
         return {
@@ -126,10 +134,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Sweep naar het midden — op mobile omhoog schuiven, op desktop naar links
       const mobile = isMobile();
+
       gsap.to(wrapper, {
         x: parseFloat(wrapper.dataset.gsapX) + dx - (mobile ? 0 : 320),
-        y: parseFloat(wrapper.dataset.gsapY) + dy - (mobile ? window.innerHeight * 0.34 : 0),
-        width:  mobile ? 180 : 352,
+        y:
+          parseFloat(wrapper.dataset.gsapY) +
+          dy -
+          (mobile ? window.innerHeight * 0.34 : 0),
+        width: mobile ? 180 : 352,
         height: mobile ? 270 : 528,
         duration: 1.2,
         ease: "power4.out",
@@ -144,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
         onUpdate: () => {
           viewer.setAttribute(
             "camera-orbit",
-            `${orbitProxy.theta}deg ${orbitProxy.phi}deg ${toOrbit.radius}`
+            `${orbitProxy.theta}deg ${orbitProxy.phi}deg ${toOrbit.radius}`,
           );
         },
       });
@@ -180,7 +192,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentOrbit = viewer.getAttribute("camera-orbit") || defaultOrbit;
     const parseOrbit = (str) => {
       const parts = str.trim().split(/\s+/);
-      return { theta: parseFloat(parts[0]), phi: parseFloat(parts[1]), radius: parts[2] };
+      return {
+        theta: parseFloat(parts[0]),
+        phi: parseFloat(parts[1]),
+        radius: parts[2],
+      };
     };
     const fromOrbit = parseOrbit(currentOrbit);
     const toOrbit = parseOrbit(defaultOrbit);
@@ -193,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
       onUpdate: () => {
         viewer.setAttribute(
           "camera-orbit",
-          `${orbitProxy.theta}deg ${orbitProxy.phi}deg ${toOrbit.radius}`
+          `${orbitProxy.theta}deg ${orbitProxy.phi}deg ${toOrbit.radius}`,
         );
       },
     });
@@ -205,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.to(wrapper, {
       x: parseFloat(wrapper.dataset.gsapX),
       y: parseFloat(wrapper.dataset.gsapY),
-      width:  isMobile() ? 100 : 160,
+      width: isMobile() ? 100 : 160,
       height: isMobile() ? 150 : 240,
       duration: 1.0,
       ease: "power3.inOut",

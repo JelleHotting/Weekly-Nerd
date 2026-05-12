@@ -136,6 +136,14 @@ body {
   width: 100%;
   height: 100%;
   --poster-color: transparent;
+  overflow: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  outline: none;
+}
+
+.interactive-model::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes float {
@@ -197,7 +205,6 @@ svg {
   transform-style: preserve-3d;
 }
 
-
 .blog-panel {
   position: fixed;
   top: 50%;
@@ -212,7 +219,9 @@ svg {
     url("assets/images/noise.png"),
     linear-gradient(160deg, #fdfaf3 0%, #f0e9d6 60%, #ede3cb 100%);
   background-blend-mode: overlay, normal;
-  background-size: 200px 200px, 100% 100%;
+  background-size:
+    200px 200px,
+    100% 100%;
   border: none;
   border-radius: 4px;
   padding: 48px 48px 48px 72px;
@@ -239,6 +248,29 @@ svg {
   &::-webkit-scrollbar-thumb:hover {
     background: rgba(120, 90, 50, 0.35);
   }
+}
+
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 2.5rem;
+  color: #3a2510;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  line-height: 1;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.close-button:hover {
+  transform: scale(1.1) rotate(5deg);
+  color: #c85050;
 }
 
 .blog-panel.active {
@@ -369,40 +401,102 @@ svg {
   position: absolute;
   margin: 0;
   background-color: #fcfcfc;
-  padding: 12px 12px 48px 12px; /* Polaroid style padding */
-  box-shadow: 2px 8px 24px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2);
+  padding: 12px 12px 16px 12px; /* Polaroid style padding */
+  box-shadow:
+    2px 8px 24px rgba(0, 0, 0, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   pointer-events: auto; /* Make the paper clickable/hoverable */
   transform-origin: center top;
   /* Use CSS variable for base rotation so hover can easily override while maintaining rotation */
   --base-rotation: 0deg;
   transform: rotate(var(--base-rotation));
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), z-index 0.3s step-end;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    z-index 0.3s step-end;
 }
 
 /* Individual Positioning and Rotations */
-.screenshot-1 { top: 600px; left: 800px; --base-rotation: -8deg; }
-.screenshot-2 { top: 1200px; left: 3200px; --base-rotation: 5deg; }
-.screenshot-3 { top: 2800px; left: 600px; --base-rotation: -3deg; }
-.screenshot-4 { top: 3200px; left: 2800px; --base-rotation: 6deg; }
-.screenshot-5 { top: 1800px; left: 400px; --base-rotation: -12deg; }
-.screenshot-6 { top: 300px; left: 2500px; --base-rotation: 4deg; }
-.screenshot-7 { top: 2400px; left: 3400px; --base-rotation: -7deg; }
-.screenshot-8 { top: 3500px; left: 1500px; --base-rotation: 9deg; }
+.screenshot-1 {
+  top: 600px;
+  left: 800px;
+  --base-rotation: -8deg;
+}
+.screenshot-2 {
+  top: 1200px;
+  left: 3200px;
+  --base-rotation: 5deg;
+}
+.screenshot-3 {
+  top: 2800px;
+  left: 600px;
+  --base-rotation: -3deg;
+}
+.screenshot-4 {
+  top: 3200px;
+  left: 2800px;
+  --base-rotation: 6deg;
+}
+.screenshot-5 {
+  top: 1800px;
+  left: 400px;
+  --base-rotation: -12deg;
+}
+.screenshot-6 {
+  top: 300px;
+  left: 2500px;
+  --base-rotation: 4deg;
+}
+.screenshot-7 {
+  top: 2400px;
+  left: 3400px;
+  --base-rotation: -7deg;
+}
+.screenshot-8 {
+  top: 3500px;
+  left: 1500px;
+  --base-rotation: 9deg;
+}
 
 /* Clean hover state using CSS variable */
 .paper-screenshot:hover {
   transform: rotate(var(--base-rotation)) scale(1.05) translateY(-5px);
-  box-shadow: 4px 16px 32px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    4px 16px 32px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 5;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), z-index 0s step-start;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    z-index 0s step-start;
 }
 
 .paper-screenshot img {
   width: 380px;
   height: auto;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   display: block;
+}
+
+.paper-screenshot figcaption {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.screenshot-title {
+  font-family: "Caveat", cursive;
+  font-size: 1.8rem;
+  color: #2c1a0e;
+  margin: 0 0 4px 0;
+  line-height: 1.1;
+}
+
+.screenshot-desc {
+  font-family: "Caveat", cursive;
+  font-size: 1.2rem;
+  color: #4a2e0a;
+  margin: 0;
+  line-height: 1.2;
 }
 
 /* Tape effect */
@@ -446,8 +540,6 @@ svg {
   transform: rotate(35deg);
 }
 
-
-
 /* Sticky Notes */
 .sticky-note {
   position: absolute;
@@ -470,9 +562,10 @@ svg {
   border-bottom-right-radius: 40px 10px;
   --base-rotation: 0deg;
   transform: rotate(var(--base-rotation));
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
 
 /* Fold effect */
 .sticky-note::after {
@@ -482,7 +575,12 @@ svg {
   right: 0;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
   border-bottom-right-radius: 10px;
   pointer-events: none;
 }
@@ -491,22 +589,26 @@ svg {
   margin: 0;
 }
 
-.note-1 { 
-  top: 900px; 
-  left: 1400px; 
-  --base-rotation: -5deg; 
+.note-1 {
+  top: 900px;
+  left: 1400px;
+  --base-rotation: -5deg;
 }
-.note-2 { 
-  top: 2100px; 
-  left: 2600px; 
-  --base-rotation: 8deg; 
+.note-2 {
+  top: 2100px;
+  left: 2600px;
+  --base-rotation: 8deg;
   background-color: #ff9ee2; /* Pink note */
 }
 
 /* Eraser & Graphite Smudges */
 .eraser-smudge {
   position: absolute;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
   filter: blur(12px);
   pointer-events: none;
   z-index: 1;
@@ -514,7 +616,11 @@ svg {
 
 .graphite-smudge {
   position: absolute;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
   filter: blur(8px);
   pointer-events: none;
   z-index: 1;
