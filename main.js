@@ -85,8 +85,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- 3D Model Focus / Apple Glass Effect Logic ---
   const modelWrappers = document.querySelectorAll(".interactive-model-wrapper");
 
+  const loadModelIfNeeded = (viewer) => {
+    if (!viewer || viewer.dataset.loaded === "true") return;
+    const src = viewer.dataset.src;
+    if (!src) return;
+    viewer.setAttribute("src", src);
+    viewer.dataset.loaded = "true";
+  };
+
+  // Lazy-load models when they (almost) enter the pannable viewport
+  const modelObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) loadModelIfNeeded(entry.target);
+      });
+    },
+    { root: viewport, rootMargin: "400px", threshold: 0.01 },
+  );
+
   modelWrappers.forEach((wrapper) => {
     const viewer = wrapper.querySelector("model-viewer");
+    if (viewer) modelObserver.observe(viewer);
 
     wrapper.addEventListener("click", (e) => {
       // Return early if dragging the background, or if this element is already focused
@@ -109,7 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const dx = centerX - (rect.left + rect.width / 2);
       const dy = centerY - (rect.top + rect.height / 2);
       const activeOrbit = wrapper.dataset.activeOrbit || "100deg 0deg 90%";
-      viewer.setAttribute("camera-controls", "false");
+      loadModelIfNeeded(viewer);
+      viewer.removeAttribute("camera-controls");
 
       const instruction = wrapper.querySelector(".model-instruction");
       if (instruction) gsap.to(instruction, { opacity: 0, duration: 0.3 });

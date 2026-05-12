@@ -235,7 +235,13 @@
         </template>
         <model-viewer
           class="interactive-model"
-          src="assets/models/pencil.glb"
+          data-src="assets/models/pencil.glb"
+        
+          loading="lazy"
+          environment-image="neutral"
+          shadow-intensity="0"
+          minimum-render-scale="0.5"
+          maximum-render-scale="1"
           alt="3D Potlood"
           camera-orbit="45deg 75deg 105%"
           interaction-prompt="none"
@@ -405,7 +411,13 @@
         </template>
         <model-viewer
           class="interactive-model"
-          src="assets/models/compass.glb"
+          data-src="assets/models/compass.glb"
+        
+          loading="lazy"
+          environment-image="neutral"
+          shadow-intensity="0"
+          minimum-render-scale="0.5"
+          maximum-render-scale="1"
           alt="3D Passer"
           camera-orbit="0deg 75deg 105%"
           interaction-prompt="none"
@@ -530,9 +542,15 @@
           <ul class="blog-list">
             <li><strong>AOM</strong> (Accessibility Object Model) - maakt webpaginas toegankelijk voor assistive technologies</li>
           </ul>
-        </template>        <model-viewer
+        </template>
+        <model-viewer
           class="interactive-model"
-          src="assets/models/magnify.glb"
+          data-src="assets/models/magnify.glb"
+          loading="lazy"
+          environment-image="neutral"
+          shadow-intensity="0"
+          minimum-render-scale="0.5"
+          maximum-render-scale="1"
           alt="3D Loep"
           camera-orbit="0deg 0deg 105%"
           interaction-prompt="none"

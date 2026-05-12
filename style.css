@@ -34,18 +34,15 @@ body {
   /* Blueprint background */
   background-color: #1a5b92;
   background-image:
-    url("assets/images/noise.png"),
     linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size:
-    200px 200px,
     100px 100px,
     100px 100px,
     20px 20px,
     20px 20px;
-  background-blend-mode: overlay, normal, normal, normal, normal;
 }
 #svg-container,
 #models-layer {
@@ -216,12 +213,8 @@ svg {
   /* Aged paper look */
   background-color: #f5f0e8;
   background-image:
-    url("assets/images/noise.png"),
     linear-gradient(160deg, #fdfaf3 0%, #f0e9d6 60%, #ede3cb 100%);
-  background-blend-mode: overlay, normal;
-  background-size:
-    200px 200px,
-    100% 100%;
+  background-size: 100% 100%;
   border: none;
   border-radius: 4px;
   padding: 48px 48px 48px 72px;
