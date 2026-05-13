@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mijn Reflecties - Weekly Nerds 2026</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.5;
+        color: #222;
+        max-width: 850px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #f9f9f9;
+      }
+      section {
+        background: white;
+        margin-bottom: 30px;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+      h1 {
+        color: #000;
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      h2 {
+        color: #3b82f6;
+        font-size: 1.5rem;
+        margin-top: 0;
+        border-bottom: 2px solid #eff6ff;
+        padding-bottom: 10px;
+      }
+      h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        color: #444;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      p {
+        margin-top: 10px;
+      }
+      .vibe {
+        font-weight: bold;
+        color: #1d4ed8;
+      }
+      pre {
+        background: #1e293b;
+        color: #f8fafc;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-family: "Fira Code", monospace;
+        font-size: 0.9rem;
+        margin: 15px 0;
+      }
+      code {
+        font-family: "Fira Code", monospace;
+        background: #f1f5f9;
+        padding: 2px 4px;
+        border-radius: 4px;
+        color: #ef4444;
+      }
+      pre code {
+        background: transparent;
+        padding: 0;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Web Design & Development – Moderne CSS</h2>
+      <h3>Custom Styling & UX</h3>
+      <p>
+        CSS is makkelijker te parsen dan JS. Veel dingen die we vroeger met
+        libraries deden, kunnen nu native.
+      </p>
+      <pre><code>/* Checkbox volledig stijlen */
+input {
+  appearance: none;
+}
+
+/* Smooth scroll zonder JS */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ruimte boven anchor links */
+#target {
+  scroll-margin: 100px;
+}</code></pre>
+      <h3>Accordion zonder JS</h3>
+      <pre><code>&lt;details name="set"&gt;
+  &lt;summary&gt;Vraag 1&lt;/summary&gt;
+  Antwoord 1
+&lt;/details&gt;
+
+&lt;details name="set"&gt;
+  &lt;summary&gt;Vraag 2&lt;/summary&gt;
+  Antwoord 2
+&lt;/details&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>Mijn Leerdoelen</h2>
+      <div class="goals-container">
+        <article class="goal-item">
+          <h3>Samenwerken met code</h3>
+          <p>
+            Ik wil effectief samenwerken met Git (branches, pull requests en
+            code reviews), zodat we veilig en duidelijk kunnen bouwen aan
+            dezelfde codebase.
+          </p>
+          <footer class="reason">
+            <strong>Reden:</strong> Dit is essentieel voor professionele
+            softwareontwikkeling en teamwork.
+          </footer>
+        </article>
+        <article class="goal-item">
+          <h3>CSS Animaties & Keyframes</h3>
+          <p>
+            Ik wil complexe CSS animaties en keyframes kunnen ontwerpen, zodat
+            ik interactieve, duidelijke micro-interacties en state-changes kan
+            bouwen.
+          </p>
+          <footer class="reason">
+            <strong>Reden:</strong> Animaties verbeteren de gebruikerservaring
+            en maken interfaces intuïtiever.
+          </footer>
+        </article>
+        <article class="goal-item">
+          <h3>Inclusieve Web Toegankelijkheid</h3>
+          <p>
+            Ik wil leren hoe ik interfaces bouw die voor iedereen bruikbaar
+            zijn, door diep in te zoomen op screenreader-support,
+            toetsenbord-navigatie en het correcte gebruik van ARIA-labels.
+          </p>
+          <footer class="reason">
+            <strong>Reden:</strong> Toegankelijkheid is een fundamenteel recht;
+            als ontwikkelaar heb ik de verantwoordelijkheid om niemand uit te
+            sluiten.
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Nils (Nine Elements) – CSS & Creativiteit</h2>
+      <h3>Wat bleef er hangen?</h3>
+      <ul>
+        <li>
+          Figma is top, maar het beperkt je ook omdat je alleen bouwt wat de
+          tool kan. CSS kan veel meer.
+        </li>
+        <li>We bouwen vaak dezelfde saaie "hero + 3 blokjes" layouts.</li>
+      </ul>
+      <h3>De extra's:</h3>
+      <ul>
+        <li>
+          FR-units zijn life voor asymmetrische grids zonder dat het breekt.
+        </li>
+        <li>
+          Gebruik <code>steps()</code> voor van die vette flipbook-animaties in
+          plaats van zware video's.
+        </li>
+      </ul>
+      <pre><code>/* Grid met FR units */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 3fr auto 1fr;
+}
+
+/* Steps animatie */
+.keyvisual {
+  animation: stop-motion 3s steps(31, end) infinite;
+}</code></pre>
+      <p>
+        <span class="vibe">Mijn mening:</span> Dit was echt de leukste sessie.
+        Het motiveerde me om meer met pure CSS te klooien in plaats van voor
+        alles meteen Figma te pakken.
+      </p>
+    </section>
+
+    <section>
+      <h2>Manuel (Bol.com) – Toegankelijkheid</h2>
+      <h3>Wat bleef er hangen?</h3>
+      <ul>
+        <li>Toegankelijkheid is meer dan een checklist afvinken.</li>
+        <li>
+          Je moet echt praten met mensen die een beperking hebben om te snappen
+          hoe zij je site gebruiken.
+        </li>
+      </ul>
+      <h3>Tips:</h3>
+      <ul>
+        <li>
+          Laat de <code>alt</code>-tekst leeg bij plaatjes die alleen voor de
+          sier zijn, anders leest die screenreader alles op.
+        </li>
+        <li>
+          Koppen (H1, H2) zijn super belangrijk voor navigatie; mensen skippen
+          daarmee door je site.
+        </li>
+      </ul>
+      <pre><code>&lt;!-- Informatief --&gt;
+&lt;img src="product.jpg" alt="Zwarte laptop"&gt;
+
+&lt;!-- Decoratief --&gt;
+&lt;img src="line.svg" alt=""&gt;</code></pre>
+      <p>
+        <span class="vibe">Mijn mening:</span> Het was echt confronterend om te
+        horen hoe vermoeiend een slechte site is voor iemand met een
+        screenreader. Je beseft dan pas hoeveel impact je code heeft.
+      </p>
+    </section>
+
+    <section>
+      <h2>Hacker Filosofie & Zelf hosten</h2>
+      <h3>Wat bleef er hangen?</h3>
+      <ul>
+        <li>
+          We zijn eigenlijk te afhankelijk van die grote Amerikaanse
+          techbedrijven.
+        </li>
+        <li>
+          Een 'hacker' is ook gewoon iemand die alles zelf bouwt en controle
+          houdt.
+        </li>
+      </ul>
+      <h3>Tips:</h3>
+      <ul>
+        <li>Host je eigen site op een oude computer of eigen server.</li>
+        <li>
+          Gebruik systeemfonts en compress je plaatjes om je site licht en
+          duurzaam te houden.
+        </li>
+      </ul>
+      <pre><code>/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .header-logo {
+    animation: none;
+  }
+}
+
+/* Systeem fonts */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+}</code></pre>
+      <p>
+        <span class="vibe">Mijn mening:</span> Een beetje een radicaal verhaal
+        over onafhankelijkheid, maar het zette me wel aan het denken over
+        privacy en waarom we alles maar op YouTube of Github zetten.
+      </p>
+    </section>
+
+    <section>
+      <h2>UX van Formulieren</h2>
+      <h3>Wat bleef er hangen?</h3>
+      <ul>
+        <li>
+          Mensen haten formulieren, dus maak het ze zo makkelijk mogelijk.
+        </li>
+        <li>
+          Vertel mensen waarom je hun info (zoals een telefoonnummer) nodig
+          hebt.
+        </li>
+      </ul>
+      <h3>Tips:</h3>
+      <ul>
+        <li>Zet labels altijd boven de inputveldjes.</li>
+        <li>
+          Wees chill met validatie: laat mensen gewoon spaties in hun postcode
+          zetten.
+        </li>
+      </ul>
+      <pre><code>&lt;!-- Toegankelijk formulierveld --&gt;
+&lt;div class="form-field"&gt;
+  &lt;label for="name"&gt;Naam *&lt;/label&gt;
+  &lt;p id="name-help"&gt;Vul je volledige naam in&lt;/p&gt;
+  &lt;input id="name" aria-describedby="name-help" required&gt;
+&lt;/div&gt;</code></pre>
+      <p>
+        <span class="vibe">Mijn mening:</span> Super praktisch. Vooral dat ding
+        over password managers en waarom je geen placeholders in
+        wachtwoordvelden moet zetten was een goede eye-opener.
+      </p>
+    </section>
+
+    <section>
+      <h2>Event: The Web You Want</h2>
+      <h3>Wat bleef er hangen?</h3>
+      <ul>
+        <li>
+          Het web moet weer een publieke plek worden, niet alleen een speeltuin
+          voor Big Tech.
+        </li>
+        <li>
+          Duurzaamheid in IT is een ding; de uitstoot is groter dan die van de
+          luchtvaart.
+        </li>
+      </ul>
+      <p>
+        <span class="vibe">Mijn mening:</span> Marleen Stikker was inhoudelijk
+        goed, maar wel een beetje een droge presentatie. Niels Leenheer was echt
+        mega interessant, zijn passie voor die maffe hardware-projecten en
+        oscilloscopen was super inspirerend.
+      </p>
+    </section>
+
+    <section>
+      <h2>Browser-techniek & Geschiedenis</h2>
+      <h3>Wat bleef er hangen?</h3>
+      <ul>
+        <li>
+          Browsers zijn mega complex en hebben aparte engines voor rendering en
+          JS.
+        </li>
+        <li>
+          Veel oude zooi in HTML werkt nog steeds door 'backward compatibility'.
+        </li>
+      </ul>
+      <h3>Technisch:</h3>
+      <ul>
+        <li>
+          Gebruik <code>defer</code> voor je scripts zodat de pagina sneller
+          laadt.
+        </li>
+        <li>
+          Vergeet je <code>doctype</code> niet, anders gaat je CSS raar doen in
+          'Quirks Mode'.
+        </li>
+      </ul>
+      <pre><code>&lt;!-- Script loading --&gt;
+&lt;script async src="script.js"&gt;&lt;/script&gt;
+&lt;script defer src="script.js"&gt;&lt;/script&gt;
+
+&lt;!-- Standards mode --&gt;
+&lt;!DOCTYPE html&gt;</code></pre>
+      <p>
+        <span class="vibe">Mijn mening:</span> Goed om eens onder de motorkap te
+        kijken. Het helpt je snappen waarom je bepaalde code op een specifieke
+        plek moet zetten voor performance.
+      </p>
+    </section>
+  </body>
+</html>
