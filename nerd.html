@@ -74,72 +74,110 @@
         padding: 0;
         color: inherit;
       }
+      .vakken-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .vak-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
     </style>
   </head>
   <body>
+    <h1>Mijn Reflecties</h1>
+
+    
+
+    <section>
+      <h2>De Vakken</h2>
+      <p>Reflectie op de vakken die ik heb gevolgd:</p>
+      <div class="vakken-grid">
+                <div class="vak-item">
+          <img src="assets/images/sprint0.png" alt="Sprint 0" />
+          <h3>Sprint 0</h3>
+          <p>Sprint 0 was weer even een opfrisser van wat code ook alweer kon en deed en de vrijheid die je ermee hebt t.o.v. Figma.</p>
+        </div>
+        <div class="vak-item">
+          <img src="assets/images/API.png" alt="API" />
+          <h3>API</h3>
+          <p>Bij dit vak heb ik veel geleerd over serverside APIs en hoe je op een veilige manier data opvraagt. Ook kwamen de AI API van Google Chrome aanbod. Overal heb ik mega veel geleerd van dit vak wat ik kan meenemen.</p>
+        </div>
+
+        <div class="vak-item">
+          <img src="assets/images/CSS.png" alt="CSS" />
+          <h3>CSS to the Rescue</h3>
+          <p>Bij dit vak heb ik zonder javascript een volledig funcitoneel controlepaneel gemaakt. De uitdaging hier was om javascript functionaliteit na te bootsen in CSS. Bij dit vak heb ik geleerd hoe ver CSS eigenlijk al is ontwikkeld.</p>
+        </div>
+        <div class="vak-item">
+          <img src="assets/images/HCD.png" alt="HCD" />
+          <h3>Human Centered Design</h3>
+          <p>Bij dit vak heb ik vooral geleerd dat toegankelijkheid niet een lijstje is die je kan afwerken maar dat je het beste kan testen met de verschillende beperkingen die er zijn. </p>
+        </div>
+        <div class="vak-item">
+          <img src="assets/images/bt.png" alt="BT" />
+          <h3>Browser Technologies</h3>
+          <p>Hier was het de opdracht om een zo robuust mogelijke formulier te maken met goeie errorhandeling en duidelijke feedback naar de gebruiker. Ik heb hier vooral geleerd hoe belangrijk het is om een formulier te maken die goed functioneerd.</p>
+        </div>
+
+        <div class="vak-item">
+          <img src="assets/images/hackathon.png" alt="Hackathon" />
+          <h3>Hackathon</h3>
+          <p>Bij de hackathon was het belangrijk om binnen een korte tijd in groepsverband een werkend prototype neer te zetten. Ik heb hier dus vooral geleerd hoe belangrijk het is om goed samen te werken met je team en keuzes te maken samen.</p>
+        </div>
+      </div>
+      <h3>Nieuwe Inzichten</h3>
+      <ul>
+        <li>Elk vak heeft me geleerd om vanuit een ander perspectief naar het web te kijken.</li>
+        <li>De kracht van progressive enhancement bij Browser Technologies.</li>
+      </ul>
+    </section>
 
     <section>
       <h2>Mijn Leerdoelen</h2>
-      <div class="goals-container">
-        <article class="goal-item">
-          <h3>Samenwerken met code</h3>
-          <p>
-            Ik wil effectief samenwerken met Git (branches, pull requests en
-            code reviews), zodat we veilig en duidelijk kunnen bouwen aan
-            dezelfde codebase.
-          </p>
-          <footer class="reason">
-            <strong>Reden:</strong> Dit is essentieel voor professionele
-            softwareontwikkeling en teamwork.
-          </footer>
-        </article>
-        <article class="goal-item">
-          <h3>CSS Animaties & Keyframes</h3>
-          <p>
-            Ik wil complexe CSS animaties en keyframes kunnen ontwerpen, zodat
-            ik interactieve, duidelijke micro-interacties en state-changes kan
-            bouwen.
-          </p>
-          <footer class="reason">
-            <strong>Reden:</strong> Animaties verbeteren de gebruikerservaring
-            en maken interfaces intuïtiever.
-          </footer>
-        </article>
-        <article class="goal-item">
-          <h3>Inclusieve Web Toegankelijkheid</h3>
-          <p>
-            Ik wil leren hoe ik interfaces bouw die voor iedereen bruikbaar
-            zijn, door diep in te zoomen op screenreader-support,
-            toetsenbord-navigatie en het correcte gebruik van ARIA-labels.
-          </p>
-          <footer class="reason">
-            <strong>Reden:</strong> Toegankelijkheid is een fundamenteel recht;
-            als ontwikkelaar heb ik de verantwoordelijkheid om niemand uit te
-            sluiten.
-          </footer>
-        </article>
-      </div>
+      <article>
+        <h3>Samenwerken met code</h3>
+        <p>
+          Ik wil effectief samenwerken met Git (branches, pull requests en
+          code reviews), zodat we veilig en duidelijk kunnen bouwen aan
+          dezelfde codebase.
+        </p>
+        <p><strong>Reden:</strong> Dit is essentieel voor professionele softwareontwikkeling en teamwork.</p>
+      </article>
+      <article>
+        <h3>CSS Animaties & Keyframes</h3>
+        <p>
+          Ik wil complexe CSS animaties en keyframes kunnen ontwerpen, zodat
+          ik interactieve, duidelijke micro-interacties en state-changes kan
+          bouwen.
+        </p>
+        <p><strong>Reden:</strong> Animaties verbeteren de gebruikerservaring en maken interfaces intuïtiever.</p>
+      </article>
+      <article>
+        <h3>Inclusieve Web Toegankelijkheid</h3>
+        <p>
+          Ik wil leren hoe ik interfaces bouw die voor iedereen bruikbaar
+          zijn, door diep in te zoomen op screenreader-support,
+          toetsenbord-navigatie en het correcte gebruik van ARIA-labels.
+        </p>
+        <p><strong>Reden:</strong> Toegankelijkheid is een fundamenteel recht; als ontwikkelaar heb ik de verantwoordelijkheid om niemand uit te sluiten.</p>
+      </article>
     </section>
 
     <section>
       <h2>Nils (Nine Elements) – CSS & Creativiteit</h2>
       <h3>Wat bleef er hangen?</h3>
       <ul>
-        <li>
-          Figma is top, maar het beperkt je ook omdat je alleen bouwt wat de
-          tool kan. CSS kan veel meer.
-        </li>
+        <li>Figma is top, maar het beperkt je ook omdat je alleen bouwt wat de tool kan. CSS kan veel meer.</li>
         <li>We bouwen vaak dezelfde saaie "hero + 3 blokjes" layouts.</li>
       </ul>
       <h3>De extra's:</h3>
       <ul>
-        <li>
-          FR-units zijn life voor asymmetrische grids zonder dat het breekt.
-        </li>
-        <li>
-          Gebruik <code>steps()</code> voor van die vette flipbook-animaties in
-          plaats van zware video's.
-        </li>
+        <li>FR-units zijn life voor asymmetrische grids zonder dat het breekt.</li>
+        <li>Gebruik <code>steps()</code> voor vette flipbook-animaties.</li>
       </ul>
       <pre><code>/* Grid met FR units */
 .container {
@@ -151,11 +189,7 @@
 .keyvisual {
   animation: stop-motion 3s steps(31, end) infinite;
 }</code></pre>
-      <p>
-        <span class="vibe">Mijn mening:</span> Dit was echt de leukste sessie.
-        Het motiveerde me om meer met pure CSS te klooien in plaats van voor
-        alles meteen Figma te pakken.
-      </p>
+      <p><span class="vibe">Mijn mening:</span> Motiverend om meer met pure CSS te klooien.</p>
     </section>
 
     <section>
@@ -163,161 +197,67 @@
       <h3>Wat bleef er hangen?</h3>
       <ul>
         <li>Toegankelijkheid is meer dan een checklist afvinken.</li>
-        <li>
-          Je moet echt praten met mensen die een beperking hebben om te snappen
-          hoe zij je site gebruiken.
-        </li>
-      </ul>
-      <h3>Tips:</h3>
-      <ul>
-        <li>
-          Laat de <code>alt</code>-tekst leeg bij plaatjes die alleen voor de
-          sier zijn, anders leest die screenreader alles op.
-        </li>
-        <li>
-          Koppen (H1, H2) zijn super belangrijk voor navigatie; mensen skippen
-          daarmee door je site.
-        </li>
+        <li>Praten met mensen met een beperking is essentieel.</li>
       </ul>
       <pre><code>&lt;!-- Informatief --&gt;
 &lt;img src="product.jpg" alt="Zwarte laptop"&gt;
 
 &lt;!-- Decoratief --&gt;
 &lt;img src="line.svg" alt=""&gt;</code></pre>
-      <p>
-        <span class="vibe">Mijn mening:</span> Het was echt confronterend om te
-        horen hoe vermoeiend een slechte site is voor iemand met een
-        screenreader. Je beseft dan pas hoeveel impact je code heeft.
-      </p>
+      <p><span class="vibe">Mijn mening:</span> Confronterend hoe vermoeiend een slechte site is voor screenreader-gebruikers.</p>
     </section>
 
     <section>
       <h2>Hacker Filosofie & Zelf hosten</h2>
       <h3>Wat bleef er hangen?</h3>
       <ul>
-        <li>
-          We zijn eigenlijk te afhankelijk van die grote Amerikaanse
-          techbedrijven.
-        </li>
-        <li>
-          Een 'hacker' is ook gewoon iemand die alles zelf bouwt en controle
-          houdt.
-        </li>
+        <li>Onafhankelijkheid van Big Tech is belangrijk.</li>
+        <li>Zelf hosten geeft controle.</li>
       </ul>
-      <h3>Tips:</h3>
-      <ul>
-        <li>Host je eigen site op een oude computer of eigen server.</li>
-        <li>
-          Gebruik systeemfonts en compress je plaatjes om je site licht en
-          duurzaam te houden.
-        </li>
-      </ul>
-      <pre><code>/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .header-logo {
-    animation: none;
-  }
+      <pre><code>@media (prefers-reduced-motion: reduce) {
+  .header-logo { animation: none; }
 }
 
-/* Systeem fonts */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
 }</code></pre>
-      <p>
-        <span class="vibe">Mijn mening:</span> Een beetje een radicaal verhaal
-        over onafhankelijkheid, maar het zette me wel aan het denken over
-        privacy en waarom we alles maar op YouTube of Github zetten.
-      </p>
+      <p><span class="vibe">Mijn mening:</span> Zet me aan het denken over privacy en platform-afhankelijkheid.</p>
     </section>
 
     <section>
       <h2>UX van Formulieren</h2>
       <h3>Wat bleef er hangen?</h3>
       <ul>
-        <li>
-          Mensen haten formulieren, dus maak het ze zo makkelijk mogelijk.
-        </li>
-        <li>
-          Vertel mensen waarom je hun info (zoals een telefoonnummer) nodig
-          hebt.
-        </li>
+        <li>Maak formulieren zo makkelijk mogelijk.</li>
+        <li>Leg uit waarom je informatie nodig hebt.</li>
       </ul>
-      <h3>Tips:</h3>
-      <ul>
-        <li>Zet labels altijd boven de inputveldjes.</li>
-        <li>
-          Wees chill met validatie: laat mensen gewoon spaties in hun postcode
-          zetten.
-        </li>
-      </ul>
-      <pre><code>&lt;!-- Toegankelijk formulierveld --&gt;
-&lt;div class="form-field"&gt;
+      <pre><code>&lt;div class="form-field"&gt;
   &lt;label for="name"&gt;Naam *&lt;/label&gt;
   &lt;p id="name-help"&gt;Vul je volledige naam in&lt;/p&gt;
   &lt;input id="name" aria-describedby="name-help" required&gt;
 &lt;/div&gt;</code></pre>
-      <p>
-        <span class="vibe">Mijn mening:</span> Super praktisch. Vooral dat ding
-        over password managers en waarom je geen placeholders in
-        wachtwoordvelden moet zetten was een goede eye-opener.
-      </p>
+      <p><span class="vibe">Mijn mening:</span> Eye-opener over password managers en placeholders.</p>
     </section>
 
     <section>
       <h2>Event: The Web You Want</h2>
-      <h3>Wat bleef er hangen?</h3>
       <ul>
-        <li>
-          Het web moet weer een publieke plek worden, niet alleen een speeltuin
-          voor Big Tech.
-        </li>
-        <li>
-          Duurzaamheid in IT is een ding; de uitstoot is groter dan die van de
-          luchtvaart.
-        </li>
+        <li>Het web als publieke plek.</li>
+        <li>Duurzaamheid in IT.</li>
       </ul>
-      <p>
-        <span class="vibe">Mijn mening:</span> Marleen Stikker was inhoudelijk
-        goed, maar wel een beetje een droge presentatie. Niels Leenheer was echt
-        mega interessant, zijn passie voor die maffe hardware-projecten en
-        oscilloscopen was super inspirerend.
-      </p>
+      <p><span class="vibe">Mijn mening:</span> Niels Leenheer was mega interessant met zijn hardware projecten.</p>
     </section>
 
     <section>
       <h2>Browser-techniek & Geschiedenis</h2>
-      <h3>Wat bleef er hangen?</h3>
       <ul>
-        <li>
-          Browsers zijn mega complex en hebben aparte engines voor rendering en
-          JS.
-        </li>
-        <li>
-          Veel oude zooi in HTML werkt nog steeds door 'backward compatibility'.
-        </li>
+        <li>Rendering engine vs JS engine.</li>
+        <li>Backward compatibility.</li>
       </ul>
-      <h3>Technisch:</h3>
-      <ul>
-        <li>
-          Gebruik <code>defer</code> voor je scripts zodat de pagina sneller
-          laadt.
-        </li>
-        <li>
-          Vergeet je <code>doctype</code> niet, anders gaat je CSS raar doen in
-          'Quirks Mode'.
-        </li>
-      </ul>
-      <pre><code>&lt;!-- Script loading --&gt;
-&lt;script async src="script.js"&gt;&lt;/script&gt;
+      <pre><code>&lt;script async src="script.js"&gt;&lt;/script&gt;
 &lt;script defer src="script.js"&gt;&lt;/script&gt;
-
-&lt;!-- Standards mode --&gt;
 &lt;!DOCTYPE html&gt;</code></pre>
-      <p>
-        <span class="vibe">Mijn mening:</span> Goed om eens onder de motorkap te
-        kijken. Het helpt je snappen waarom je bepaalde code op een specifieke
-        plek moet zetten voor performance.
-      </p>
+      <p><span class="vibe">Mijn mening:</span> Goed om onder de motorkap te kijken voor performance keuzes.</p>
     </section>
   </body>
 </html>
