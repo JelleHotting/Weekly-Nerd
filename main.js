@@ -124,6 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const DRAG_THRESHOLD = 8;
+
   function onPointerDown(e) {
     hasDragged = false;
     if (
@@ -142,12 +144,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function onPointerMove(e) {
     if (!isDragging) return;
-    hasDragged = true;
 
     const x = e.pageX - viewport.offsetLeft;
     const y = e.pageY - viewport.offsetTop;
     const walkX = x - startX;
     const walkY = y - startY;
+
+    if (Math.abs(walkX) > DRAG_THRESHOLD || Math.abs(walkY) > DRAG_THRESHOLD) {
+      hasDragged = true;
+    }
 
     viewport.scrollLeft = scrollLeft - walkX;
     viewport.scrollTop = scrollTop - walkY;
@@ -155,6 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function onPointerUp() {
     isDragging = false;
+    setTimeout(() => { hasDragged = false; }, 50);
   }
 
   viewport.addEventListener("pointerdown", onPointerDown);
@@ -209,6 +215,30 @@ document.addEventListener("DOMContentLoaded", () => {
         wrapper.click();
       }
     });
+
+    // On mobile, model-viewer swallows touch events preventing click from bubbling.
+    // Detect a quick tap directly on the viewer and fire the wrapper click manually.
+    if (viewer) {
+      let tapStartX, tapStartY, tapStartTime;
+      viewer.addEventListener("touchstart", (e) => {
+        hasDragged = false;
+        tapStartX = e.touches[0].clientX;
+        tapStartY = e.touches[0].clientY;
+        tapStartTime = Date.now();
+      }, { passive: true });
+      viewer.addEventListener("touchend", (e) => {
+        if (activeModel === wrapper) return;
+        const dt = Date.now() - tapStartTime;
+        const dx = Math.abs(e.changedTouches[0].clientX - tapStartX);
+        const dy = Math.abs(e.changedTouches[0].clientY - tapStartY);
+        // Treat as tap: short duration and tiny movement
+        if (dt < 250 && dx < 10 && dy < 10) {
+          e.preventDefault();
+          hasDragged = false;
+          wrapper.click();
+        }
+      }, { passive: false });
+    }
 
     wrapper.addEventListener("click", (e) => {
       // Return early if dragging the background, or if this element is already focused
