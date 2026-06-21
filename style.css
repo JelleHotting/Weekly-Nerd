@@ -583,7 +583,7 @@ svg {
   width: 200px;
   height: 200px;
   padding: 24px;
-  background-color: #ffed74; /* Default yellow */
+  background-color: #ffed74; 
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
   font-family: "Caveat", cursive;
   font-size: 2rem;
@@ -635,7 +635,7 @@ svg {
   top: 2635px;
   left: 3310px;
   --base-rotation: 8deg;
-  background-color: #ff9ee2; /* Pink note */
+  background-color: #ff9ee2; 
 }
 
 /* Eraser & Graphite Smudges */
@@ -766,7 +766,7 @@ svg {
 .sketchbook {
   background-color: #5c3a21 !important;
   border: 4px solid #4a2e1a;
-  border-left: 12px solid #3d2515; /* Spine */
+  border-left: 12px solid #3d2515; 
   border-radius: 4px 12px 12px 4px;
   color: #f7eedb;
   padding: 16px !important;
@@ -924,18 +924,30 @@ svg {
 /* Responsive Reflections Notebook Overlay (reusing base notebook logic for responsiveness) */
 @media (max-width: 768px) {
   #reflections-notebook-container.open {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     width: 90vw !important;
-    height: 85vh !important;
+    height: 80vh !important;
+    z-index: 2500 !important;
     overflow-y: auto !important;
-    z-index: 2000;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 12px !important;
+    background-color: #1a331c !important;
+    background-image: 
+      radial-gradient(circle at 50% 50%, #294c2c 0%, #1a331c 100%) !important;
+    border: 4px solid #132414 !important;
+    padding: 24px 16px !important;
+    box-sizing: border-box !important;
   }
   
   #reflections-notebook-container.open .notebook-book {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
     height: auto !important;
-    gap: 16px;
-    padding: 16px;
+    gap: 20px !important;
+    padding: 0 !important;
     box-sizing: border-box;
   }
 
@@ -947,6 +959,22 @@ svg {
     height: auto !important;
     transform: none !important;
     z-index: auto !important;
+  }
+
+  #reflections-notebook-container.open .notebook-cover-front {
+    display: none !important;
+  }
+
+  #reflections-notebook-container.open .notebook-cover-back {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    order: 2 !important;
+  }
+
+  #reflections-notebook-container.open .notebook-flipping-sheet {
+    order: 1 !important;
   }
 
   #reflections-notebook-container.open .sheet-face {
@@ -966,9 +994,10 @@ svg {
     height: auto !important;
     min-height: 220px;
     border-radius: 8px !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
     border: 1px solid rgba(160, 120, 70, 0.15) !important;
     padding: 24px 16px 20px 24px !important;
+    margin-bottom: 8px !important;
   }
 
   #reflections-notebook-container.open .cover-front-outer {
@@ -988,10 +1017,24 @@ svg {
   }
 
   #reflections-notebook-container.open .notebook-close-button {
-    right: 12px;
-    top: 12px;
+    position: fixed !important;
+    top: calc(10vh + 12px) !important;
+    right: calc(5vw + 12px) !important;
+    z-index: 2600 !important;
     opacity: 1 !important;
     pointer-events: auto !important;
+    color: #3a2510;
+    font-size: 2.2rem;
+    line-height: 1;
+    background: #faf6ee !important;
+    border: 2px solid #3a2510 !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
   }
 }
 
@@ -1078,7 +1121,7 @@ svg {
   box-sizing: border-box;
 }
 
-/* Crease fold line to look like a real cover card bending */
+
 .cover-front-outer::before {
   content: "";
   position: absolute;
@@ -1221,7 +1264,7 @@ svg {
 .ring-loop {
   width: 10px;
   height: 12px;
-  background-color: #060606; /* the black square hole */
+  background-color: #060606; 
   border-radius: 1px;
   box-shadow: inset 1px 1px 1px rgba(0,0,0,0.85), 0.5px 0.5px 0px rgba(255,255,255,0.08);
   position: relative;
@@ -1252,7 +1295,7 @@ svg {
 /* Open Spine Wire Rings - Double wires with disappearing gradient */
 .notebook-spine-rings {
   position: absolute;
-  right: 334px; /* Centered on the 350px spine from the stationary right edge */
+  right: 334px; 
   top: 16px;
   bottom: 16px;
   width: 32px;
@@ -1464,17 +1507,30 @@ svg {
 /* Responsive (Mobile/Tablet) */
 @media (max-width: 768px) {
   .notebook-container.open {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     width: 90vw !important;
-    height: 85vh !important;
+    height: 80vh !important;
+    z-index: 2500 !important;
     overflow-y: auto !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 12px !important;
+    background-color: #3d2515 !important;
+    background-image: 
+      radial-gradient(circle at 50% 50%, #5c3a21 0%, #3d2515 100%) !important;
+    border: 4px solid #2e1b0f !important;
+    padding: 24px 16px !important;
+    box-sizing: border-box !important;
   }
   
   .notebook-container.open .notebook-book {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
     height: auto !important;
-    gap: 16px;
-    padding: 16px;
+    gap: 20px !important;
+    padding: 0 !important;
     box-sizing: border-box;
   }
 
@@ -1486,6 +1542,22 @@ svg {
     height: auto !important;
     transform: none !important;
     z-index: auto !important;
+  }
+
+  .notebook-container.open .notebook-cover-front {
+    display: none !important;
+  }
+
+  .notebook-container.open .notebook-cover-back {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    order: 2 !important;
+  }
+
+  .notebook-container.open .notebook-flipping-sheet {
+    order: 1 !important;
   }
 
   .notebook-container.open .sheet-face {
@@ -1505,9 +1577,10 @@ svg {
     height: auto !important;
     min-height: 220px;
     border-radius: 8px !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
     border: 1px solid rgba(160, 120, 70, 0.15) !important;
     padding: 24px 16px 20px 24px !important;
+    margin-bottom: 8px !important;
   }
 
   .notebook-container.open .cover-front-outer {
@@ -1527,10 +1600,24 @@ svg {
   }
 
   .notebook-container.open .notebook-close-button {
-    right: 12px;
-    top: 12px;
+    position: fixed !important;
+    top: calc(10vh + 12px) !important;
+    right: calc(5vw + 12px) !important;
+    z-index: 2600 !important;
     opacity: 1 !important;
     pointer-events: auto !important;
+    color: #3a2510;
+    font-size: 2.2rem;
+    line-height: 1;
+    background: #faf6ee !important;
+    border: 2px solid #3a2510 !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
   }
 }
 
@@ -1615,15 +1702,25 @@ body.theme-drafting .blueprint-sheet .screenshot-desc {
 }
 
 body.theme-drafting .blueprint-sheet::before {
-  background-color: rgba(255, 255, 255, 0.4) !important; /* Normal tape style */
+  background-color: rgba(255, 255, 255, 0.4) !important; 
   backdrop-filter: blur(4px) !important;
   -webkit-backdrop-filter: blur(4px) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 /* =====================
-   Photo Fan Spread â€” Project Overlay
+   Photo Fan Spread — Project Overlay
    ===================== */
+
+.spread-content-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.spread-content-wrapper > * {
+  pointer-events: auto;
+}
 
 .spread-overlay {
   position: fixed;
@@ -1686,12 +1783,12 @@ body.theme-drafting .blueprint-sheet::before {
 
 .spread-img {
   display: block;
-  width: 650px; /* Scaled up from 380px */
+  width: 650px; 
   height: auto;
   pointer-events: none;
   user-select: none;
   border-radius: 1px;
-  /* subtle contrast boost for the "photo" feel */
+
   filter: contrast(1.03) saturate(0.95);
 }
 
@@ -1756,7 +1853,7 @@ body.theme-drafting .blueprint-sheet::before {
 
 /* Project title — written across the TOP of the main photo */
 .scribble-title {
-  /* Sits near the top-center of the main photo */
+
   top: 13%;
   left: 50%;
   transform: translateX(-50%) rotate(-1.8deg);
@@ -1797,7 +1894,7 @@ body.theme-drafting .blueprint-sheet::before {
   top: 36%;
   left: calc(50% + 355px);
   transform: rotate(2.5deg);
-  /* arrow is on the LEFT side of the text, pointing left toward main */
+
   flex-direction: row;
   align-items: center;
 }
@@ -1807,7 +1904,7 @@ body.theme-drafting .blueprint-sheet::before {
   top: 54%;
   right: calc(50% + 355px);
   transform: rotate(-2.2deg);
-  /* arrow is on the RIGHT side of the text, pointing right toward main */
+
   flex-direction: row;
   align-items: center;
 }
@@ -1835,34 +1932,120 @@ body.theme-drafting .blueprint-sheet::before {
 
 /* ── Mobile ─ */
 @media (max-width: 640px) {
+  .spread-overlay {
+    overflow-y: auto !important;
+    display: block !important;
+  }
+  
+  .spread-content-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 80px 16px 40px 16px !important;
+    box-sizing: border-box !important;
+    pointer-events: auto !important;
+  }
+
+  .spread-photo {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 20px 0 !important;
+    width: 280px !important;
+    max-width: 95vw !important;
+    height: auto !important;
+    padding: 12px 12px 40px 12px !important;
+    transform: none !important;
+  }
+
   .spread-img {
-    width: 260px;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .spread-repo-container {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin: 15px 0 !important;
+    width: auto !important;
+    z-index: 10 !important;
+  }
+
+  .spread-scribbles {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+  }
+
+  .spread-scribble {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    max-width: 90vw !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: none !important;
+  }
+
+  .spread-scribble.has-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
   .scribble-title {
-    font-size: 1.3rem;
-    white-space: normal;
-    max-width: 80vw;
-    top: 28%;
+    order: -1 !important;
+    font-size: 1.5rem !important;
+    white-space: normal !important;
+    color: #ffffff !important;
+    margin-bottom: 10px !important;
   }
 
-  .scribble-tag-1 {
-    right: 2%;
-    top: 35%;
-    max-width: 130px;
-    font-size: 0.78rem;
+  .scribble-arrow-svg {
+    display: none !important;
   }
 
-  .scribble-tag-2 {
-    left: 2%;
-    max-width: 140px;
-    font-size: 0.8rem;
+  .scribble-underline-svg,
+  .scribble-wavy-svg {
+    width: 200px !important;
+    height: 8px !important;
+    margin-top: 4px !important;
+  }
+
+  .scribble-tag {
+    font-size: 0.95rem !important;
+    max-width: 90vw !important;
+    color: #fce7ba !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    border: 1px dashed rgba(255, 255, 255, 0.2) !important;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05) !important;
+    justify-content: center !important;
+    line-height: 1.4 !important;
   }
 
   .scribble-vibe {
-    font-size: 0.78rem;
-    max-width: 90vw;
-    bottom: 3%;
+    font-size: 0.95rem !important;
+    max-width: 90vw !important;
+    color: #ffffff !important;
+    line-height: 1.6 !important;
+    margin-top: 10px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-top: 15px !important;
   }
 }
 
@@ -1871,7 +2054,7 @@ body.theme-drafting .blueprint-sheet::before {
    ===================== */
 .spread-repo-container {
   position: absolute;
-  top: 74%; /* Placed in the area below the card and above the vibe annotation */
+  top: 74%; 
   left: 0;
   right: 0;
   z-index: 10;
@@ -1883,7 +2066,7 @@ body.theme-drafting .blueprint-sheet::before {
 
 .spread-repo-btn {
   pointer-events: auto;
-  /* Matches .theme-toggle-btn styling exactly */
+
   background-color: #faf6ee;
   border: 2px solid #3a2510;
   border-radius: 4px;

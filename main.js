@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const reflectionsNotebookContainer = document.getElementById("reflections-notebook-container");
   const closeReflectionsNotebookBtn = document.getElementById("close-reflections-notebook");
 
-  // Spread overlay elements
   const spreadOverlay = document.getElementById("spread-overlay");
   const spreadMain = document.getElementById("spread-main");
   const spreadMainImg = document.getElementById("spread-main-img");
@@ -55,14 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
     closeSpreadBtn.addEventListener("click", closeSpread);
   }
 
-  // Close spread when clicking the dialog backdrop (outside the card)
   if (spreadOverlay) {
     spreadOverlay.addEventListener("click", (e) => {
       if (e.target === spreadOverlay) closeSpread();
     });
   }
 
-  // Listen for Escape key to close active panels
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       if (spreadOverlay && spreadOverlay.classList.contains("active")) {
@@ -107,13 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
   viewport.setAttribute('tabindex', '0');
   viewport.setAttribute('aria-label', 'Pannable canvas – gebruik pijltjestoetsen om te navigeren');
 
-  // Center starting position
   viewport.scrollLeft = (canvasArea.offsetWidth - viewport.clientWidth) / 2;
   viewport.scrollTop = (canvasArea.offsetHeight - viewport.clientHeight) / 2;
 
   // --- Keyboard navigation on the canvas ---
   viewport.addEventListener('keydown', (e) => {
-    if (activeModel !== null) return; // Don't scroll while a model is focused
+    if (activeModel !== null) return; 
     const STEP = 160;
     const moves = {
       ArrowUp:    [0, -STEP],
@@ -611,17 +607,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // ── 4. GSAP: set initial position ──────────────────────────────────
     // Card starts at the clicked paper's screen position, scaled small
     const rect = paper.getBoundingClientRect();
+    const mobile = isMobile();
     const srcX = rect.left + rect.width / 2 - window.innerWidth / 2;
     const srcY = rect.top + rect.height / 2 - window.innerHeight / 2;
-    // Scale factor: original card width vs spread card width (600px img + 28px padding)
-    const scaleFrom = rect.width / 628;
+    // Scale factor: original card width vs spread card width
+    const scaleFrom = rect.width / (mobile ? 288 : 628);
 
     gsap.set(spreadMain, {
-      xPercent: -50, yPercent: -50,
-      x: srcX, y: srcY,
-      scale: scaleFrom,
+      xPercent: mobile ? 0 : -50, yPercent: mobile ? 0 : -50,
+      x: mobile ? 0 : srcX, y: mobile ? 0 : srcY,
+      scale: mobile ? 0.9 : scaleFrom,
       rotation: 0,
-      opacity: 1,
+      opacity: mobile ? 0 : 1,
     });
     gsap.set(spreadRepoContainer, { opacity: 0, y: 15 });
     gsap.set(".spread-scribble.has-content", { opacity: 0, y: 10 });
@@ -629,7 +626,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // ── 5. GSAP: animate open sequence ─────────────────────────────────
     // Main card flies to center
     gsap.to(spreadMain, {
-      x: 0, y: 0, scale: 1, rotation: -1,
+      x: 0, y: 0, scale: 1, rotation: mobile ? 0 : -1,
+      opacity: 1,
       duration: dur(0.85), ease: "power4.out",
     });
 
@@ -655,6 +653,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function closeSpread() {
     if (!spreadOverlay || !spreadOverlay.classList.contains("active")) return;
 
+    const mobile = isMobile();
+
     // Scribbles out first (only animate those that were shown)
     gsap.to(".spread-scribble.has-content", { opacity: 0, y: -8, duration: dur(0.18), stagger: prefersReducedMotion ? 0 : 0.04 });
 
@@ -663,7 +663,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Main card shrinks out
     gsap.to(spreadMain, {
-      scale: 0.25, opacity: 0,
+      scale: mobile ? 0.9 : 0.25, opacity: 0,
       duration: dur(0.45), delay: prefersReducedMotion ? 0 : 0.05, ease: "power3.in",
       onComplete: () => {
         spreadOverlay.classList.remove("active");
@@ -681,7 +681,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function buildScribbles(template) {
-    // Clone into a detached div so we can query without side-effects
     const frag = template.content.cloneNode(true);
     const temp = document.createElement("div");
     temp.appendChild(frag);
@@ -693,12 +692,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const vibeEl = temp.querySelector(".vibe");
     const vibeText = vibeEl?.closest(".blog-text")?.textContent?.trim() || "";
 
-    // Reset all scribbles — clear text and remove has-content marker
     document.querySelectorAll(".spread-scribble").forEach((el) => {
       el.classList.remove("has-content");
     });
 
-    // Populate each scribble and mark it active if it has content
     if (titleText) {
       document.getElementById("scribble-title-text").textContent = titleText;
       document.getElementById("scribble-title").classList.add("has-content");
@@ -725,7 +722,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Unified Close Logic ---
   function closeAllPanels() {
-    // Prevent double-firing if already closed
     const notebookOpen = notebookContainer && notebookContainer.classList.contains("open");
     const reflectionsOpen = reflectionsNotebookContainer && reflectionsNotebookContainer.classList.contains("open");
     if (!blogPanel.classList.contains("active") && activeModel === null && !notebookOpen && !reflectionsOpen) return;
@@ -766,18 +762,15 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
 
-      // CSS handles .model-instruction opacity via .active class
       gsap.to(wrapper, {
         x: parseFloat(wrapper.dataset.gsapX),
         y: parseFloat(wrapper.dataset.gsapY),
-        // Let CSS reclaim the original dimensions instead of hardcoding isMobile() sizes
         width: isMobile() ? 100 : 160,
         height: isMobile() ? 150 : 240,
         duration: dur(1.0),
         ease: "power3.inOut",
         onComplete: () => {
           activeModel = null;
-          // Restore focus to element that triggered the panel
           if (lastFocusedElement) lastFocusedElement.focus();
         },
       });
