@@ -14,13 +14,11 @@ body {
   height: 100vh;
   overflow: auto;
   cursor: grab;
-  /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
     display: none;
   }
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
 }
 
 #viewport:active {
@@ -29,8 +27,8 @@ body {
 
 #canvas-area {
   position: relative;
-  width: 4000px;
-  height: 4000px;
+  width: 5000px;
+  height: 5000px;
   /* Blueprint background */
   background-color: #1a5b92;
   background-image:
@@ -100,7 +98,7 @@ body {
   width: 160px;
   height: 240px;
   cursor: pointer;
-  pointer-events: auto; /* Make it clickable inside the pass-through layer */
+  pointer-events: auto;
   z-index: 5;
   filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.3));
   transition:
@@ -115,18 +113,53 @@ body {
 }
 
 .pencil-wrapper {
-  margin-top: 500px;
-  margin-left: 180px;
+  margin-top: 675px;
+  margin-left: 243px;
 }
 
-.compass-wrapper {
-  margin-top: -1000px;
-  margin-left: -240px;
+.ruler-wrapper {
+  margin-top: -1350px;
+  margin-left: -324px;
+}
+
+.sunglasses-wrapper {
+  margin-top: -1400px;
+  margin-left: 500px;
 }
 
 .magnify-wrapper {
-  margin-top: 800px;
-  margin-left: 1000px;
+  margin-top: -540px;
+  margin-left: -1080px;
+}
+
+.compass-wrapper {
+  margin-top: 1350px;
+  margin-left: -675px;
+}
+
+.padlock-wrapper {
+  margin-top: 540px;
+  margin-left: -1350px;
+}
+
+.lego-wrapper {
+  margin-top: 1620px;
+  margin-left: 1080px;
+}
+
+.plane-wrapper {
+  margin-top: -270px;
+  margin-left: 1620px;
+}
+
+.globe-wrapper {
+  margin-top: 270px;
+  margin-left: -405px;
+}
+
+.floppy-wrapper {
+  margin-top: -810px;
+  margin-left: 810px;
 }
 
 .interactive-model {
@@ -140,6 +173,10 @@ body {
 }
 
 .interactive-model::-webkit-scrollbar {
+  display: none;
+}
+
+.interactive-model::part(default-progress-bar) {
   display: none;
 }
 
@@ -210,6 +247,8 @@ svg {
   width: 45vw;
   max-width: 750px;
   height: 85vh;
+  display: flex;
+  flex-direction: column;
   /* Aged paper look */
   background-color: #f5f0e8;
   background-image:
@@ -367,6 +406,8 @@ svg {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  flex-grow: 1;
+  box-sizing: border-box;
   /* Faint horizontal ruled lines */
   background-image: repeating-linear-gradient(
     transparent,
@@ -386,8 +427,7 @@ svg {
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Let clicks pass through the layer itself */
-  z-index: 2; /* Below the models-layer (z-index: 20) and glass-overlay (z-index: 10) */
+  pointer-events: none;
 }
 
 .paper-screenshot {
@@ -410,49 +450,6 @@ svg {
     z-index 0.3s step-end;
 }
 
-/* Individual Positioning and Rotations */
-.screenshot-1 {
-  top: 600px;
-  left: 800px;
-  --base-rotation: -8deg;
-}
-.screenshot-2 {
-  top: 1200px;
-  left: 3200px;
-  --base-rotation: 5deg;
-}
-.screenshot-3 {
-  top: 2800px;
-  left: 600px;
-  --base-rotation: -3deg;
-}
-.screenshot-4 {
-  top: 3200px;
-  left: 2800px;
-  --base-rotation: 6deg;
-}
-.screenshot-5 {
-  top: 1800px;
-  left: 400px;
-  --base-rotation: -12deg;
-}
-.screenshot-6 {
-  top: 300px;
-  left: 2500px;
-  --base-rotation: 4deg;
-}
-.screenshot-7 {
-  top: 2400px;
-  left: 3400px;
-  --base-rotation: -7deg;
-}
-.screenshot-8 {
-  top: 3500px;
-  left: 1500px;
-  --base-rotation: 9deg;
-}
-
-/* Clean hover state using CSS variable */
 .paper-screenshot:hover {
   transform: rotate(var(--base-rotation)) scale(1.05) translateY(-5px);
   box-shadow:
@@ -463,6 +460,53 @@ svg {
     transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
     box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1),
     z-index 0s step-start;
+}
+
+/* Individual Positioning and Rotations */
+.screenshot-0 {
+  top: 610px;
+  left: 1960px;
+  --base-rotation: -4deg;
+}
+.screenshot-1 {
+  top: 1420px;
+  left: 880px;
+  --base-rotation: -8deg;
+}
+.screenshot-6 {
+  top: 205px;
+  left: 3175px;
+  --base-rotation: 4deg;
+}
+.screenshot-7 {
+  top: 3580px;
+  left: 4390px;
+  --base-rotation: -7deg;
+}
+.screenshot-8 {
+  top: 4525px;
+  left: 1960px;
+  --base-rotation: 9deg;
+}
+.screenshot-9 {
+  top: 3715px;
+  left: 745px;
+  --base-rotation: 5deg;
+}
+.screenshot-10 {
+  top: 2230px;
+  left: 1082px;
+  --base-rotation: -6deg;
+}
+.screenshot-11 {
+  top: 1690px;
+  left: 3580px;
+  --base-rotation: 3deg;
+}
+.screenshot-12 {
+  top: 3005px;
+  left: 2250px;
+  --base-rotation: -2deg;
 }
 
 .paper-screenshot img {
@@ -522,8 +566,8 @@ svg {
 /* Decorations */
 .coffee-stain {
   position: absolute;
-  top: 1750px;
-  left: 2200px;
+  top: 2162px;
+  left: 2770px;
   width: 450px;
   height: auto;
   opacity: 0.85;
@@ -583,13 +627,13 @@ svg {
 }
 
 .note-1 {
-  top: 900px;
-  left: 1400px;
+  top: 1015px;
+  left: 1690px;
   --base-rotation: -5deg;
 }
 .note-2 {
-  top: 2100px;
-  left: 2600px;
+  top: 2635px;
+  left: 3310px;
   --base-rotation: 8deg;
   background-color: #ff9ee2; /* Pink note */
 }
@@ -621,7 +665,7 @@ svg {
 }
 
 /* =====================
-   Responsive — Mobile
+   Responsive â€” Mobile
    ===================== */
 @media (max-width: 640px) {
   h1#title {
@@ -652,7 +696,7 @@ svg {
     height: 68vh;
     border-radius: 20px 20px 0 0;
     padding: 40px 20px 20px 28px;
-    /* Slide up from below — no rotation on a bottom sheet */
+    /* Slide up from below â€” no rotation on a bottom sheet */
     transform: translateY(100%);
     rotate: 0deg;
   }
@@ -675,5 +719,1212 @@ svg {
     border-radius: 2px;
     pointer-events: none;
     z-index: 2;
+  }
+}
+
+/* =====================
+   Tabs & Custom Elements Styling
+   ===================== */
+
+.blog-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-bottom: 2px solid rgba(160, 120, 70, 0.2);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.tab-button {
+  font-family: "Architects Daughter", cursive;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: rgba(58, 37, 16, 0.6);
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover,
+.tab-button.active {
+  color: #2c1a0e;
+  background: rgba(160, 120, 70, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Custom Paper Elements (Notebook, Folder, Blueprint) */
+.sketchbook {
+  background-color: #5c3a21 !important;
+  border: 4px solid #4a2e1a;
+  border-left: 12px solid #3d2515; /* Spine */
+  border-radius: 4px 12px 12px 4px;
+  color: #f7eedb;
+  padding: 16px !important;
+  box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.sketchbook .screenshot-title {
+  color: #f7eedb !important;
+  font-family: "Cabin Sketch", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.sketchbook .screenshot-desc {
+  color: #d1bfa7 !important;
+}
+
+.sketchbook::before {
+  display: none !important; /* Hide tape on sketchbook */
+}
+
+/* Blueprint Cover */
+.blueprint-sheet {
+  background-color: #0b3c5d !important;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  padding: 16px !important;
+  box-shadow: 4px 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.blueprint-sheet .screenshot-title {
+  color: #ffffff !important;
+  font-family: "Fira Code", monospace;
+  font-size: 1.5rem;
+}
+
+.blueprint-sheet .screenshot-desc {
+  color: #a3d2f3 !important;
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+}
+
+.blueprint-sheet::before {
+  background-color: rgba(255, 255, 255, 0.15) !important; /* Blueprint style tape */
+}
+
+/* =====================
+   Interactive Blueprint Scroll Styles
+   ===================== */
+/* =====================
+   Reflections Notebook Override Styles
+   ===================== */
+#reflections-notebook-container {
+  position: absolute;
+  top: 3005px;
+  left: 2250px;
+  width: 350px;
+  height: 460px;
+  perspective: 1500px;
+  z-index: 5;
+  cursor: pointer;
+  pointer-events: auto;
+  --base-rotation: -2deg;
+  transform: rotate(var(--base-rotation));
+  transition: box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: left center;
+  
+  background-color: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#reflections-notebook-container::before {
+  display: none !important; /* Hide tape effect */
+}
+
+#reflections-notebook-container:not(.open):hover {
+  transform: rotate(var(--base-rotation)) scale(1.05) translateY(-5px);
+  z-index: 8;
+}
+
+#reflections-notebook-container.open {
+  z-index: 2000;
+  cursor: default;
+  transition: none !important;
+}
+
+#reflections-notebook-container.open .notebook-spine-rings {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#reflections-notebook-container.open .notebook-close-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Green Cover Theme Overrides */
+.reflections-notebook-theme .cover-front-outer {
+  background-color: #1e3f20; /* Dark forest green leather */
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 2px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 2px),
+    radial-gradient(circle at 60% 40%, #2a573d 0%, #1e3f20 70%, #122815 100%);
+  border: 4px solid #142a16;
+  border-left-width: 12px;
+  box-shadow: 
+    inset -2px 0 12px rgba(255,255,255,0.05),
+    inset 2px 0 10px rgba(0,0,0,0.45),
+    5px 12px 30px rgba(0,0,0,0.4);
+}
+
+.reflections-notebook-theme .cover-front-outer::before {
+  background: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(255,255,255,0.02) 50%, rgba(0,0,0,0.25) 100%);
+}
+
+.reflections-notebook-theme .cover-front-inner,
+.reflections-notebook-theme .notebook-cover-back {
+  background-color: #1a3824;
+  border: 4px solid #142a16;
+  border-radius: 16px 0 0 16px;
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 2px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 2px),
+    radial-gradient(circle at 40% 40%, #254a32 0%, #1a3824 70%, #102417 100%);
+}
+
+.reflections-notebook-theme .notebook-cover-back {
+  border-radius: 0 16px 16px 0;
+}
+
+/* Foil title text */
+.reflections-notebook-theme .notebook-cover-title {
+  color: #ebf5ee;
+  text-shadow: 2px 2px 0px #122815, 4px 4px 8px rgba(0,0,0,0.4);
+}
+
+.reflections-notebook-theme .notebook-cover-subtitle {
+  color: #a3c2ac;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
+}
+
+/* Silver Metallic Wire Rings Override */
+.reflections-notebook-theme .ring-loop::before,
+.reflections-notebook-theme .ring-loop::after {
+  background: linear-gradient(90deg, #444 0%, #bbb 35%, #fff 50%, #bbb 65%, #444 100%);
+}
+
+.reflections-notebook-theme .spine-ring::before,
+.reflections-notebook-theme .spine-ring::after {
+  background: linear-gradient(90deg, #050505 0%, #777 15%, #ececec 50%, #777 85%, #050505 100%);
+}
+
+/* Responsive Reflections Notebook Overlay (reusing base notebook logic for responsiveness) */
+@media (max-width: 768px) {
+  #reflections-notebook-container.open {
+    width: 90vw !important;
+    height: 85vh !important;
+    overflow-y: auto !important;
+    z-index: 2000;
+  }
+  
+  #reflections-notebook-container.open .notebook-book {
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
+    gap: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  #reflections-notebook-container.open .notebook-cover-front,
+  #reflections-notebook-container.open .notebook-cover-back,
+  #reflections-notebook-container.open .notebook-flipping-sheet {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    z-index: auto !important;
+  }
+
+  #reflections-notebook-container.open .sheet-face {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    backface-visibility: visible !important;
+    z-index: auto !important;
+  }
+
+  #reflections-notebook-container.open .sheet-back {
+    display: block !important;
+  }
+
+  #reflections-notebook-container.open .notebook-sheet {
+    height: auto !important;
+    min-height: 220px;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+    border: 1px solid rgba(160, 120, 70, 0.15) !important;
+    padding: 24px 16px 20px 24px !important;
+  }
+
+  #reflections-notebook-container.open .cover-front-outer {
+    display: none !important;
+  }
+
+  #reflections-notebook-container.open .cover-front-inner {
+    position: relative !important;
+    transform: none !important;
+    border-radius: 8px !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  #reflections-notebook-container.open .notebook-spine-rings {
+    display: none;
+  }
+
+  #reflections-notebook-container.open .notebook-close-button {
+    right: 12px;
+    top: 12px;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* =====================
+   Open Notebook Spread
+   ===================== */
+
+/* =====================
+   3D Spiral Notebook Styling
+   ===================== */
+
+.notebook-container {
+  position: absolute;
+  top: 2230px;
+  left: 1082px;
+  width: 350px;
+  height: 460px;
+  perspective: 1500px;
+  z-index: 5;
+  cursor: pointer;
+  pointer-events: auto;
+  --base-rotation: -6deg;
+  transform: rotate(var(--base-rotation));
+  transition: box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: left center;
+  
+  /* Reset inherited paper-screenshot styles to remove the white outline */
+  background-color: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.notebook-container::before {
+  display: none !important; /* Hide tape effect */
+}
+
+/* Hover effects when closed */
+.notebook-container:not(.open):hover {
+  transform: rotate(var(--base-rotation)) scale(1.05) translateY(-5px);
+  z-index: 8;
+}
+
+.notebook-book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* Front Cover wrapper */
+.notebook-cover-front {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  z-index: 10;
+}
+
+/* Front Cover - Outer side (closed face) */
+.cover-front-outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #5c3a21;
+  background-image: 
+    /* Cozy cardstock grain texture */
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 2px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 2px),
+    radial-gradient(circle at 60% 40%, #764c2f 0%, #52331c 70%, #3a2211 100%);
+  border: 4px solid #4a2e1a;
+  border-left-width: 12px; /* Thick spine border */
+  border-radius: 0 16px 16px 0;
+  box-shadow: 
+    inset -2px 0 12px rgba(255,255,255,0.08),
+    inset 2px 0 10px rgba(0,0,0,0.5),
+    5px 12px 30px rgba(0,0,0,0.4);
+  backface-visibility: hidden;
+  box-sizing: border-box;
+}
+
+/* Crease fold line to look like a real cover card bending */
+.cover-front-outer::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0.03) 50%, rgba(0,0,0,0.3) 100%);
+  pointer-events: none;
+}
+
+/* Gold foiled title styling */
+.cover-title-group {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  padding-left: 28px;
+  box-sizing: border-box;
+}
+
+.notebook-cover-title {
+  font-family: 'Cabin Sketch', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.1em;
+  color: #f7eedb;
+  text-shadow: 2px 2px 0px #3d2515, 4px 4px 8px rgba(0,0,0,0.45);
+}
+
+.notebook-cover-subtitle {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin: 10px 0 0 0;
+  letter-spacing: 0.1em;
+  color: #d1bfa7;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
+}
+
+/* Front Cover - Inner side (shown when open) */
+.cover-front-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #52331c;
+  border: 4px solid #4a2e1a;
+  border-radius: 16px 0 0 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
+/* Back Cover (holding the right page) */
+.notebook-cover-back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background-color: #52331c;
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 2px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 2px),
+    radial-gradient(circle at 40% 40%, #764c2f 0%, #52331c 70%, #3a2211 100%);
+  border: 4px solid #4a2e1a;
+  border-radius: 0 16px 16px 0;
+  padding: 16px;
+  box-sizing: border-box;
+  z-index: 1;
+  box-shadow: 5px 12px 30px rgba(0,0,0,0.4);
+}
+
+/* Sheet pages styling */
+.notebook-sheet {
+  width: 100%;
+  height: 100%;
+  background-color: #faf6ee;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(160, 120, 70, 0.12) 27px,
+    rgba(160, 120, 70, 0.12) 28px
+  );
+  border-radius: 4px;
+  padding: 36px 24px 30px 48px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Page curl corner shadow */
+.notebook-sheet::before {
+  content: "";
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.03) 50%, rgba(0,0,0,0.06) 100%);
+  border-bottom-right-radius: 4px;
+  pointer-events: none;
+}
+
+/* Ruled margin lines (vertical red lines) & stacked paper layout */
+.left-page {
+  border-right: 1px solid rgba(160, 120, 70, 0.15);
+  border-left: 1.5px solid rgba(220, 90, 90, 0.4);
+  padding-left: 36px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15), -2px 2px 0 #dccbaf, -4px 4px 0 #c7b69c;
+}
+
+.right-page {
+  border-left: 1.5px solid rgba(220, 90, 90, 0.4);
+  padding-left: 36px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15), 2px 2px 0 #dccbaf, 4px 4px 0 #c7b69c;
+}
+
+/* Closed Spine Wire Rings - Double loops (Wire-O) */
+.spiral-rings-left {
+  position: absolute;
+  left: -12px;
+  top: 20px;
+  bottom: 20px;
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 15;
+}
+
+.ring-loop {
+  width: 10px;
+  height: 12px;
+  background-color: #060606; /* the black square hole */
+  border-radius: 1px;
+  box-shadow: inset 1px 1px 1px rgba(0,0,0,0.85), 0.5px 0.5px 0px rgba(255,255,255,0.08);
+  position: relative;
+  margin-left: auto;
+}
+
+/* Double wires emerging from the square hole and wrapping leftwards - copper style */
+.ring-loop::before,
+.ring-loop::after {
+  content: "";
+  position: absolute;
+  left: -16px;
+  width: 22px;
+  height: 2px;
+  background: linear-gradient(90deg, #6c3b17 0%, #d49a5b 35%, #fff7d6 50%, #d49a5b 65%, #6c3b17 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  border-radius: 1px;
+}
+
+.ring-loop::before {
+  top: 2px;
+}
+
+.ring-loop::after {
+  bottom: 2px;
+}
+
+/* Open Spine Wire Rings - Double wires with disappearing gradient */
+.notebook-spine-rings {
+  position: absolute;
+  right: 334px; /* Centered on the 350px spine from the stationary right edge */
+  top: 16px;
+  bottom: 16px;
+  width: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Deep spine shadow representing valley between pages */
+.notebook-spine-rings::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 24px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.2) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.spine-ring {
+  width: 32px;
+  height: 12px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Double open rings with black fades at ends to simulate disappear-in-page holes - copper style */
+.spine-ring::before,
+.spine-ring::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2.2px;
+  background: linear-gradient(90deg, #050505 0%, #b45309 15%, #fef3c7 50%, #b45309 85%, #050505 100%);
+  box-shadow: 0 1.5px 2px rgba(0, 0, 0, 0.35);
+  border-radius: 1px;
+}
+
+.spine-ring::before {
+  top: 2px;
+}
+
+.spine-ring::after {
+  bottom: 2px;
+}
+
+/* Inside notebook page titles & text */
+.notebook-title {
+  font-family: "Cabin Sketch", sans-serif;
+  font-size: 2rem;
+  color: #2c1a0e;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  border-bottom: 2px solid rgba(160, 120, 70, 0.2);
+  padding-bottom: 8px;
+}
+
+.notebook-subtitle {
+  font-family: "Architects Daughter", cursive;
+  font-size: 1.25rem;
+  color: #3d2600;
+  margin-top: 14px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.notebook-text {
+  font-family: "Architects Daughter", cursive;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4a341f;
+  margin: 0;
+}
+
+.notebook-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(160, 120, 70, 0.15);
+  padding-top: 12px;
+}
+
+.notebook-tag {
+  font-family: "Architects Daughter", cursive;
+  font-size: 0.85rem;
+  color: rgba(120, 90, 50, 0.6);
+  margin: 0;
+}
+
+/* Close button - gold and serif styling */
+.notebook-close-button {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 2.8rem;
+  color: #3a2510;
+  cursor: pointer;
+  z-index: 2010;
+  padding: 0;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: none;
+  transition: opacity 0.5s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.notebook-close-button:hover {
+  transform: scale(1.1) rotate(5deg);
+  color: #c85050;
+  background: none;
+}
+
+/* Desktop Sheet Flipping & Z-Indexing */
+#notebook-sheet-1,
+#reflections-sheet-1 {
+  z-index: 8;
+}
+#notebook-sheet-1.flipped,
+#reflections-sheet-1.flipped {
+  z-index: 11;
+}
+
+.notebook-flipping-sheet {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  pointer-events: auto;
+}
+
+.sheet-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+}
+
+.sheet-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.sheet-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.sheet-front .notebook-sheet {
+  border-radius: 0 16px 16px 0;
+}
+
+.sheet-back .notebook-sheet {
+  border-radius: 16px 0 0 16px;
+}
+
+/* Open states */
+.notebook-container.open {
+  z-index: 2000;
+  cursor: default;
+  transition: none !important;
+}
+
+.notebook-container.open .notebook-spine-rings {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.notebook-container.open .notebook-close-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Scrollbars for sheets */
+.notebook-sheet::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notebook-sheet::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.notebook-sheet::-webkit-scrollbar-thumb {
+  background: rgba(160, 120, 70, 0.2);
+  border-radius: 10px;
+}
+
+.notebook-sheet::-webkit-scrollbar-thumb:hover {
+  background: rgba(160, 120, 70, 0.35);
+}
+
+/* Responsive (Mobile/Tablet) */
+@media (max-width: 768px) {
+  .notebook-container.open {
+    width: 90vw !important;
+    height: 85vh !important;
+    overflow-y: auto !important;
+  }
+  
+  .notebook-container.open .notebook-book {
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
+    gap: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .notebook-container.open .notebook-cover-front,
+  .notebook-container.open .notebook-cover-back,
+  .notebook-container.open .notebook-flipping-sheet {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    z-index: auto !important;
+  }
+
+  .notebook-container.open .sheet-face {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    backface-visibility: visible !important;
+    z-index: auto !important;
+  }
+
+  .notebook-container.open .sheet-back {
+    display: block !important;
+  }
+
+  .notebook-container.open .notebook-sheet {
+    height: auto !important;
+    min-height: 220px;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+    border: 1px solid rgba(160, 120, 70, 0.15) !important;
+    padding: 24px 16px 20px 24px !important;
+  }
+
+  .notebook-container.open .cover-front-outer {
+    display: none !important;
+  }
+
+  .notebook-container.open .cover-front-inner {
+    position: relative !important;
+    transform: none !important;
+    border-radius: 8px !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  .notebook-container.open .notebook-spine-rings {
+    display: none;
+  }
+
+  .notebook-container.open .notebook-close-button {
+    right: 12px;
+    top: 12px;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* =====================
+   Theme Switcher Styles
+   ===================== */
+.theme-toggle-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+  background-color: #faf6ee;
+  border: 2px solid #3a2510;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-family: "Architects Daughter", cursive;
+  font-size: 1rem;
+  color: #3a2510;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 3px 3px 0px #3a2510;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.theme-toggle-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #3a2510;
+}
+
+.theme-icon {
+  width: 18px;
+  height: 18px;
+  stroke: #3a2510;
+}
+
+/* =====================
+   Theme Override: Warm Drafting Table
+   ===================== */
+body.theme-drafting {
+  background-color: #faf6ee;
+}
+
+body.theme-drafting #canvas-area {
+  background-color: #f7eedb;
+  background-image:
+    linear-gradient(rgba(160, 120, 70, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160, 120, 70, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+body.theme-drafting h1#title,
+body.theme-drafting #svg-container p,
+body.theme-drafting .instruction-text {
+  color: #3a2510;
+  text-shadow: none;
+}
+
+/* In the drafting theme, blueprint project sheets turn back into parchment paper */
+body.theme-drafting .blueprint-sheet {
+  background-color: #fcfcfc !important;
+  border: none !important;
+  color: #3a2510 !important;
+  padding: 12px 12px 16px 12px !important;
+  box-shadow:
+    2px 8px 24px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 2px !important;
+}
+
+body.theme-drafting .blueprint-sheet .screenshot-title {
+  color: #2c1a0e !important;
+  font-family: "Caveat", cursive !important;
+  font-size: 1.8rem !important;
+}
+
+body.theme-drafting .blueprint-sheet .screenshot-desc {
+  color: #4a2e0a !important;
+  font-family: "Caveat", cursive !important;
+  font-size: 1.2rem !important;
+}
+
+body.theme-drafting .blueprint-sheet::before {
+  background-color: rgba(255, 255, 255, 0.4) !important; /* Normal tape style */
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* =====================
+   Photo Fan Spread â€” Project Overlay
+   ===================== */
+
+.spread-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(10, 18, 38, 0.87);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.spread-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Close button */
+.spread-close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  z-index: 300;
+  background: none;
+  border: none;
+  font-family: "Architects Daughter", cursive;
+  font-size: 3rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.spread-close:hover {
+  color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.15) rotate(8deg);
+}
+
+/* â”€â”€ Photo card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* The card sits at left:50% top:50% inside the overlay.
+   GSAP sets xPercent:-50 yPercent:-50 and handles translations. */
+.spread-photo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #fafaf6;
+  padding: 14px 14px 52px 14px;
+  box-sizing: border-box;
+  box-shadow:
+    4px 14px 40px rgba(0, 0, 0, 0.65),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  will-change: transform, opacity;
+  z-index: 5;
+}
+
+.spread-img {
+  display: block;
+  width: 650px; /* Scaled up from 380px */
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  border-radius: 1px;
+  /* subtle contrast boost for the "photo" feel */
+  filter: contrast(1.03) saturate(0.95);
+}
+
+/* Tape strip â€” default on main card */
+.spread-photo::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 160px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 2;
+  border-radius: 1px;
+}
+
+/* ── Scribble annotations ─────────── */
+.spread-scribbles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.spread-scribble {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ── SVG arrow / decoration elements ── */
+.scribble-arrow-svg,
+.scribble-underline-svg,
+.scribble-wavy-svg {
+  display: block;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.scribble-underline-svg {
+  width: 380px;
+  height: 12px;
+}
+
+.scribble-wavy-svg {
+  width: 280px;
+  height: 12px;
+}
+
+.scribble-arrow-svg {
+  transform: scale(1.2);
+}
+
+.scribble-arrow-svg path,
+.scribble-underline-svg path,
+.scribble-wavy-svg path {
+  stroke: #ffffff !important;
+}
+
+/* Project title — written across the TOP of the main photo */
+.scribble-title {
+  /* Sits near the top-center of the main photo */
+  top: 13%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.8deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: "Cabin Sketch", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.97);
+  white-space: nowrap;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.85),
+    0 0 40px rgba(0, 0, 0, 0.5),
+    2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Callout tags — flanking the main photo card */
+.scribble-tag {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-family: "Architects Daughter", cursive;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  color: #ffffff;
+  max-width: 260px;
+  text-shadow:
+    0 1px 8px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Tag 1 — on the right side, arrow pointing left toward photo */
+.scribble-tag-1 {
+  top: 36%;
+  left: calc(50% + 355px);
+  transform: rotate(2.5deg);
+  /* arrow is on the LEFT side of the text, pointing left toward main */
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Tag 2 — on the left side, arrow pointing right toward main */
+.scribble-tag-2 {
+  top: 54%;
+  right: calc(50% + 355px);
+  transform: rotate(-2.2deg);
+  /* arrow is on the RIGHT side of the text, pointing right toward main */
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Opinion / vibe scrawl — across the BOTTOM of the main photo */
+.scribble-vibe {
+  top: 81%;
+  left: 50%;
+  transform: translateX(-50%) rotate(0.7deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: "Architects Daughter", cursive;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #ffffff;
+  max-width: 650px;
+  text-align: center;
+  text-shadow:
+    0 1px 10px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(0, 0, 0, 0.6);
+  line-height: 1.5;
+}
+
+/* ── Mobile ─ */
+@media (max-width: 640px) {
+  .spread-img {
+    width: 260px;
+  }
+
+  .scribble-title {
+    font-size: 1.3rem;
+    white-space: normal;
+    max-width: 80vw;
+    top: 28%;
+  }
+
+  .scribble-tag-1 {
+    right: 2%;
+    top: 35%;
+    max-width: 130px;
+    font-size: 0.78rem;
+  }
+
+  .scribble-tag-2 {
+    left: 2%;
+    max-width: 140px;
+    font-size: 0.8rem;
+  }
+
+  .scribble-vibe {
+    font-size: 0.78rem;
+    max-width: 90vw;
+    bottom: 3%;
+  }
+}
+
+/* =====================
+   GitHub Repo Link Button Styles (positioned below the Project Overlay card)
+   ===================== */
+.spread-repo-container {
+  position: absolute;
+  top: 74%; /* Placed in the area below the card and above the vibe annotation */
+  left: 0;
+  right: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+
+
+.spread-repo-btn {
+  pointer-events: auto;
+  /* Matches .theme-toggle-btn styling exactly */
+  background-color: #faf6ee;
+  border: 2px solid #3a2510;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-family: "Architects Daughter", cursive;
+  font-size: 1rem;
+  color: #3a2510;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 3px 3px 0px #3a2510;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.spread-repo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px #3a2510;
+}
+
+.spread-repo-btn:active {
+  transform: translateY(2px);
+  box-shadow: 1px 1px 0px #3a2510;
+}
+
+.repo-icon {
+  width: 18px;
+  height: 18px;
+  stroke: #3a2510;
+}
+
+/* =====================
+   Reduced Motion — Accessibility
+   ===================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -3,53 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weekly Nerd</title>
+    <title>Jelle Hotting</title>
+    <meta name="description" content="Weekly Nerd" />
+
+
     <link rel="stylesheet" href="style.css" />
-    <!-- Google Fonts -->
+
+    <!-- Google Fonts – gecombineerd in één request -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Architects+Daughter&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin+Sketch:wght@400;700&family=Caveat:wght@400..700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
     <!-- GSAP for smooth animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <!-- Google Model Viewer -->
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
     ></script>
+  </head>
   <body>
+    <!-- Theme Switcher Button -->
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Wissel van thema">
+      <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <span class="theme-toggle-text">Thema Wisselen</span>
+    </button>
 
     <main id="viewport">
 
       <section id="canvas-area">
         
         <!-- Decorations -->
-        <span class="eraser-smudge" aria-hidden="true" style="top: 400px; left: 1200px; width: 400px; height: 150px; transform: rotate(15deg);"></span>
-        <span class="eraser-smudge" aria-hidden="true" style="top: 2500px; left: 2200px; width: 500px; height: 200px; transform: rotate(-30deg);"></span>
+        <span class="eraser-smudge" aria-hidden="true" style="top: 340px; left: 1420px; width: 400px; height: 150px; transform: rotate(15deg);"></span>
+        <span class="eraser-smudge" aria-hidden="true" style="top: 3175px; left: 2770px; width: 500px; height: 200px; transform: rotate(-30deg);"></span>
         
-        <span class="graphite-smudge" aria-hidden="true" style="top: 700px; left: 900px; width: 250px; height: 100px; transform: rotate(45deg);"></span>
-        <span class="graphite-smudge" aria-hidden="true" style="top: 3000px; left: 1500px; width: 350px; height: 150px; transform: rotate(-15deg);"></span>
+        <span class="graphite-smudge" aria-hidden="true" style="top: 745px; left: 1015px; width: 250px; height: 100px; transform: rotate(45deg);"></span>
+        <span class="graphite-smudge" aria-hidden="true" style="top: 3850px; left: 1825px; width: 350px; height: 150px; transform: rotate(-15deg);"></span>
 
-          
+        <svg id="decorations-svg" viewBox="0 0 5000 5000" style="position: absolute; top: 0; left: 0; width: 5000px; height: 5000px; pointer-events: none; transform-style: preserve-3d; max-height: none;">
           <!-- Shaving 2 -->
-          <g transform="translate(2600, 2200) rotate(-60) scale(0.6)">
+          <g transform="translate(3310, 2770) rotate(-60) scale(0.6)">
             <path d="M 0 0 Q 20 -20, 40 0 Q 60 -20, 80 0 Q 100 -20, 120 0 Q 100 20, 80 0 Q 60 20, 40 0 Q 20 20, 0 0" fill="#e0ad6c" opacity="0.9"/>
             <path d="M 0 0 Q 20 20, 40 0 Q 60 20, 80 0 Q 100 20, 120 0 Q 100 25, 80 5 Q 60 25, 40 5 Q 20 25, 0 0" fill="#222" opacity="0.8"/>
             <path d="M 0 0 Q 20 -20, 40 0 Q 60 -20, 80 0 Q 100 -20, 120 0 Q 100 -25, 80 -5 Q 60 -25, 40 -5 Q 20 -25, 0 0" fill="#b02c20" opacity="0.9"/>
           </g>
 
           <!-- Graphite Dust / Crumbs -->
-          <circle cx="720" cy="880" r="3" fill="#222" opacity="0.7"/>
-          <circle cx="680" cy="920" r="2" fill="#222" opacity="0.6"/>
-          <circle cx="750" cy="950" r="4" fill="#222" opacity="0.8"/>
-          <circle cx="710" cy="980" r="1.5" fill="#222" opacity="0.5"/>
-          <circle cx="660" cy="890" r="2.5" fill="#222" opacity="0.7"/>
+          <g transform="translate(45, 122)">
+            <circle cx="720" cy="880" r="3" fill="#222" opacity="0.7"/>
+            <circle cx="680" cy="920" r="2" fill="#222" opacity="0.6"/>
+            <circle cx="750" cy="950" r="4" fill="#222" opacity="0.8"/>
+            <circle cx="710" cy="980" r="1.5" fill="#222" opacity="0.5"/>
+            <circle cx="660" cy="890" r="2.5" fill="#222" opacity="0.7"/>
+          </g>
 
-          <circle cx="2650" cy="2150" r="2" fill="#222" opacity="0.6"/>
-          <circle cx="2580" cy="2230" r="3" fill="#222" opacity="0.8"/>
-          <circle cx="2620" cy="2260" r="1.5" fill="#222" opacity="0.5"/>
-          <circle cx="2550" cy="2180" r="2.5" fill="#222" opacity="0.7"/>
+          <g transform="translate(710, 570)">
+            <circle cx="2650" cy="2150" r="2" fill="#222" opacity="0.6"/>
+            <circle cx="2580" cy="2230" r="3" fill="#222" opacity="0.8"/>
+            <circle cx="2620" cy="2260" r="1.5" fill="#222" opacity="0.5"/>
+            <circle cx="2550" cy="2180" r="2.5" fill="#222" opacity="0.7"/>
+          </g>
         </svg>
         
         <img src="assets/images/coffee-stain.png" alt="Coffee Stain" class="coffee-stain" />
@@ -63,42 +86,318 @@
 
         <!-- Paper Screenshots Layer -->
         <section id="paper-layer">
-          <figure class="paper-screenshot screenshot-1">
-            <a href="https://github.com/JelleHotting/API" target="_blank" style="text-decoration: none;">
+          <figure class="paper-screenshot screenshot-0 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/Weekly-Nerd">
+            <a href="#" style="text-decoration: none;">
+              <img src="assets/images/sprint0.png" alt="Sprint 0 Screenshot" />
+              <figcaption>
+                <h3 class="screenshot-title">Sprint 0</h3>
+                <p class="screenshot-desc">Opfrisser en creatieve vrijheid</p>
+              </figcaption>
+            </a>
+            <template class="blog-content-source">
+              <h2 class="blog-title">Sprint 0: De Opstart</h2>
+              <p class="blog-text">Sprint 0 was weer even een opfrisser van wat code ook alweer kon en deed en de vrijheid die je ermee hebt t.o.v. Figma.</p>
+              <h3 class="blog-subtitle">Nieuwe Inzichten</h3>
+              <ul class="blog-list">
+                <li>Code geeft een ongekende vorm van creatieve vrijheid die in statische design tools niet direct na te bootsen is.</li>
+                <li>Het direct vertalen van concepten naar werkende HTML en CSS dwingt je om na te denken over de interactieve aspecten van het web vanaf dag één.</li>
+              </ul>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Geweldig om meteen in code te beginnen in plaats van alleen maar in Figma te ontwerpen!</p>
+            </template>
+          </figure>
+
+          <figure class="paper-screenshot screenshot-1 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/API">
+            <a href="#" style="text-decoration: none;">
               <img src="assets/images/API.png" alt="API Blueprint Screenshot" />
               <figcaption>
                 <h3 class="screenshot-title">API</h3>
-                <p class="screenshot-desc">Een wereldkaart die huidig nieuws analyseert.</p>
+                <p class="screenshot-desc">Huidig nieuws & Serverside APIs</p>
               </figcaption>
             </a>
+            <template class="blog-content-source">
+              <h2 class="blog-title">API (Application Programming Interfaces)</h2>
+              <p class="blog-text">Bij dit vak heb ik veel geleerd over serverside APIs en hoe je op een veilige manier data opvraagt. Ook kwamen de AI APIs van Google Chrome aan bod. Overal heb ik mega veel geleerd van dit vak wat ik kan meenemen.</p>
+              <h3 class="blog-subtitle">Nieuwe Inzichten & Technieken</h3>
+              <ul class="blog-list">
+                <li>Veilig omgaan met API-sleutels via server-side endpoints (Astro & Render).</li>
+                <li>Gebruik van dynamic datafetching om real-time nieuws op een wereldkaart weer te geven.</li>
+                <li>Experimenteren met lokale AI-modellen in de browser via de ingebouwde Gemini-API in Google Chrome.</li>
+              </ul>
+              <h3 class="blog-subtitle">Code Snippet</h3>
+              <figure class="blog-code">
+                <pre><code>// Astro endpoint (src/pages/api/news.js)
+export const GET = async () => {
+  const response = await fetch(`https://newsapi.org/v2/top-headlines?apiKey=${import.meta.env.API_KEY}`);
+  const data = await response.json();
+  return new Response(JSON.stringify(data), {
+    status: 200,
+    headers: { "Content-Type": "application/json" }
+  });
+};</code></pre>
+              </figure>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Serverside APIs zijn essentieel, maar ik vond het experimenteren met de Chrome AI API het leukst!</p>
+              <p class="blog-text"><a href="https://github.com/JelleHotting/API" target="_blank" rel="noopener noreferrer">Bekijk dit project op GitHub</a></p>
+            </template>
           </figure>
-          <figure class="paper-screenshot screenshot-6">
-            <a href="https://github.com/JelleHotting/CSS-To-The-Rescue" target="_blank" style="text-decoration: none;">
+
+          <figure class="paper-screenshot screenshot-6 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/CSS-To-The-Rescue">
+            <a href="#" style="text-decoration: none;">
               <img src="assets/images/CSS.png" alt="CSS Project Screenshot" />
               <figcaption>
                 <h3 class="screenshot-title">CSS to the Rescue</h3>
-                <p class="screenshot-desc">Chernobyl volledig in CSS gemaakt</p>
+                <p class="screenshot-desc">Chernobyl controlepaneel in CSS</p>
               </figcaption>
             </a>
+            <template class="blog-content-source">
+              <h2 class="blog-title">CSS to the Rescue</h2>
+              <p class="blog-text">Bij dit vak heb ik zonder javascript een volledig functioneel controlepaneel gemaakt. De uitdaging hier was om javascript functionaliteit na te bootsen in CSS. Bij dit vak heb ik geleerd hoe ver CSS eigenlijk al is ontwikkeld.</p>
+              <h3 class="blog-subtitle">Technieken & Creatieve CSS</h3>
+              <ul class="blog-list">
+                <li>Gebruik van de <strong>checkbox hack</strong> (<code>:checked + label</code>) om interactieve states bij te houden zonder JS.</li>
+                <li>CSS custom properties (variabelen) om themakleuren en geanimeerde parameters te beheren.</li>
+                <li>Complex grid-architectuur en custom selectors om complexe dashboards vorm te geven.</li>
+              </ul>
+              <h3 class="blog-subtitle">Code Snippet</h3>
+              <figure class="blog-code">
+                <pre><code>/* State controleren met CSS checkboxes */
+#toggle-reactor:checked ~ .control-room {
+  background-color: #ff3333;
+  animation: alarm-pulse 1s infinite alternate;
+}</code></pre>
+              </figure>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> CSS is echt mega krachtig; JavaScript is vaak veel minder nodig dan je denkt voor UI-interacties.</p>
+              <p class="blog-text"><a href="https://github.com/JelleHotting/CSS-To-The-Rescue" target="_blank" rel="noopener noreferrer">Bekijk dit project op GitHub</a></p>
+            </template>
           </figure>
-          <figure class="paper-screenshot screenshot-7">
-            <a href="https://github.com/JelleHotting/Human-Centered-Design" target="_blank" style="text-decoration: none;">
+
+          <figure class="paper-screenshot screenshot-7 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/Human-Centered-Design">
+            <a href="#" style="text-decoration: none;">
               <img src="assets/images/HCD.png" alt="HCD Project Screenshot" />
               <figcaption>
                 <h3 class="screenshot-title">Human Centered Design</h3>
-                <p class="screenshot-desc">De screenreader voor Roger</p>
+                <p class="screenshot-desc">Screenreader-optimalisatie voor Roger</p>
               </figcaption>
             </a>
+            <template class="blog-content-source">
+              <h2 class="blog-title">Human Centered Design</h2>
+              <p class="blog-text">Bij dit vak heb ik vooral geleerd dat toegankelijkheid niet een lijstje is die je kan afwerken maar dat je het beste kan testen met de verschillende beperkingen die er zijn.</p>
+              <h3 class="blog-subtitle">Nieuwe Inzichten</h3>
+              <ul class="blog-list">
+                <li>Toegankelijkheid is een continu ontwerpproces, geen checklist achteraf.</li>
+                <li>Direct testen met screenreaders en toetsenbordnavigatie levert de meest waardevolle feedback op.</li>
+                <li>Het correct structureren van semantische HTML (koppen, lists, landmarks) is essentieel voor een fijne screenreader-ervaring.</li>
+              </ul>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Toegankelijkheid testen met echte gebruikers (zoals Roger) opent echt je ogen voor echte barrières.</p>
+              <p class="blog-text"><a href="https://github.com/JelleHotting/Human-Centered-Design" target="_blank" rel="noopener noreferrer">Bekijk dit project op GitHub</a></p>
+            </template>
           </figure>
-          <figure class="paper-screenshot screenshot-8">
-            <a href="https://github.com/JelleHotting/BrowserTechnology" target="_blank" style="text-decoration: none;">
+
+          <figure class="paper-screenshot screenshot-8 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/BrowserTechnology">
+            <a href="#" style="text-decoration: none;">
               <img src="assets/images/bt.png" alt="BT Project Screenshot" />
               <figcaption>
                 <h3 class="screenshot-title">Browser Technologies</h3>
-                <p class="screenshot-desc">NS Belastingformulier in de stijl van NS</p>
+                <p class="screenshot-desc">Robuust NS belastingformulier</p>
               </figcaption>
             </a>
+            <template class="blog-content-source">
+              <h2 class="blog-title">Browser Technologies</h2>
+              <p class="blog-text">Hier was het de opdracht om een zo robuust mogelijk formulier te maken met goeie errorhandeling en duidelijke feedback naar de gebruiker. Ik heb hier vooral geleerd hoe belangrijk het is om een formulier te maken die goed functioneert.</p>
+              <h3 class="blog-subtitle">Progressive Enhancement Principes</h3>
+              <ul class="blog-list">
+                <li><strong>HTML First:</strong> Zorg ervoor dat het formulier werkt, data verstuurt en fouten toont zónder dat JavaScript geladen is.</li>
+                <li><strong>CSS Enhancement:</strong> Verbeter de visuele feedback en foutmeldingen.</li>
+                <li><strong>JS Enhancement:</strong> Voeg inline feedback, validatie en animaties toe als extra laag.</li>
+              </ul>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Progressive enhancement is fantastisch voor robuustheid, al is het soms extra werk om te testen.</p>
+              <p class="blog-text"><a href="https://github.com/JelleHotting/BrowserTechnology" target="_blank" rel="noopener noreferrer">Bekijk dit project op GitHub</a></p>
+            </template>
           </figure>
+
+          <figure class="paper-screenshot screenshot-9 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/Weekly-Nerd">
+            <a href="#" style="text-decoration: none;">
+              <img src="assets/images/hackathon.png" alt="Hackathon Screenshot" />
+              <figcaption>
+                <h3 class="screenshot-title">Hackathon</h3>
+                <p class="screenshot-desc">Samenwerken & prototype bouwen</p>
+              </figcaption>
+            </a>
+            <template class="blog-content-source">
+              <h2 class="blog-title">De Hackathon</h2>
+              <p class="blog-text">Bij de hackathon was het belangrijk om binnen een korte tijd in groepsverband een werkend prototype neer te zetten. Ik heb hier dus vooral geleerd hoe belangrijk het is om goed samen te werken met je team en keuzes te maken samen.</p>
+              <h3 class="blog-subtitle">Mijn Inbreng & Nieuwe Inzichten</h3>
+              <ul class="blog-list">
+                <li>Snel en efficiënt keuzes maken als groep om binnen de krappe deadline een werkend product te presenteren.</li>
+                <li>Gebruik van Git branches om parallel aan elkaars code te bouwen zonder conflicten.</li>
+                <li>Focus op de core features: het bouwen van een Minimal Viable Product (MVP) is belangrijker dan perfectie op alle details.</li>
+              </ul>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> In een team werken onder tijdsdruk dwingt je echt om gefocust te blijven op de belangrijkste features.</p>
+            </template>
+          </figure>          <!-- The Notebook with Leerdoelen (3D Flipping Book) -->
+          <article class="paper-screenshot screenshot-10 notebook-container" id="notebook-container" tabindex="0" role="button" aria-label="Notitieboek: Mijn Leerdoelen (klik of druk op Enter om te openen en bladeren)">
+            <div class="notebook-book">
+              
+              <!-- Back Cover (stationary right backdrop) -->
+              <div class="notebook-cover-back">
+                <section class="notebook-sheet right-page page-3">
+                  <h3 class="notebook-subtitle" style="margin-top: 0;">3. Inclusieve Web Toegankelijkheid</h3>
+                  <p class="notebook-text">Ik wil leren hoe ik interfaces bouw die voor iedereen bruikbaar zijn, door diep in te zoomen op screenreader-support, toetsenbord-navigatie en het correcte gebruik van ARIA-labels.</p>
+                  <p class="notebook-text"><strong>Waarom?</strong> Toegankelijkheid is een fundamenteel recht; als ontwikkelaar heb ik de verantwoordelijkheid om niemand uit te sluiten.</p>
+                  <div class="notebook-footer">
+                    <p class="notebook-tag">Weekly Nerd 2026</p>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Flipping Sheet 1 (contains Page 1 on front, Page 2 on back) -->
+              <div class="notebook-flipping-sheet" id="notebook-sheet-1">
+                <!-- Page 1 (Leerdoel 1) - Front side -->
+                <div class="sheet-face sheet-front">
+                  <section class="notebook-sheet right-page page-1">
+                    <h3 class="notebook-subtitle" style="margin-top: 0;">1. Samenwerken met code</h3>
+                    <p class="notebook-text">Ik wil effectief samenwerken met Git (branches, pull requests en code reviews), zodat we veilig en duidelijk kunnen bouwen aan dezelfde codebase.</p>
+                    <p class="notebook-text"><strong>Waarom?</strong> Dit is een essentieel aspect van professionele softwareontwikkeling.</p>
+                  </section>
+                </div>
+                <!-- Page 2 (Leerdoel 2) - Back side -->
+                <div class="sheet-face sheet-back">
+                  <section class="notebook-sheet left-page page-2">
+                    <h3 class="notebook-subtitle" style="margin-top: 0;">2. CSS Animaties & Keyframes</h3>
+                    <p class="notebook-text">Ik wil complexe CSS animaties en keyframes kunnen ontwerpen, zodat ik interactieve, duidelijke micro-interacties en state-changes kan bouwen.</p>
+                    <p class="notebook-text"><strong>Waarom?</strong> Animaties verbeteren de gebruikerservaring en maken interfaces intuïtiever.</p>
+                  </section>
+                </div>
+              </div>
+
+              <!-- Front Cover (Flipped open leftwards) -->
+              <div class="notebook-cover-front">
+                <!-- Outer cover (shown when closed) -->
+                <div class="cover-front-outer">
+                  <div class="spiral-rings-left" aria-hidden="true"></div>
+                  <div class="cover-title-group">
+                    <h3 class="notebook-cover-title">NOTEBOOK</h3>
+                    <p class="notebook-cover-subtitle">MIJN LEERDOELEN</p>
+                  </div>
+                </div>
+                <!-- Inner cover (shows title page when open) -->
+                <div class="cover-front-inner">
+                  <section class="notebook-sheet left-page title-page">
+                    <div class="title-page-content" style="margin-top: 0;">
+                      <p class="notebook-text handwritten-intro">Dit zijn mijn persoonlijke leerdoelen voor de minor Web Design and Development 2026.</p>
+                      <p class="notebook-text handwritten-intro" style="margin-top: 20px;">Klik op de rechterbladzijde om te bladeren!</p>
+                    </div>
+                    <div class="notebook-footer">
+                      <p class="notebook-tag">Weekly Nerd 2026</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+
+              <!-- Spine Rings (shows in the middle when open) -->
+              <div class="notebook-spine-rings" aria-hidden="true"></div>
+
+              <!-- Close button (visible only when open) -->
+              <button id="close-notebook" class="notebook-close-button" aria-label="Sluit notitieboek">&times;</button>
+              
+            </div>
+          </article>
+
+          <figure class="paper-screenshot screenshot-11 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/Weekly-Nerd">
+            <a href="#" style="text-decoration: none;">
+              <img src="assets/images/meesterproef.png" alt="Meesterproef Screenshot" />
+              <figcaption>
+                <h3 class="screenshot-title">Meesterproef</h3>
+                <p class="screenshot-desc">Opdrachtgever & Reflectie</p>
+              </figcaption>
+            </a>
+            <template class="blog-content-source">
+              <h2 class="blog-title">De Meesterproef – Amsterdam Project Atlas</h2>
+              <p class="blog-text">Voor de Gemeente Amsterdam hebben we samen met Jean-Carlos, Joshua en Matthew een toegankelijke atlas gebouwd: een interactieve kaart waarmee bewoners Amsterdamse projecten in hun buurt kunnen ontdekken en filteren.</p>
+              <h3 class="blog-subtitle">Mijn inbreng</h3>
+              <p class="blog-text">In ons team pakte ik vanzelf een coördinerende rol — niet als "de baas", maar meer als degene die het overzicht bewaarde: wie werkt waaraan, wat moet er nog, wat blokkeert iemand? Dat voelde natuurlijk aan en het team werkte er goed mee.</p>
+              <h3 class="blog-subtitle">Grootste leermoment</h3>
+              <p class="blog-text">Pull requests. We hebben de hele meesterproef <strong>nooit een merge-conflict of PR-probleem gehad</strong>. Dat klinkt klein, maar dat is het resultaat van consequent branches maken, goede commit messages schrijven en elkaars code écht reviewen voordat je merget. Dat is iets wat ik nu altijd zo ga aanpakken.</p>
+              <h3 class="blog-subtitle">Leerdoelen in de praktijk</h3>
+              <ul class="blog-list">
+                <li><strong>Samenwerken met code:</strong> Git-workflow klopte van begin tot eind — branches, reviews, geen conflicten.</li>
+                <li><strong>CSS Animaties & Keyframes:</strong> Toegepast in de kaartinteracties en de filtercomponenten van de atlas.</li>
+                <li><strong>Inclusieve Toegankelijkheid:</strong> De atlas moest werken voor iedereen — ARIA-labels, semantische HTML en toetsenbordnavigatie zaten er van dag één in.</li>
+              </ul>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Alles wat ik geleerd heb kwam samen. Trots op hoe soepel de samenwerking liep en dat we iets gebouwd hebben dat echt werkt voor Amsterdammers.</p>
+            </template>
+          </figure>
+
+          <!-- The Reflections Notebook (3D Flipping Book) -->
+          <article class="paper-screenshot screenshot-12 notebook-container reflections-notebook-theme" id="reflections-notebook-container" tabindex="0" role="button" aria-label="Notitieboek: Meesterschap Gesprekken (klik of druk op Enter om te openen en bladeren)">
+            <div class="notebook-book">
+              
+              <!-- Back Cover (stationary right backdrop) -->
+              <div class="notebook-cover-back">
+                <section class="notebook-sheet right-page page-3">
+                  <h3 class="notebook-subtitle" style="margin-top: 0;">3. Gesprek 3: Reflectie (ca. 25 jun)</h3>
+                  <p class="notebook-text"><em>Dit gesprek moet nog plaatsvinden. De reflectie verschijnt hier na het gesprek.</em></p>
+                  <p class="notebook-text" style="margin-top: 20px;"><strong>Blik op de toekomst:</strong></p>
+                  <p class="notebook-text"><em>Nog in te vullen.</em></p>
+                  <div class="notebook-footer">
+                    <p class="notebook-tag">Weekly Nerd 2026</p>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Flipping Sheet 1 (contains Page 1 on front, Page 2 on back) -->
+              <div class="notebook-flipping-sheet" id="reflections-sheet-1">
+                <!-- Page 1 (Gesprek 1) - Front side -->
+                <div class="sheet-face sheet-front">
+                  <section class="notebook-sheet right-page page-1">
+                    <h3 class="notebook-subtitle" style="margin-top: 0;">1. Gesprek 1: Plannen (12 feb)</h3>
+                    <p class="notebook-text">Aan het begin van de minor wilde ik vooral leren hoe het is om aan grotere en meerdere code-projecten te werken. Ik had hiervoor wel wat code-ervaring, maar nog niet heel veel.</p>
+                    <p class="notebook-text" style="margin-top: 20px;"><strong>Blik op de toekomst:</strong></p>
+                    <p class="notebook-text">Mijn focus lag op het leren programmeren in teamverband en het ervaren van een gestructureerde workflow om samen aan één codebase te bouwen.</p>
+                  </section>
+                </div>
+                <!-- Page 2 (Gesprek 2) - Back side -->
+                <div class="sheet-face sheet-back">
+                  <section class="notebook-sheet left-page page-2">
+                    <h3 class="notebook-subtitle" style="margin-top: 0;">2. Gesprek 2: Leerdoelen (8 mei)</h3>
+                    <p class="notebook-text">Het samenwerken en onder druk presteren in een team ging me al heel goed af, bijvoorbeeld tijdens de hackathon. Waar ik toen nog erg tegenaan liep, was het oplossen van merge-conflicten in Git.</p>
+                    <p class="notebook-text" style="margin-top: 20px;"><strong>Blik op de toekomst:</strong></p>
+                    <p class="notebook-text">Ik wilde me richten op het beheersen van Git-tooling om conflicten zelfstandig te kunnen oplossen, zodat we tijdens de Meesterproef een soepele samenwerking konden garanderen.</p>
+                  </section>
+                </div>
+              </div>
+
+              <!-- Front Cover (Flipped open leftwards) -->
+              <div class="notebook-cover-front">
+                <!-- Outer cover (shown when closed) -->
+                <div class="cover-front-outer">
+                  <div class="spiral-rings-left" aria-hidden="true"></div>
+                  <div class="cover-title-group">
+                    <h3 class="notebook-cover-title">NOTEBOOK</h3>
+                    <p class="notebook-cover-subtitle">MEESTERSCHAP</p>
+                  </div>
+                </div>
+                <!-- Inner cover (shows title page when open) -->
+                <div class="cover-front-inner">
+                  <section class="notebook-sheet left-page title-page">
+                    <div class="title-page-content" style="margin-top: 0;">
+                      <p class="notebook-text handwritten-intro">Dit zijn mijn persoonlijke reflecties op de drie Meesterschap Gesprekken voor de minor Web Design and Development 2026.</p>
+                      <p class="notebook-text handwritten-intro" style="margin-top: 20px;">Klik op de rechterbladzijde om te bladeren!</p>
+                    </div>
+                    <div class="notebook-footer">
+                      <p class="notebook-tag">Weekly Nerd 2026</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+
+              <!-- Spine Rings (shows in the middle when open) -->
+              <div class="notebook-spine-rings" aria-hidden="true"></div>
+
+              <!-- Close button (visible only when open) -->
+              <button id="close-reflections-notebook" class="notebook-close-button" aria-label="Sluit notitieboek">&times;</button>
+              
+            </div>
+          </article>
         </section>
 
         <span class="glass-overlay" aria-hidden="true"></span>
@@ -108,466 +407,416 @@
           <p class="helptext">Gebruik je muis om over de pagina heen te gaan</p>
         </header>
 
-
-
-
-
-        <!-- <div class="glass-overlay"></div> -->
-
-
+        <!-- Models Layer -->
         <section id="models-layer">
-      <article class="interactive-model-wrapper pencil-wrapper" data-active-orbit="25deg 75deg 100%" data-default-orbit="45deg 75deg 105%">
-        <template class="blog-content-source">
-          <h2 class="blog-title">Conceptuele Uitleg</h2>
-          <p class="blog-text">Deze lezing behandelt de interne werking van webbrowsers en de geschiedenis van browserontwikkeling. Het begrijpen van hoe browsers HTML, CSS en JavaScript verwerken is cruciaal voor het optimaliseren van webpagina's en het voorkomen van performance problemen. De <strong>rendering engine</strong> en <strong>JavaScript engine</strong> zijn aparte componenten die elk hun eigen taak hebben in het verwerken van webpagina's.</p>
-          <p class="blog-text"><strong>Waarom is dit belangrijk?</strong> Verkeerd gebruik van scripts en CSS kan leiden tot geblokkeerde rendering en trage laadtijden. Door te begrijpen hoe browsers werken, kun je slimmere keuzes maken over waar je scripts plaatst en hoe je ze laadt.</p>
-
-          <h2 class="blog-title">Code Voorbeelden & Syntax</h2>
-          <h3 class="blog-subtitle">Script Loading Strategieën</h3>
-          <p class="blog-text">Browsers hebben verschillende manieren om JavaScript te laden zonder de HTML parsing te blokkeren:</p>
-          <figure class="blog-code">
-            <pre><code>&lt;!-- Async: laad het script parallel, voer uit zodra het klaar is --&gt;
-&lt;script async src="script.js"&gt;&lt;/script&gt;
-
-&lt;!-- Defer: laad parallel, maar voer pas uit na HTML parsing --&gt;
-&lt;script defer src="script.js"&gt;&lt;/script&gt;
-
-&lt;!-- Standaard: blokkeert HTML parsing tot script is uitgevoerd --&gt;
-&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
-          </figure>
-          <p class="blog-text"><strong>Defer</strong> is meestal de veiligste keuze voor scripts die de DOM manipuleren. De oude truc was om scripts onderaan de pagina te plaatsen, wat nog steeds werkt.</p>
-
-          <h3 class="blog-subtitle">Legacy HTML Features (nog steeds werkend)</h3>
-          <p class="blog-text">Door <strong>backward compatibility</strong> werken oude HTML features nog steeds in moderne browsers:</p>
-          <figure class="blog-code">
-            <pre><code>&lt;!-- Document.all - werkt nog steeds maar gebruik het niet --&gt;
-&lt;script&gt;
-  // Gebruik querySelector in plaats daarvan
-  const element = document.querySelector('.classname');
-&lt;/script&gt;
-
-&lt;!-- Forms collecties --&gt;
-&lt;form name="myForm"&gt;
-  &lt;input name="username" type="text"&gt;
-&lt;/form&gt;
-
-&lt;script&gt;
-  // Legacy manier (werkt nog steeds)
-  document.forms.myForm.elements.username.value;
-  
-  // Moderne manier (gebruik deze)
-  document.querySelector('form[name="myForm"] input[name="username"]').value;
-&lt;/script&gt;</code></pre>
-          </figure>
-
-          <h3 class="blog-subtitle">Quirks Mode vs Standards Mode</h3>
-          <p class="blog-text">Het <strong>doctype</strong> bepaalt welke rendering mode de browser gebruikt:</p>
-          <figure class="blog-code">
-            <pre><code>&lt;!-- MET doctype: Standards Mode (gebruik dit altijd) --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Moderne pagina&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;!-- Content --&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-
-&lt;!-- ZONDER doctype: Quirks Mode (gebruik NOOIT) --&gt;
-&lt;html&gt;
-  &lt;body&gt;
-    &lt;!-- Dit triggert Internet Explorer 6 CSS compatibiliteit --&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-          </figure>
-
-          <h2 class="blog-title">Best Practices & Tips</h2>
-          <h3 class="blog-subtitle">✅ Do's</h3>
-          <ul class="blog-list">
-            <li><strong>Gebruik altijd een doctype</strong> om quirks mode te vermijden</li>
-            <li><strong>Plaats scripts onderaan</strong> of gebruik <code>defer</code> om HTML parsing niet te blokkeren</li>
-            <li><strong>Hou layout berekeningen simpel</strong> - complexe layouts zijn duur voor de browser</li>
-            <li><strong>Gebruik media queries en container queries</strong> om layout van tevoren te bepalen</li>
-            <li><strong>Begrijp rendering engines</strong> - Chromium/Blink wordt gebruikt door Chrome, Edge, Vivaldi, Opera en meer</li>
-          </ul>
-
-          <h3 class="blog-subtitle">❌ Don'ts</h3>
-          <ul class="blog-list">
-            <li><strong>Geen scripts in de &lt;head&gt; zonder defer/async</strong> - dit blokkeert de hele pagina</li>
-            <li><strong>Vermijd layout thrashing</strong> - wijzig layout niet tijdens rendering</li>
-            <li><strong>Geen quirks mode</strong> - vergeet nooit je doctype</li>
-            <li><strong>Gebruik geen legacy features</strong> zoals <code>document.all</code>, <code>&lt;blink&gt;</code>, <code>&lt;marquee&gt;</code> en <code>&lt;frameset&gt;</code></li>
-          </ul>
-
-          <h3 class="blog-subtitle">Browser Geschiedenis & Engines</h3>
-          <p class="blog-text"><strong>Belangrijke momenten:</strong></p>
-          <ul class="blog-list">
-            <li><strong>Tim Berners-Lee</strong> ontwikkelde de eerste browser (1990)</li>
-            <li><strong>Mosaic</strong> (1993) was de eerste user-friendly browser en introduceerde de <code>&lt;img&gt;</code> tag</li>
-            <li><strong>Internet Explorer</strong> was de eerste browser op macOS</li>
-            <li><strong>Konqueror</strong> (Linux) werd de basis voor <strong>Safari</strong> via WebKit</li>
-            <li><strong>WebKit</strong> werd later geforkt door Google naar <strong>Blink</strong></li>
-          </ul>
-          <p class="blog-text"><strong>Moderne rendering engines:</strong></p>
-          <ul class="blog-list">
-            <li><strong>Blink</strong> (Chromium): Chrome, Edge, Opera, Vivaldi, Brave</li>
-            <li><strong>WebKit</strong>: Safari</li>
-            <li><strong>Gecko</strong>: Firefox</li>
-          </ul>
-          <p class="blog-text"><strong>Nieuwe browsers in ontwikkeling:</strong></p>
-          <ul class="blog-list">
-            <li><strong>Flow</strong> en <strong>Ladybird</strong> - onafhankelijke browsers die niet gebaseerd zijn op bestaande engines</li>
-          </ul>
-
-          <h3 class="blog-subtitle">Browser Architectuur</h3>
-          <p class="blog-text"><strong>Belangrijke componenten:</strong></p>
-          <ul class="blog-list">
-            <li><strong>Rendering engine</strong> - verwerkt HTML, CSS en het DOM</li>
-            <li><strong>JavaScript engine</strong> - interpreteert JavaScript code (volledig gescheiden)</li>
-            <li><strong>Parser</strong> - leest HTML/CSS/JS streams en vertaalt naar browser instructies</li>
-            <li><strong>Layout engine</strong> - berekent hoe elementen op het scherm moeten worden weergegeven</li>
-          </ul>
-          <p class="blog-text"><strong>Toegankelijkheid:</strong></p>
-          <ul class="blog-list">
-            <li><strong>AOM</strong> (Accessibility Object Model) - maakt webpaginas toegankelijk voor assistive technologies</li>
-          </ul>
-        </template>
-        <model-viewer
-          class="interactive-model"
-          data-src="assets/models/pencil.glb"
-        
-          loading="lazy"
-          environment-image="neutral"
-          shadow-intensity="0"
-          minimum-render-scale="0.5"
-          maximum-render-scale="1"
-          alt="3D Potlood"
-          camera-orbit="45deg 75deg 105%"
-          interaction-prompt="none"
-        >
-        </model-viewer>
-      </article>
-
-      <article class="interactive-model-wrapper compass-wrapper" data-active-orbit="100deg 0deg 90%" data-default-orbit="0deg 75deg 105%">
-        <template class="blog-content-source">
-          <h2 class="blog-title">Conceptuele Uitleg</h2>
-          <p class="blog-text">Deze lezing gaat over het overbruggen van de kloof tussen creatieve coding en praktische webontwikkeling. De spreker (Nils van Nine Elements) betoogt dat moderne tools zoals Figma, Tailwind en AI ervoor hebben gezorgd dat we steeds sneller dezelfde saaie layouts kunnen bouwen, maar dat CSS veel meer mogelijkheden biedt dan wat in Figma mogelijk is. Het doel is om te laten zien hoe je met moderne CSS-technieken creatieve, unieke websites kunt bouwen die zich onderscheiden van de standaard "hero + three boxes + CTA + footer" layouts.</p>
-          <p class="blog-text"><strong>Waarom is dit belangrijk?</strong> Tools zoals Figma zijn ontworpen met development in gedachten (auto layout werkt zoals Flexbox, box shadows matchen CSS syntax), maar hebben ons niet creatiever gemaakt—alleen sneller. Er is meer mogelijk op het web dan in Figma.</p>
-
-          <h2 class="blog-title">Code Voorbeelden & Syntax</h2>
-          <h3 class="blog-subtitle">Grid Layout met FR Units voor White Space Distributie</h3>
-          <p class="blog-text">Het <strong>FR (fraction) unit</strong> verdeelt beschikbare ruimte proportioneel.</p>
-          <figure class="blog-code">
-            <pre><code>.container {
+          <!-- Model 1: Nils - CSS & Creativiteit -->
+          <article class="interactive-model-wrapper ruler-wrapper" tabindex="0" role="button" aria-label="3D model Metalen Liniaal: Nils - CSS & Creativiteit (klik of druk op Enter om te openen)" data-active-orbit="70deg 0deg 100%" data-default-orbit="90deg 0deg 105%">
+            <template class="blog-content-source">
+              <h2 class="blog-title">Nils (Nine Elements) - CSS & Creativiteit</h2>
+              <p class="blog-text">Nils van Nine Elements betoogt dat moderne tools zoals Figma en Tailwind ervoor hebben gezorgd dat we snel dezelfde lay-outs bouwen, maar dat CSS veel meer kan. Het doel is om met moderne CSS-technieken creatieve, unieke websites te bouwen.</p>
+              <h3 class="blog-subtitle">Grid met FR units & Steps Animaties</h3>
+              <figure class="blog-code">
+                <pre><code>/* Grid met FR units */
+.container {
   display: grid;
   grid-template-columns: 2fr 3fr auto 1fr;
-  /* 2fr, 3fr, 1fr verdelen beschikbare ruimte in ratio 2:3:1 */
-  /* auto neemt alleen de ruimte die nodig is voor content */
 }
 
-.headline {
-  grid-column: 2 / 4; /* Start op kolom 2, eindigt voor kolom 4 */
-}
-
-.paragraph {
-  grid-column: 3 / 4;
-  max-width: 65ch; /* Geeft de auto-kolom een breedte */
-}</code></pre>
-          </figure>
-          <p class="blog-text">Dit zorgt voor dynamische layouts waarbij white space automatisch wordt verdeeld wanneer er ruimte beschikbaar is.</p>
-
-          <h3 class="blog-subtitle">Steps Animation voor Flipbook Effecten</h3>
-          <p class="blog-text">In plaats van video's kun je een image strip gebruiken met <strong>steps()</strong> timing function.</p>
-          <figure class="blog-code">
-            <pre><code>.keyvisual {
-  background-image: url('sprite-strip-32-frames.png');
-  background-size: 3200% 100%; /* 32 frames naast elkaar */
+/* Steps animatie */
+.keyvisual {
   animation: stop-motion 3s steps(31, end) infinite;
-  /* 31 steps voor 32 frames (eerste frame = stap 0) */
-}
-
-@keyframes stop-motion {
-  from {
-    background-position: 0% 100%;
-  }
-  to {
-    background-position: 100% 100%;
-  }
 }</code></pre>
-          </figure>
-          <p class="blog-text"><strong>Steps()</strong> zorgt ervoor dat de animatie niet smooth overgaat maar in discrete stappen springt, waardoor je een flipbook-effect krijgt zonder video te gebruiken.</p>
+              </figure>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> FR-units zijn geweldig voor asymmetrische grids zonder dat het breekt, en steps() voor stop-motion effecten is erg tof.</p>
+            </template>
+            <model-viewer
+              class="interactive-model"
+              data-src="assets/models/metal_ruler.glb"
+              loading="lazy"
+              environment-image="neutral"
+              shadow-intensity="0"
+              minimum-render-scale="0.5"
+              maximum-render-scale="1"
+              alt="3D Metalen Liniaal"
+              camera-orbit="90deg 0deg 105%"
+              interaction-prompt="none"
+            ></model-viewer>
+          </article>
 
-          <h3 class="blog-subtitle">Subgrid voor Multi-Stage Timetables</h3>
-          <p class="blog-text"><strong>Subgrid</strong> laat child elements de grid tracks van hun parent hergebruiken.</p>
-          <figure class="blog-code">
-            <pre><code>.timetable-body {
-  display: grid;
-  grid-template-rows: repeat(288, 1fr); 
-  /* 24 uur × 12 rows = 288 (elk row = 5 minuten) */
-}
+          <!-- Model 2: Manuel - Toegankelijkheid -->
+          <article class="interactive-model-wrapper sunglasses-wrapper" tabindex="0" role="button" aria-label="3D model Zonnebril: Manuel - Toegankelijkheid (klik of druk op Enter om te openen)" data-active-orbit="45deg 75deg 90%" data-default-orbit="0deg 75deg 105%">
+            <template class="blog-content-source">
+              <h2 class="blog-title">Manuel (Bol.com) - Toegankelijkheid</h2>
+              <p class="blog-text">Toegankelijkheid is geen afvinklijstje; praten met de doelgroep is essentieel. Manuel toonde aan hoe vermoeiend een slecht gestructureerde site is voor screenreader-gebruikers.</p>
+              <h3 class="blog-subtitle">Informatieve vs Decoratieve Afbeeldingen</h3>
+              <p class="blog-text">Gebruik duidelijke alt-teksten voor informatieve afbeeldingen, of laat ze leeg voor decoratieve afbeeldingen om screenreaders niet onnodig te belasten:</p>
+              <figure class="blog-code">
+                <pre><code>&lt;!-- Informatief --&gt;
+&lt;img src="product.jpg" alt="Zwarte laptop"&gt;
 
-.stage {
-  display: grid;
-  grid-template-rows: subgrid; /* Hergebruikt parent rows */
-  grid-row: 1 / -1; /* Stretch over alle rows */
-}
+&lt;!-- Decoratief --&gt;
+&lt;img src="line.svg" alt=""&gt;</code></pre>
+              </figure>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Gebruikerstests met mensen die écht een beperking hebben zijn essentieel. Als persoon zonder beperking kun je je simpelweg niet inleven in hoe zij het web ervaren; richtlijnen alleen zijn dus niet genoeg.</p>
+            </template>
+            <model-viewer
+              class="interactive-model"
+              data-src="assets/models/green_round_sunglasses.glb"
+              loading="lazy"
+              environment-image="neutral"
+              shadow-intensity="0"
+              minimum-render-scale="0.5"
+              maximum-render-scale="1"
+              alt="3D Zonnebril"
+              camera-orbit="0deg 75deg 105%"
+              interaction-prompt="none"
+            ></model-viewer>
+          </article>
 
-.session {
-  /* Gebruik custom properties voor start/end tijden */
-  --start: 144; /* 12:00 = row 144 */
-  --end: 180;   /* 15:00 = row 180 */
-  grid-row: var(--start) / var(--end);
+          <!-- Model 3: Hacker Filosofie -->
+          <article class="interactive-model-wrapper magnify-wrapper" tabindex="0" role="button" aria-label="3D model Loep: Rosa Lommen - Hacker Filosofie (klik of druk op Enter om te openen)" data-active-orbit="45deg 75deg 100%" data-default-orbit="0deg 0deg 105%">
+            <template class="blog-content-source">
+              <h2 class="blog-title">Rosa Lommen – Hacker Filosofie & Zelf hosten</h2>
+              <p class="blog-text">Rosa Lommen sprak over onafhankelijkheid van Big Tech en het belang van controle hebben over je eigen data. Zelf hosten van een static site geeft je de macht terug over je eigen code en privacy.</p>
+              <h3 class="blog-subtitle">Prefers Reduced Motion</h3>
+              <p class="blog-text">Respecteer de instellingen van de gebruiker door animaties uit te schakelen als deze hinder kunnen veroorzaken:</p>
+              <figure class="blog-code">
+                <pre><code>@media (prefers-reduced-motion: reduce) {
+  .header-logo { animation: none; }
 }</code></pre>
-          </figure>
-          <p class="blog-text">Voordeel: wanneer één sessie groter wordt (meer tekst), groeien alle parallelle tracks mee.</p>
+              </figure>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Ik vind niet dat we per se onafhankelijk moeten worden van Big Tech. Het gemak van platformen zoals GitHub en Vercel is simpelweg te groot en het is prima zoals het nu is.</p>
+            </template>
+            <model-viewer
+              class="interactive-model"
+              data-src="assets/models/magnify.glb"
+              loading="lazy"
+              environment-image="neutral"
+              shadow-intensity="0"
+              minimum-render-scale="0.5"
+              maximum-render-scale="1"
+              alt="3D Loep"
+              camera-orbit="0deg 0deg 105%"
+              interaction-prompt="none"
+            ></model-viewer>
+          </article>
 
-          <h3 class="blog-subtitle">Sticky Elements in Horizontale Scroll Container</h3>
-          <figure class="blog-code">
-            <pre><code>.timetable-body {
-  overflow-x: auto;
-  overflow-y: visible;
-}
+          <!-- Model 4: UX of Forms -->
+          <article class="interactive-model-wrapper pencil-wrapper" tabindex="0" role="button" aria-label="3D model Potlood: Robbert Broersma - UX van Formulieren (klik of druk op Enter om te openen)" data-active-orbit="25deg 75deg 100%" data-default-orbit="45deg 75deg 105%">
+            <template class="blog-content-source">
+              <h2 class="blog-title">Robbert Broersma – UX van Formulieren</h2>
+              <p class="blog-text">Robbert Broersma legde uit hoe je formulieren zo makkelijk mogelijk maakt, autocomplete gebruikt en uitleegt waarom je specifieke gegevens nodig hebt om conversie en toegankelijkheid te verhogen.</p>
+              <h3 class="blog-subtitle">Formulier Toegankelijkheid</h3>
+              <figure class="blog-code">
+                <pre><code>&lt;div class="form-field"&gt;
+  &lt;label for="name"&gt;Naam *&lt;/label&gt;
+  &lt;p id="name-help"&gt;Vul je volledige naam in&lt;/p&gt;
+  &lt;input id="name" aria-describedby="name-help" required&gt;
+&lt;/div&gt;</code></pre>
+              </figure>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Mijn grootste frustratie is wanneer je niet fatsoenlijk door een formulier heen kunt tabben, wat bij kleinere websites helaas nog vaak het geval is. Toegankelijke keyboardnavigatie is een absolute must.</p>
+            </template>
+            <model-viewer
+              class="interactive-model"
+              data-src="assets/models/pencil.glb"
+              loading="lazy"
+              environment-image="neutral"
+              shadow-intensity="0"
+              minimum-render-scale="0.5"
+              maximum-render-scale="1"
+              alt="3D Potlood"
+              camera-orbit="45deg 75deg 105%"
+              interaction-prompt="none"
+            ></model-viewer>
+          </article>
 
-.hour-indicator {
-  position: sticky;
-  left: 0; /* Sticky binnen horizontal scroll container */
-}</code></pre>
-          </figure>
-          <p class="blog-text">Voor verticale sticky headers buiten de scroll container gebruik je een <strong>fake element</strong> met scroll-driven animation.</p>
-          <figure class="blog-code">
-            <pre><code>.timetable-head {
-  position: sticky;
-  top: 0;
-  animation: slide linear;
-  animation-timeline: scroll(x); /* Gekoppeld aan horizontale scroll */
-}
-
-@keyframes slide {
-  from { transform: translateX(0); }
-  to { transform: translateX(var(--scroll-distance)); }
-}</code></pre>
-          </figure>
-
-          <h3 class="blog-subtitle">First-Line Selector voor Outline Effect</h3>
-          <figure class="blog-code">
-            <pre><code>p::first-line {
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-decoration: underline;
-  /* Of gebruik outline text effect */
-  -webkit-text-stroke: 1px black;
-  -webkit-text-fill-color: transparent;
-}</code></pre>
-          </figure>
-          <p class="blog-text">De <strong>::first-line</strong> pseudo-element past styling toe op alleen de eerste regel van een tekstblok. Dit past dynamisch aan bij viewport changes.</p>
-
-          <h3 class="blog-subtitle">View Transitions voor Page Navigatie</h3>
-          <figure class="blog-code">
-            <pre><code>/* Geef elementen een view-transition-name */
-.logo {
-  view-transition-name: site-logo;
-}
-
-.page-indicator {
-  view-transition-name: nav-indicator;
-}</code></pre>
-          </figure>
-          <p class="blog-text">Wanneer je navigeert naar een nieuwe pagina met dezelfde <strong>view-transition-name</strong>, animeert de browser automatisch tussen de twee posities. Werkt als "Smart Animate" in Figma.</p>
-
-          <h3 class="blog-subtitle">Blend Modes voor Kleur Inversie</h3>
-          <figure class="blog-code">
-            <pre><code>.keyvisual {
-  background-image: url('black-white-image.png');
-  mix-blend-mode: difference; /* Inverteert achtergrondkleuren */
-}</code></pre>
-          </figure>
-          <p class="blog-text">Een zwart-wit image met <strong>blend mode difference</strong> inverteert de kleuren van de achtergrond, waardoor je verschillende kleureffecten krijgt op verschillende achtergronden zonder meerdere assets.</p>
-
-          <h2 class="blog-title">Best Practices & Tips</h2>
-          <h3 class="blog-subtitle">✅ Do's</h3>
-          <ul class="blog-list">
-            <li><strong>Denk in ratio's, niet in pixels:</strong> Kijk naar verhoudingen tussen elementen (1:2:3) in plaats van exacte pixel waarden</li>
-            <li><strong>Gebruik FR units voor white space:</strong> Perfect voor asymmetrische layouts waar lege kolommen dynamisch moeten schalen</li>
-            <li><strong>Steps() voor animations:</strong> Bespaar bandbreedte door image strips te gebruiken in plaats van video's</li>
-            <li><strong>Subgrid voor complexe layouts:</strong> Wanneer child elements moeten alignen met parent grid tracks</li>
-            <li><strong>First-line selector:</strong> Voor typografische effecten die alleen de eerste regel stylen</li>
-            <li><strong>View transitions:</strong> Voor smooth page navigaties zonder JavaScript frameworks</li>
-          </ul>
-
-          <h3 class="blog-subtitle">❌ Don'ts</h3>
-          <ul class="blog-list">
-            <li><strong>Geen video's als je het kan vermijden:</strong> Image strips met steps() zijn lichter en flexibeler</li>
-            <li><strong>Niet alles centreren:</strong> Asymmetrische layouts met FR units zijn interessanter</li>
-            <li><strong>Niet alles aan AI overlaten:</strong> AI repliceert alleen bestaande patronen, geen creatieve layouts</li>
-          </ul>
-
-          <h3 class="blog-subtitle">Toegankelijkheid & Browser Support</h3>
-          <ul class="blog-list">
-            <li><strong>Sticky positioning</strong> werkt alleen binnen scroll containers, niet cross-container</li>
-            <li><strong>Subgrid</strong> heeft goede browser support (check <a href="https://caniuse.com" target="_blank" rel="noopener noreferrer">caniuse.com</a>)</li>
-            <li><strong>View transitions</strong> zijn relatief nieuw, gebruik progressive enhancement</li>
-          </ul></p>
-        </template>
-        <model-viewer
-          class="interactive-model"
-          data-src="assets/models/compass.glb"
-        
-          loading="lazy"
-          environment-image="neutral"
-          shadow-intensity="0"
-          minimum-render-scale="0.5"
-          maximum-render-scale="1"
-          alt="3D Passer"
-          camera-orbit="0deg 75deg 105%"
-          interaction-prompt="none"
-        >
-        </model-viewer>
-      </article>
-      <article class="interactive-model-wrapper magnify-wrapper" data-active-orbit="45deg 75deg 100%" data-default-orbit="0deg 0deg 105%">
-        <template class="blog-content-source">
-          <h2 class="blog-title">Peter Paul Koch - Browser Architectuur en Geschiedenis</h2>
-          
-          <h2 class="blog-title">Conceptuele Uitleg</h2>
-          <p class="blog-text">Deze lezing behandelt de interne werking van webbrowsers en de geschiedenis van browserontwikkeling. Het begrijpen van hoe browsers HTML, CSS en JavaScript verwerken is cruciaal voor het optimaliseren van webpagina's en het voorkomen van performance problemen. De <strong>rendering engine</strong> en <strong>JavaScript engine</strong> zijn aparte componenten die elk hun eigen taak hebben in het verwerken van webpagina's.</p>
-          <p class="blog-text"><strong>Waarom is dit belangrijk?</strong> Verkeerd gebruik van scripts en CSS kan leiden tot geblokkeerde rendering en trage laadtijden. Door te begrijpen hoe browsers werken, kun je slimmere keuzes maken over waar je scripts plaatst en hoe je ze laadt.</p>
-
-          <h2 class="blog-title">Code Voorbeelden & Syntax</h2>
-          <h3 class="blog-subtitle">Script Loading Strategieën</h3>
-          <p class="blog-text">Browsers hebben verschillende manieren om JavaScript te laden zonder de HTML parsing te blokkeren:</p>
-          <figure class="blog-code">
-            <pre><code>&lt;!-- Async: laad het script parallel, voer uit zodra het klaar is --&gt;
-&lt;script async src="script.js"&gt;&lt;/script&gt;
-
-&lt;!-- Defer: laad parallel, maar voer pas uit na HTML parsing --&gt;
+          <!-- Model 5: Browser-techniek & Geschiedenis -->
+          <article class="interactive-model-wrapper compass-wrapper" tabindex="0" role="button" aria-label="3D model Passer: Peter Paul Koch - Browser Architectuur (klik of druk op Enter om te openen)" data-active-orbit="100deg 0deg 90%" data-default-orbit="0deg 75deg 105%">
+            <template class="blog-content-source">
+              <h2 class="blog-title">Peter Paul Koch – Browser Architectuur & Geschiedenis</h2>
+              <p class="blog-text">Peter Paul Koch (PPK) besprak de geschiedenis van browser engines en hoe ze HTML, CSS en JS verwerken. De <strong>rendering engine</strong> (Blink, WebKit, Gecko) berekent hoe elementen op het scherm worden getoond, terwijl de JS engine code interpreteert.</p>
+              <h3 class="blog-subtitle">Script laadstrategieën</h3>
+              <figure class="blog-code">
+                <pre><code>&lt;script async src="script.js"&gt;&lt;/script&gt;
 &lt;script defer src="script.js"&gt;&lt;/script&gt;
+&lt;!DOCTYPE html&gt;</code></pre>
+              </figure>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Veel developers weten te weinig over hoe verschillende browsers onder de motorkap werken en hoe code bijvoorbeeld in Firefox anders kan renderen dan in Chrome. We moeten meer aandacht besteden aan cross-browser compatibiliteit en performance.</p>
+            </template>
+            <model-viewer
+              class="interactive-model"
+              data-src="assets/models/compass.glb"
+              loading="lazy"
+              environment-image="neutral"
+              shadow-intensity="0"
+              minimum-render-scale="0.5"
+              maximum-render-scale="1"
+              alt="3D Passer"
+              camera-orbit="0deg 75deg 105%"
+              interaction-prompt="none"
+            ></model-viewer>
+          </article>
 
-&lt;!-- Standaard: blokkeert HTML parsing tot script is uitgevoerd --&gt;
-&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
-          </figure>
-          <p class="blog-text"><strong>Defer</strong> is meestal de veiligste keuze voor scripts die de DOM manipuleren. De oude truc was om scripts onderaan de pagina te plaatsen, wat nog steeds werkt.</p>
+          <!-- Model 6: Privacy & AVG -->
+          <article class="interactive-model-wrapper padlock-wrapper" tabindex="0" role="button" aria-label="3D model Hangslot: Hans de Zwart - Privacy & AVG (klik of druk op Enter om te openen)" data-active-orbit="45deg 75deg 100%" data-default-orbit="0deg 0deg 105%">
+            <template class="blog-content-source">
+              <h2 class="blog-title">Hans de Zwart – Privacy & AVG (GDPR)</h2>
+              <p class="blog-text">Hans de Zwart legt uit dat privacy draait om <strong>contextuele integriteit</strong>: er worden geen onverwachte dingen gedeeld met onverwachte partijen.</p>
+              <h3 class="blog-subtitle">AVG Rechtsgrondslagen</h3>
+              <p class="blog-text">Belangrijke grondslagen onder de AVG:</p>
+              <ul class="blog-list">
+                <li><strong>Toestemming:</strong> Altijd toestemming vragen aan de gebruiker.</li>
+                <li><strong>Noodzakelijkheid:</strong> Gegevens die nodig zijn voor het leveren van een dienst.</li>
+                <li><strong>Gerechtvaardigd belang:</strong> Doelbinding respecteren (bijv. data niet zomaar doorverkopen).</li>
+              </ul>
+              <h3 class="blog-subtitle">Technische Oplossingen</h3>
+              <ul class="blog-list">
+                <li><strong>Hashes:</strong> Eenrichtingsversleuteling van persoonsgegevens.</li>
+                <li><strong>Blind signatures:</strong> Cryptografische handtekeningen waarbij de inhoud niet zichtbaar is voor de ondertekenaar.</li>
+              </ul>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Hoewel de AVG een goed initiatief is en de EU privacy serieus neemt, ligt de echte verantwoordelijkheid bij ons als developers om al bij het ontwerpen 'privacy by design' toe te passen.</p>
+            </template>
+            <model-viewer
+              class="interactive-model"
+              data-src="assets/models/padlock.glb"
+              loading="lazy"
+              environment-image="neutral"
+              shadow-intensity="0"
+              minimum-render-scale="0.5"
+              maximum-render-scale="1"
+              alt="3D Hangslot"
+              camera-orbit="0deg 0deg 105%"
+              interaction-prompt="none"
+            ></model-viewer>
+          </article>
 
-          <h3 class="blog-subtitle">Legacy HTML Features (nog steeds werkend)</h3>
-          <p class="blog-text">Door <strong>backward compatibility</strong> werken oude HTML features nog steeds in moderne browsers:</p>
-          <figure class="blog-code">
-            <pre><code>&lt;!-- Document.all - werkt nog steeds maar gebruik het niet --&gt;
-&lt;script&gt;
-  // Gebruik querySelector in plaats daarvan
-  const element = document.querySelector('.classname');
-&lt;/script&gt;
+          <!-- Model 7: Design Systems -->
+          <article class="interactive-model-wrapper lego-wrapper" tabindex="0" role="button" aria-label="3D model Lego Blokje: Q42 - Design Systems (klik of druk op Enter om te openen)" data-active-orbit="45deg 45deg 100%" data-default-orbit="0deg 0deg 105%">
+            <template class="blog-content-source">
+              <h2 class="blog-title">Q42 – Design Systems & Figma Tokens</h2>
+              <p class="blog-text">Het maturity level framework van Q42 evalueert Figma-bestanden en design tokens om consistentie te garanderen tussen design en development.</p>
+              <h3 class="blog-subtitle">Design Tokens (CSS)</h3>
+              <figure class="blog-code">
+                <pre><code>:root {
+  --color-primary: #0066cc;
+  --spacing-sm: 16px;
+  --font-size-body: 16px;
+}</code></pre>
+              </figure>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Ik geloof dat AI een grote rol kan spelen bij het snel en slim opzetten van een geautomatiseerd design system. Dit is zeker een workflow die ik in mijn eigen projecten wil gaan toepassen.</p>
+            </template>
+            <model-viewer
+              class="interactive-model"
+              data-src="assets/models/lego_brick.glb"
+              loading="lazy"
+              environment-image="neutral"
+              shadow-intensity="0"
+              minimum-render-scale="0.5"
+              maximum-render-scale="1"
+              alt="3D Lego Blokje"
+              camera-orbit="0deg 0deg 105%"
+              interaction-prompt="none"
+            ></model-viewer>
+          </article>
 
-&lt;!-- Forms collecties --&gt;
-&lt;form name="myForm"&gt;
-  &lt;input name="username" type="text"&gt;
-&lt;/form&gt;
+          <!-- Model 8: Offline First & NL Design System -->
+          <article class="interactive-model-wrapper plane-wrapper" tabindex="0" role="button" aria-label="3D model Papieren Vliegtuigje: Offline First & NL Design System (klik of druk op Enter om te openen)" data-active-orbit="0deg 10deg 95%" data-default-orbit="50deg 75deg 105%">
+            <template class="blog-content-source">
+              <h2 class="blog-title">Offline First & NL Design System</h2>
+              <h3 class="blog-subtitle">Offline First (Justus Sturkenboom)</h3>
+              <p class="blog-text">Zorg dat je website functioneel blijft, zelfs als de verbinding wegvalt (bijv. in een lift). Dit kan door middel van PWAs en <code>localStorage</code>.</p>
+              <h3 class="blog-subtitle">NL Design System (Peter & Hidde de Vries)</h3>
+              <p class="blog-text">Gemeenschappelijke herbruikbare componenten bouwen voor gemeenten (bijv. Den Haag). De uitdaging ligt bij het indienen van pull requests en wie de verantwoordelijkheid draagt.</p>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Eerlijk gezegd vind ik een extreme 'offline-first' insteek in Nederland een beetje overbodig, aangezien we vrijwel overal een stabiele verbinding hebben. De focus kan beter liggen op de uitdagingen rondom grote, gedeelde design systems zoals die van de overheid.</p>
+            </template>
+            <model-viewer
+              class="interactive-model"
+              data-src="assets/models/paper_plane.glb"
+              loading="lazy"
+              environment-image="neutral"
+              shadow-intensity="0"
+              minimum-render-scale="0.5"
+              maximum-render-scale="1"
+              alt="3D Papieren Vliegtuigje"
+              camera-orbit="50deg 75deg 105%"
+              interaction-prompt="none"
+            ></model-viewer>
+          </article>
 
-&lt;script&gt;
-  // Legacy manier (werkt nog steeds)
-  document.forms.myForm.elements.username.value;
-  
-  // Moderne manier (gebruik deze)
-  document.querySelector('form[name="myForm"] input[name="username"]').value;
-&lt;/script&gt;</code></pre>
-          </figure>
+          <!-- Model 9: Event: The Web You Want -->
+          <article class="interactive-model-wrapper globe-wrapper" data-active-orbit="0deg 90deg 95%" data-default-orbit="0deg 75deg 105%">
+            <template class="blog-content-source">
+              <h2 class="blog-title">Event: The Web You Want</h2>
 
-          <h3 class="blog-subtitle">Quirks Mode vs Standards Mode</h3>
-          <p class="blog-text">Het <strong>doctype</strong> bepaalt welke rendering mode de browser gebruikt:</p>
-          <figure class="blog-code">
-            <pre><code>&lt;!-- MET doctype: Standards Mode (gebruik dit altijd) --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Moderne pagina&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;!-- Content --&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+              <h3 class="blog-subtitle" style="border-bottom: 2px solid rgba(160, 120, 70, 0.2); padding-bottom: 4px; margin-top: 24px;">Deel 1: 17 April 2026</h3>
+              
+              <h4 class="blog-subtitle" style="font-size: 1.1rem; margin-top: 12px;">1. Marleen Stikker (Waag)</h4>
+              <p class="blog-text">Hoe het web nu vooral in handen is van grote techbedrijven en hoe het meer publiek en democratisch moet worden in plaats van gedomineerd door Big Tech.</p>
+              
+              <h4 class="blog-subtitle" style="font-size: 1.1rem; margin-top: 12px;">2. Hidde de Vries</h4>
+              <p class="blog-text">Verschillende manieren hoe het web beter moet worden, waaronder meer duurzaamheid, ethiek en digitale toegankelijkheid.</p>
+              
+              <h4 class="blog-subtitle" style="font-size: 1.1rem; margin-top: 12px;">3. Sanne Peters</h4>
+              <p class="blog-text">De rol van de gebruiker op het web en hoe we kunnen zorgen dat het web meer inclusief en toegankelijk wordt in plaats van overweldigend te zijn.</p>
 
-&lt;!-- ZONDER doctype: Quirks Mode (gebruik NOOIT) --&gt;
-&lt;html&gt;
-  &lt;body&gt;
-    &lt;!-- Dit triggert Internet Explorer 6 CSS compatibiliteit --&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-          </figure>
+              <h4 class="blog-subtitle" style="font-size: 1.1rem; margin-top: 12px;">4. Justus Sturkenboom</h4>
+              <p class="blog-text">Een filosofische ontleding van de betekenis achter elk afzonderlijk woord in "The Web You Want".</p>
 
-          <h2 class="blog-title">Best Practices & Tips</h2>
-          <h3 class="blog-subtitle">✅ Do's</h3>
-          <ul class="blog-list">
-            <li><strong>Gebruik altijd een doctype</strong> om quirks mode te vermijden</li>
-            <li><strong>Plaats scripts onderaan</strong> of gebruik <code>defer</code> om HTML parsing niet te blokkeren</li>
-            <li><strong>Hou layout berekeningen simpel</strong> - complexe layouts zijn duur voor de browser</li>
-            <li><strong>Gebruik media queries en container queries</strong> om layout van tevoren te bepalen</li>
-            <li><strong>Begrijp rendering engines</strong> - Chromium/Blink wordt gebruikt door Chrome, Edge, Vivaldi, Opera en meer</li>
-          </ul>
+              <h4 class="blog-subtitle" style="font-size: 1.1rem; margin-top: 12px;">5. Niels Leenheer</h4>
+              <p class="blog-text">Niels toonde fysieke prototypes, waaronder een waardeloze klok vol easter eggs en games op een oscilloscoop met behulp van lasers.</p>
 
-          <h3 class="blog-subtitle">❌ Don'ts</h3>
-          <ul class="blog-list">
-            <li><strong>Geen scripts in de &lt;head&gt; zonder defer/async</strong> - dit blokkeert de hele pagina</li>
-            <li><strong>Vermijd layout thrashing</strong> - wijzig layout niet tijdens rendering</li>
-            <li><strong>Geen quirks mode</strong> - vergeet nooit je doctype</li>
-            <li><strong>Gebruik geen legacy features</strong> zoals <code>document.all</code>, <code>&lt;blink&gt;</code>, <code>&lt;marquee&gt;</code> en <code>&lt;frameset&gt;</code></li>
-          </ul>
+              <h3 class="blog-subtitle" style="border-bottom: 2px solid rgba(160, 120, 70, 0.2); padding-bottom: 4px; margin-top: 36px;">Deel 2: 10 Juni 2026</h3>
+              
+              <h4 class="blog-subtitle" style="font-size: 1.1rem; margin-top: 12px;">1. Leonie Watson – Delightful Interfaces</h4>
+              <p class="blog-text">Hoe AI wordt ingezet om toegankelijkheidsproblemen op te lossen. AI moet een aanvulling zijn op onze fysieke beperkingen, en geen excuus voor ontwikkelaars om slechte code te schrijven.</p>
+              
+              <h4 class="blog-subtitle" style="font-size: 1.1rem; margin-top: 12px;">2. Cyd Stumpel – Prefers Enhanced Motion</h4>
+              <p class="blog-text">Websites moeten functioneren zonder JavaScript (Progressive Enhancement). Net als een roltrap die als gewone trap werkt als de stroom uitvalt. Daarnaast besprak Cyd de anti-AI trend en plagiaat op portfolio's.</p>
+              <figure class="blog-code">
+                <pre><code>:root { interpolate-size: allow-keywords; }</code></pre>
+              </figure>
 
-          <h3 class="blog-subtitle">Browser Geschiedenis & Engines</h3>
-          <p class="blog-text"><strong>Belangrijke momenten:</strong></p>
-          <ul class="blog-list">
-            <li><strong>Tim Berners-Lee</strong> ontwikkelde de eerste browser (1990)</li>
-            <li><strong>Mosaic</strong> (1993) was de eerste user-friendly browser en introduceerde de <code>&lt;img&gt;</code> tag</li>
-            <li><strong>Internet Explorer</strong> was de eerste browser op macOS</li>
-            <li><strong>Konqueror</strong> (Linux) werd de basis voor <strong>Safari</strong> via WebKit</li>
-            <li><strong>WebKit</strong> werd later geforkt door Google naar <strong>Blink</strong></li>
-          </ul>
-          <p class="blog-text"><strong>Moderne rendering engines:</strong></p>
-          <ul class="blog-list">
-            <li><strong>Blink</strong> (Chromium): Chrome, Edge, Opera, Vivaldi, Brave</li>
-            <li><strong>WebKit</strong>: Safari</li>
-            <li><strong>Gecko</strong>: Firefox</li>
-          </ul>
-          <p class="blog-text"><strong>Nieuwe browsers in ontwikkeling:</strong></p>
-          <ul class="blog-list">
-            <li><strong>Flow</strong> en <strong>Ladybird</strong> - onafhankelijke browsers die niet gebaseerd zijn op bestaande engines</li>
-          </ul>
+              <h4 class="blog-subtitle" style="font-size: 1.1rem; margin-top: 12px;">3. Sara Joy – Webrings en het Oude Web</h4>
+              <p class="blog-text">Nostalgie naar het gedecentraliseerde, community-gedreven oude web waarbij sites direct naar elkaar verwezen via webrings zonder dat er centrale zoekmachines nodig waren.</p>
 
-          <h3 class="blog-subtitle">Browser Architectuur</h3>
-          <p class="blog-text"><strong>Belangrijke componenten:</strong></p>
-          <ul class="blog-list">
-            <li><strong>Rendering engine</strong> - verwerkt HTML, CSS en het DOM</li>
-            <li><strong>JavaScript engine</strong> - interpreteert JavaScript code (volledig gescheiden)</li>
-            <li><strong>Parser</strong> - leest HTML/CSS/JS streams en vertaalt naar browser instructies</li>
-            <li><strong>Layout engine</strong> - berekent hoe elementen op het scherm moeten worden weergegeven</li>
-          </ul>
-          <p class="blog-text"><strong>Toegankelijkheid:</strong></p>
-          <ul class="blog-list">
-            <li><strong>AOM</strong> (Accessibility Object Model) - maakt webpaginas toegankelijk voor assistive technologies</li>
-          </ul>
-        </template>
-        <model-viewer
-          class="interactive-model"
-          data-src="assets/models/magnify.glb"
-          loading="lazy"
-          environment-image="neutral"
-          shadow-intensity="0"
-          minimum-render-scale="0.5"
-          maximum-render-scale="1"
-          alt="3D Loep"
-          camera-orbit="0deg 0deg 105%"
-          interaction-prompt="none"
-        >
-        </model-viewer>
-      </article>
+              <h4 class="blog-subtitle" style="font-size: 1.1rem; margin-top: 12px;">4. Jeremy Keith – Duurzaamheid vs. Consumentenproducten</h4>
+              <p class="blog-text">Fysieke apparaten (stofzuigers, vaatwassers) gaan opzettelijk snel kapot, maar het web (HTML, CSS, JS) is gebouwd om backwards compatible te zijn en gaat nooit kapot.</p>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Nostalgie naar het oude web is leuk, maar we zijn qua User Experience (UX) gelukkig enorm vooruitgegaan. We moeten de goede UX van nu behouden, terwijl we blijven vechten voor de openheid en toegankelijkheid van het web.</p>
+            </template>
+            <model-viewer
+              class="interactive-model"
+              data-src="assets/models/low_poly_globe.glb"
+              loading="lazy"
+              environment-image="neutral"
+              shadow-intensity="0"
+              minimum-render-scale="0.5"
+              maximum-render-scale="1"
+              alt="3D Wereldbol"
+              camera-orbit="0deg 75deg 105%"
+              interaction-prompt="none"
+            ></model-viewer>
+          </article>
+
+          <!-- Model 10: Killian Valkhof - CSS as a replacement for JavaScript -->
+          <article class="interactive-model-wrapper floppy-wrapper" tabindex="0" role="button" aria-label="3D model Floppy Disk: Progressive Web Apps (klik of druk op Enter om te openen)" data-active-orbit="45deg 75deg 90%" data-default-orbit="55deg 0deg 105%">
+            <template class="blog-content-source">
+              <h2 class="blog-title">Killian Valkhof – CSS in plaats van JS</h2>
+              <p class="blog-text">Killian Valkhof betoogt dat native CSS-technieken de noodzaak voor zware JavaScript-libraries wegnemen. Door te ontwerpen volgens de <strong>Rule of Least Power</strong> kies je altijd de minst krachtige, meest robuuste taal voor een taak.</p>
+              <h3 class="blog-subtitle">CSS-only Interactie &amp; Styling</h3>
+              <figure class="blog-code">
+                <pre><code>/* Reset standaard input styling */
+input { appearance: none; }
+
+/* Exclusieve accordeon zonder JS */
+&lt;details name="faq"&gt;...&lt;/details&gt;</code></pre>
+              </figure>
+              <p class="blog-text"><span class="vibe">Mijn mening:</span> Ik ben het hier helemaal mee eens. CSS is veel robuuster, sneller en zorgt voor schonere code. JavaScript moet wat mij betreft echt de absolute 'last resort' zijn.</p>
+            </template>
+            <model-viewer
+              class="interactive-model"
+              data-src="assets/models/floppy_disk.glb"
+              loading="lazy"
+              environment-image="neutral"
+              shadow-intensity="0"
+              minimum-render-scale="0.5"
+              maximum-render-scale="1"
+              alt="3D Floppy Disk"
+              camera-orbit="55deg 0deg 105%"
+              interaction-prompt="none"
+            ></model-viewer>
+          </article>
+
+        </section>
+
+        <!-- The old fixed open spread was removed and integrated directly inside #notebook-container -->
     </section>
 
+    <!-- Photo Fan Spread Overlay (for project paper screenshots) -->
+    <div id="spread-overlay" class="spread-overlay" role="dialog" aria-modal="true" aria-label="Project foto spread">
+      <button id="close-spread" class="spread-close" aria-label="Sluiten">&times;</button>
+
+      <!-- Main enlarged project card -->
+      <div class="spread-photo spread-photo-main" id="spread-main">
+        <img class="spread-img" id="spread-main-img" src="" alt="" />
+      </div>
+
+      <!-- GitHub Repo Link Container (handles centering on page) -->
+      <div class="spread-repo-container" id="spread-repo-container">
+        <a href="" target="_blank" rel="noopener noreferrer" class="spread-repo-btn" id="spread-repo-link" aria-label="GitHub Repository">
+          <svg class="repo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+          <span>GitHub Repository</span>
+        </a>
+      </div>
+
+      <!-- Floating scribble annotations — SVGs are static, JS only fills text content -->
+      <div id="spread-scribbles" class="spread-scribbles">
+
+        <!-- ① Title: written across top of main photo -->
+        <div class="spread-scribble scribble-title" id="scribble-title">
+          <span id="scribble-title-text"></span>
+          <!-- Wobbly underline -->
+          <svg class="scribble-underline-svg" viewBox="0 0 320 10" width="320" height="10"
+               preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 2 6 Q 40 2 80 6 Q 120 10 160 5 Q 200 1 240 6 Q 280 10 318 5"
+                  stroke="rgba(255,255,255,0.55)" fill="none" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <!-- Curved arrow pointing down into the photo -->
+          <svg class="scribble-arrow-svg arrow-down" viewBox="0 0 28 44" width="28" height="44" aria-hidden="true">
+            <path d="M 14 2 Q 17 15 11 38"
+                  stroke="rgba(255,220,70,0.85)" fill="none" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 5 30 L 11 39 L 18 29"
+                  stroke="rgba(255,220,70,0.85)" fill="none" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- ② Tag 1: on right fan photo, arrow points LEFT toward main -->
+        <div class="spread-scribble scribble-tag scribble-tag-1" id="scribble-tag-1">
+          <svg class="scribble-arrow-svg arrow-left" viewBox="0 0 52 28" width="52" height="28" aria-hidden="true">
+            <path d="M 48 14 Q 30 6 10 14"
+                  stroke="rgba(255,210,60,0.82)" fill="none" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 18 7 L 9 14 L 19 21"
+                  stroke="rgba(255,210,60,0.82)" fill="none" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span id="scribble-tag-1-text"></span>
+        </div>
+
+        <!-- ③ Tag 2: on left fan photo, arrow points RIGHT toward main -->
+        <div class="spread-scribble scribble-tag scribble-tag-2" id="scribble-tag-2">
+          <span id="scribble-tag-2-text"></span>
+          <svg class="scribble-arrow-svg arrow-right" viewBox="0 0 52 28" width="52" height="28" aria-hidden="true">
+            <path d="M 4 14 Q 22 6 43 14"
+                  stroke="rgba(255,210,60,0.82)" fill="none" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 34 7 L 43 14 L 33 21"
+                  stroke="rgba(255,210,60,0.82)" fill="none" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- ④ Vibe: italic scrawl at bottom of main photo -->
+        <div class="spread-scribble scribble-vibe" id="scribble-vibe">
+          <span id="scribble-vibe-text"></span>
+          <!-- Wavy squiggle underline -->
+          <svg class="scribble-wavy-svg" viewBox="0 0 240 10" width="240" height="10"
+               preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 2 5 Q 30 1 60 5 Q 90 9 120 5 Q 150 1 180 5 Q 210 9 238 5"
+                  stroke="rgba(255,190,50,0.48)" fill="none" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+      </div>
+    </div>
 
     <!-- Blog Panel -->
-    <aside id="blog-panel" class="blog-panel">
-      <button id="close-blog-panel" class="close-button" aria-label="Close dialog">&times;</button>
+    <aside id="blog-panel" class="blog-panel" role="dialog" aria-modal="true" aria-label="Weekly Nerd blog panel">
+      <button id="close-blog-panel" class="close-button" aria-label="Sluit venster">&times;</button>
       <section id="blog-panel-content" class="blog-panel-content">
         <!-- Content will be injected here from templates -->
       </section>
     </aside>
-    </section>
     </main>
 
     <script src="main.js" defer></script>
