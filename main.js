@@ -74,31 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Focus trap helper for keyboard users
-  function handleFocusTrap(e, container) {
-    if (e.key !== 'Tab') return;
-    const focusables = container.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    if (focusables.length === 0) return;
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
-    if (e.shiftKey) {
-      if (document.activeElement === first) {
-        last.focus();
-        e.preventDefault();
-      }
-    } else {
-      if (document.activeElement === last) {
-        first.focus();
-        e.preventDefault();
-      }
-    }
-  }
-
-  blogPanel?.addEventListener("keydown", (e) => handleFocusTrap(e, blogPanel));
-  spreadOverlay?.addEventListener("keydown", (e) => handleFocusTrap(e, spreadOverlay));
-  reflectionsNotebookContainer?.addEventListener("keydown", (e) => handleFocusTrap(e, reflectionsNotebookContainer));
 
   // Make viewport focusable for keyboard navigation
   viewport.setAttribute('tabindex', '0');
@@ -124,6 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Drag vs. tap detection via pointer events + distance threshold
+  // Source (APA format):
+  // Google. (2026). Gemini 2.5 Pro [Large language model].
+  // (Conversatie over het onderscheid maken tussen een tap en een drag op een pannable canvas via een pixel-threshold.)
   const DRAG_THRESHOLD = 8;
 
   function onPointerDown(e) {
@@ -195,6 +174,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Lazy-load models when they (almost) enter the pannable viewport
+  // Source (APA format):
+  // Google. (2026). Gemini 2.5 Pro [Large language model].
+  // (Conversatie over het gebruiken van IntersectionObserver met een custom scroll-root om 3D modellen lazy te laden.)
   const modelObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -217,6 +199,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // On mobile, model-viewer swallows touch events preventing click from bubbling.
+    // Source (APA format):
+    // Google. (2026). Gemini 2.5 Pro [Large language model].
+    // (Conversatie over het oplossen van click-events die niet bubblelen vanuit het <model-viewer> web component op mobiel.)
     // Detect a quick tap directly on the viewer and fire the wrapper click manually.
     if (viewer) {
       let tapStartX, tapStartY, tapStartTime;
@@ -270,6 +255,9 @@ document.addEventListener("DOMContentLoaded", () => {
       wrapper.dataset.gsapY = gsap.getProperty(wrapper, "y") || 0;
 
       // Parse current and target orbit values to animate between them
+      // Source (APA format):
+      // Google. (2026). Gemini 2.5 Pro [Large language model].
+      // (Conversatie over het animeren van een string-attribuut (camera-orbit) via een GSAP proxy-object.)
       const currentOrbit =
         viewer.getAttribute("camera-orbit") || "0deg 75deg 105%";
       const fromOrbit = parseOrbit(currentOrbit);
