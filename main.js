@@ -488,6 +488,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }
+
+    const sheet2 = document.getElementById("reflections-sheet-2");
+    if (sheet2) {
+      gsap.to(sheet2, {
+        rotateY: 0,
+        duration: dur(0.8),
+        ease: "power2.inOut",
+        onComplete: () => {
+          sheet2.classList.remove("flipped");
+        }
+      });
+    }
   }
 
   if (closeReflectionsNotebookBtn) {
@@ -545,6 +557,44 @@ document.addEventListener("DOMContentLoaded", () => {
           ease: "power2.out",
           onComplete: () => {
             reflectionsSheet1.classList.remove("flipped");
+          }
+        });
+      });
+    }
+  }
+
+  const reflectionsSheet2 = document.getElementById("reflections-sheet-2");
+  if (reflectionsSheet2) {
+    const s2Front = reflectionsSheet2.querySelector(".sheet-front");
+    const s2Back = reflectionsSheet2.querySelector(".sheet-back");
+
+    if (s2Front) {
+      s2Front.addEventListener("click", (e) => {
+        if (isMobile() || hasDragged) return;
+        e.stopPropagation();
+        
+        gsap.to(reflectionsSheet2, {
+          rotateY: -180,
+          duration: dur(0.8),
+          ease: "power2.out",
+          onStart: () => {
+            reflectionsSheet2.classList.add("flipped");
+          }
+        });
+      });
+    }
+
+    if (s2Back) {
+      s2Back.addEventListener("click", (e) => {
+        if (isMobile() || hasDragged) return;
+        e.stopPropagation();
+
+        gsap.to(reflectionsSheet2, {
+          rotateY: 0,
+          duration: dur(0.8),
+          ease: "power2.out",
+          onComplete: () => {
+            reflectionsSheet2.classList.remove("flipped");
           }
         });
       });

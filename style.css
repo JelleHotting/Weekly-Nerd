@@ -29,7 +29,7 @@ body {
   position: relative;
   width: 5000px;
   height: 5000px;
-  /* Blueprint background */
+  
   background-color: #1a5b92;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
@@ -65,7 +65,7 @@ body {
   z-index: 20;
 }
 
-/* Glassmorphism Blur Effect overlay */
+
 .glass-overlay {
   position: fixed;
   top: 0;
@@ -89,7 +89,7 @@ body {
   pointer-events: auto;
 }
 
-/* 3D Container Settings */
+
 .interactive-model-wrapper {
   position: absolute;
   top: 50%;
@@ -250,7 +250,7 @@ svg {
   height: 85vh;
   display: flex;
   flex-direction: column;
-  /* Aged paper look */
+  
   background-color: #f5f0e8;
   background-image:
     linear-gradient(160deg, #fdfaf3 0%, #f0e9d6 60%, #ede3cb 100%);
@@ -267,7 +267,7 @@ svg {
     transform 0.8s cubic-bezier(0.23, 1, 0.32, 1),
     opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 
-  /* Subtle scrollbar */
+  
   &::-webkit-scrollbar {
     width: 6px;
   }
@@ -400,7 +400,7 @@ svg {
   border: 1px solid rgba(100, 70, 30, 0.15);
 }
 
-/* Ruled-line texture and red margin live on the content so they scroll */
+
 .blog-panel-content {
   position: relative;
   z-index: 1;
@@ -409,19 +409,19 @@ svg {
   gap: 12px;
   flex-grow: 1;
   box-sizing: border-box;
-  /* Faint horizontal ruled lines */
+  
   background-image: repeating-linear-gradient(
     transparent,
     transparent 27px,
     rgba(160, 120, 70, 0.12) 27px,
     rgba(160, 120, 70, 0.12) 28px
   );
-  /* Red margin rule */
+  
   border-left: 1px solid rgba(200, 80, 80, 0.3);
   padding-left: 16px;
 }
 
-/* Paper Screenshots Layer */
+
 #paper-layer {
   position: absolute;
   top: 0;
@@ -435,14 +435,14 @@ svg {
   position: absolute;
   margin: 0;
   background-color: #fcfcfc;
-  padding: 12px 12px 16px 12px; /* Polaroid style padding */
+  padding: 12px 12px 16px 12px; 
   box-shadow:
     2px 8px 24px rgba(0, 0, 0, 0.3),
     0 2px 6px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
-  pointer-events: auto; /* Make the paper clickable/hoverable */
+  pointer-events: auto; 
   transform-origin: center top;
-  /* Use CSS variable for base rotation so hover can easily override while maintaining rotation */
+  
   --base-rotation: 0deg;
   transform: rotate(var(--base-rotation));
   transition:
@@ -463,7 +463,7 @@ svg {
     z-index 0s step-start;
 }
 
-/* Individual Positioning and Rotations */
+
 .screenshot-0 {
   top: 610px;
   left: 1960px;
@@ -537,7 +537,7 @@ svg {
   line-height: 1.2;
 }
 
-/* Tape effect */
+
 .paper-screenshot::before {
   content: "";
   position: absolute;
@@ -554,7 +554,7 @@ svg {
   z-index: 2;
 }
 
-/* Add slight random rotation to tape for variation */
+
 .paper-screenshot:nth-child(even)::before {
   transform: translateX(-50%) rotate(3deg);
   width: 100px;
@@ -564,7 +564,7 @@ svg {
   width: 130px;
 }
 
-/* Decorations */
+
 .coffee-stain {
   position: absolute;
   top: 2162px;
@@ -578,7 +578,7 @@ svg {
   transform: rotate(35deg);
 }
 
-/* Sticky Notes */
+
 .sticky-note {
   position: absolute;
   width: 200px;
@@ -596,7 +596,7 @@ svg {
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* Curling bottom right corner */
+  
   border-bottom-right-radius: 40px 10px;
   --base-rotation: 0deg;
   transform: rotate(var(--base-rotation));
@@ -605,7 +605,7 @@ svg {
     box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Fold effect */
+
 .sticky-note::after {
   content: "";
   position: absolute;
@@ -639,7 +639,7 @@ svg {
   background-color: #ff9ee2; 
 }
 
-/* Eraser & Graphite Smudges */
+
 .eraser-smudge {
   position: absolute;
   background: radial-gradient(
@@ -665,9 +665,7 @@ svg {
   mix-blend-mode: multiply;
 }
 
-/* =====================
-   Responsive â€” Mobile
-   ===================== */
+
 @media (max-width: 640px) {
   h1#title {
     font-size: 2.4rem;
@@ -680,13 +678,13 @@ svg {
     font-size: 1rem;
   }
 
-  /* Smaller default model size on mobile */
+  
   .interactive-model-wrapper {
     width: 100px;
     height: 150px;
   }
 
-  /* Blog panel: bottom sheet instead of right sidebar */
+  
   .blog-panel {
     top: auto;
     bottom: 0;
@@ -697,7 +695,7 @@ svg {
     height: 68vh;
     border-radius: 20px 20px 0 0;
     padding: 40px 20px 20px 28px;
-    /* Slide up from below â€” no rotation on a bottom sheet */
+    
     transform: translateY(100%);
     rotate: 0deg;
   }
@@ -707,7 +705,7 @@ svg {
     rotate: 0deg;
   }
 
-  /* Drag handle indicator */
+  
   .blog-panel::before {
     content: "";
     position: absolute;
@@ -723,9 +721,7 @@ svg {
   }
 }
 
-/* =====================
-   Tabs & Custom Elements Styling
-   ===================== */
+
 
 .blog-tabs {
   display: flex;
@@ -763,7 +759,7 @@ svg {
   display: block;
 }
 
-/* Custom Paper Elements (Notebook, Folder, Blueprint) */
+
 .sketchbook {
   background-color: #5c3a21 !important;
   border: 4px solid #4a2e1a;
@@ -786,10 +782,10 @@ svg {
 }
 
 .sketchbook::before {
-  display: none !important; /* Hide tape on sketchbook */
+  display: none !important; 
 }
 
-/* Blueprint Cover */
+
 .blueprint-sheet {
   background-color: #0b3c5d !important;
   border: 1px dashed rgba(255, 255, 255, 0.4);
@@ -811,64 +807,16 @@ svg {
 }
 
 .blueprint-sheet::before {
-  background-color: rgba(255, 255, 255, 0.15) !important; /* Blueprint style tape */
+  background-color: rgba(255, 255, 255, 0.15) !important; 
 }
 
-/* =====================
-   Interactive Blueprint Scroll Styles
-   ===================== */
-/* =====================
-   Reflections Notebook Override Styles
-   ===================== */
-#reflections-notebook-container {
-  position: absolute;
-  top: 3005px;
-  left: 2250px;
-  width: 350px;
-  height: 460px;
-  perspective: 1500px;
-  z-index: 5;
-  cursor: pointer;
-  pointer-events: auto;
-  --base-rotation: -2deg;
-  transform: rotate(var(--base-rotation));
-  transition: box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  transform-origin: left center;
-  
-  background-color: transparent !important;
-  padding: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
-}
 
-#reflections-notebook-container::before {
-  display: none !important; /* Hide tape effect */
-}
 
-#reflections-notebook-container:not(.open):hover {
-  transform: rotate(var(--base-rotation)) scale(1.05) translateY(-5px);
-  z-index: 8;
-}
 
-#reflections-notebook-container.open {
-  z-index: 2000;
-  cursor: default;
-  transition: none !important;
-}
 
-#reflections-notebook-container.open .notebook-spine-rings {
-  opacity: 1;
-  pointer-events: auto;
-}
 
-#reflections-notebook-container.open .notebook-close-button {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Green Cover Theme Overrides */
 .reflections-notebook-theme .cover-front-outer {
-  background-color: #1e3f20; /* Dark forest green leather */
+  background-color: #1e3f20; 
   background-image: 
     repeating-linear-gradient(45deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 2px),
     repeating-linear-gradient(-45deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 2px),
@@ -900,7 +848,7 @@ svg {
   border-radius: 0 16px 16px 0;
 }
 
-/* Foil title text */
+
 .reflections-notebook-theme .notebook-cover-title {
   color: #ebf5ee;
   text-shadow: 2px 2px 0px #122815, 4px 4px 8px rgba(0,0,0,0.4);
@@ -911,7 +859,7 @@ svg {
   text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
 }
 
-/* Silver Metallic Wire Rings Override */
+
 .reflections-notebook-theme .ring-loop::before,
 .reflections-notebook-theme .ring-loop::after {
   background: linear-gradient(90deg, #444 0%, #bbb 35%, #fff 50%, #bbb 65%, #444 100%);
@@ -922,147 +870,30 @@ svg {
   background: linear-gradient(90deg, #050505 0%, #777 15%, #ececec 50%, #777 85%, #050505 100%);
 }
 
-/* Responsive Reflections Notebook Overlay (reusing base notebook logic for responsiveness) */
-@media (max-width: 768px) {
-  #reflections-notebook-container.open {
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 90vw !important;
-    height: 80vh !important;
-    z-index: 2500 !important;
-    overflow-y: auto !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
-    border-radius: 12px !important;
-    background-color: #1a331c !important;
-    background-image: 
-      radial-gradient(circle at 50% 50%, #294c2c 0%, #1a331c 100%) !important;
-    border: 4px solid #132414 !important;
-    padding: 24px 16px !important;
-    box-sizing: border-box !important;
-  }
-  
-  #reflections-notebook-container.open .notebook-book {
-    display: flex !important;
-    flex-direction: column !important;
-    height: auto !important;
-    gap: 20px !important;
-    padding: 0 !important;
-    box-sizing: border-box;
-  }
-
-  #reflections-notebook-container.open .notebook-cover-front,
-  #reflections-notebook-container.open .notebook-cover-back,
-  #reflections-notebook-container.open .notebook-flipping-sheet {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    transform: none !important;
-    z-index: auto !important;
-  }
-
-  #reflections-notebook-container.open .notebook-cover-front {
-    display: none !important;
-  }
-
-  #reflections-notebook-container.open .notebook-cover-back {
-    background: none !important;
-    border: none !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-    order: 2 !important;
-  }
-
-  #reflections-notebook-container.open .notebook-flipping-sheet {
-    order: 1 !important;
-  }
-
-  #reflections-notebook-container.open .sheet-face {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    transform: none !important;
-    backface-visibility: visible !important;
-    z-index: auto !important;
-  }
-
-  #reflections-notebook-container.open .sheet-back {
-    display: block !important;
-  }
-
-  #reflections-notebook-container.open .notebook-sheet {
-    height: auto !important;
-    min-height: 220px;
-    border-radius: 8px !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-    border: 1px solid rgba(160, 120, 70, 0.15) !important;
-    padding: 24px 16px 20px 24px !important;
-    margin-bottom: 8px !important;
-  }
-
-  #reflections-notebook-container.open .cover-front-outer {
-    display: none !important;
-  }
-
-  #reflections-notebook-container.open .cover-front-inner {
-    position: relative !important;
-    transform: none !important;
-    border-radius: 8px !important;
-    height: auto !important;
-    padding: 0 !important;
-  }
-
-  #reflections-notebook-container.open .notebook-spine-rings {
-    display: none;
-  }
-
-  #reflections-notebook-container.open .notebook-close-button {
-    position: fixed !important;
-    top: calc(10vh + 12px) !important;
-    right: calc(5vw + 12px) !important;
-    z-index: 2600 !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    color: #3a2510;
-    font-size: 2.2rem;
-    line-height: 1;
-    background: #faf6ee !important;
-    border: 2px solid #3a2510 !important;
-    border-radius: 50% !important;
-    width: 40px !important;
-    height: 40px !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
-  }
+#notebook-container {
+  top: 2230px;
+  left: 1082px;
+  --base-rotation: -6deg;
 }
 
-/* =====================
-   Open Notebook Spread
-   ===================== */
-
-/* =====================
-   3D Spiral Notebook Styling
-   ===================== */
+#reflections-notebook-container {
+  top: 3005px;
+  left: 2250px;
+  --base-rotation: -2deg;
+}
 
 .notebook-container {
   position: absolute;
-  top: 2230px;
-  left: 1082px;
   width: 350px;
   height: 460px;
   perspective: 1500px;
   z-index: 5;
   cursor: pointer;
   pointer-events: auto;
-  --base-rotation: -6deg;
   transform: rotate(var(--base-rotation));
   transition: box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   transform-origin: left center;
   
-  /* Reset inherited paper-screenshot styles to remove the white outline */
   background-color: transparent !important;
   padding: 0 !important;
   border: none !important;
@@ -1070,10 +901,10 @@ svg {
 }
 
 .notebook-container::before {
-  display: none !important; /* Hide tape effect */
+  display: none !important; 
 }
 
-/* Hover effects when closed */
+
 .notebook-container:not(.open):hover {
   transform: rotate(var(--base-rotation)) scale(1.05) translateY(-5px);
   z-index: 8;
@@ -1086,7 +917,7 @@ svg {
   transform-style: preserve-3d;
 }
 
-/* Front Cover wrapper */
+
 .notebook-cover-front {
   position: absolute;
   top: 0;
@@ -1098,7 +929,7 @@ svg {
   z-index: 10;
 }
 
-/* Front Cover - Outer side (closed face) */
+
 .cover-front-outer {
   position: absolute;
   width: 100%;
@@ -1107,12 +938,12 @@ svg {
   left: 0;
   background-color: #5c3a21;
   background-image: 
-    /* Cozy cardstock grain texture */
+    
     repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 2px),
     repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 2px),
     radial-gradient(circle at 60% 40%, #764c2f 0%, #52331c 70%, #3a2211 100%);
   border: 4px solid #4a2e1a;
-  border-left-width: 12px; /* Thick spine border */
+  border-left-width: 12px; 
   border-radius: 0 16px 16px 0;
   box-shadow: 
     inset -2px 0 12px rgba(255,255,255,0.08),
@@ -1134,7 +965,7 @@ svg {
   pointer-events: none;
 }
 
-/* Gold foiled title styling */
+
 .cover-title-group {
   position: absolute;
   top: 50%;
@@ -1166,7 +997,7 @@ svg {
   text-shadow: 1px 1px 0px rgba(0,0,0,0.8);
 }
 
-/* Front Cover - Inner side (shown when open) */
+
 .cover-front-inner {
   position: absolute;
   width: 100%;
@@ -1182,7 +1013,7 @@ svg {
   backface-visibility: hidden;
 }
 
-/* Back Cover (holding the right page) */
+
 .notebook-cover-back {
   position: absolute;
   top: 0;
@@ -1202,7 +1033,7 @@ svg {
   box-shadow: 5px 12px 30px rgba(0,0,0,0.4);
 }
 
-/* Sheet pages styling */
+
 .notebook-sheet {
   width: 100%;
   height: 100%;
@@ -1214,15 +1045,15 @@ svg {
     rgba(160, 120, 70, 0.12) 28px
   );
   border-radius: 4px;
-  padding: 36px 24px 30px 48px;
+  padding: 24px 24px 20px 40px;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Page curl corner shadow */
+
 .notebook-sheet::before {
   content: "";
   position: absolute;
@@ -1235,7 +1066,7 @@ svg {
   pointer-events: none;
 }
 
-/* Ruled margin lines (vertical red lines) & stacked paper layout */
+
 .left-page {
   border-right: 1px solid rgba(160, 120, 70, 0.15);
   border-left: 1.5px solid rgba(220, 90, 90, 0.4);
@@ -1249,7 +1080,7 @@ svg {
   box-shadow: 0 4px 8px rgba(0,0,0,0.15), 2px 2px 0 #dccbaf, 4px 4px 0 #c7b69c;
 }
 
-/* Closed Spine Wire Rings - Double loops (Wire-O) */
+
 .spiral-rings-left {
   position: absolute;
   left: -12px;
@@ -1272,7 +1103,7 @@ svg {
   margin-left: auto;
 }
 
-/* Double wires emerging from the square hole and wrapping leftwards - copper style */
+
 .ring-loop::before,
 .ring-loop::after {
   content: "";
@@ -1293,7 +1124,7 @@ svg {
   bottom: 2px;
 }
 
-/* Open Spine Wire Rings - Double wires with disappearing gradient */
+
 .notebook-spine-rings {
   position: absolute;
   right: 334px; 
@@ -1309,7 +1140,7 @@ svg {
   transition: opacity 0.5s ease;
 }
 
-/* Deep spine shadow representing valley between pages */
+
 .notebook-spine-rings::before {
   content: "";
   position: absolute;
@@ -1330,7 +1161,7 @@ svg {
   z-index: 10;
 }
 
-/* Double open rings with black fades at ends to simulate disappear-in-page holes - copper style */
+
 .spine-ring::before,
 .spine-ring::after {
   content: "";
@@ -1351,7 +1182,7 @@ svg {
   bottom: 2px;
 }
 
-/* Inside notebook page titles & text */
+
 .notebook-title {
   font-family: "Cabin Sketch", sans-serif;
   font-size: 2rem;
@@ -1365,17 +1196,17 @@ svg {
 
 .notebook-subtitle {
   font-family: "Architects Daughter", cursive;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: #3d2600;
-  margin-top: 14px;
-  margin-bottom: 4px;
+  margin-top: 8px;
+  margin-bottom: 2px;
   font-weight: bold;
 }
 
 .notebook-text {
   font-family: "Architects Daughter", cursive;
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 0.88rem;
+  line-height: 1.45;
   color: #4a341f;
   margin: 0;
 }
@@ -1395,7 +1226,7 @@ svg {
   margin: 0;
 }
 
-/* Close button - gold and serif styling */
+
 .notebook-close-button {
   position: absolute;
   top: 16px;
@@ -1421,14 +1252,20 @@ svg {
   background: none;
 }
 
-/* Desktop Sheet Flipping & Z-Indexing */
+
 #notebook-sheet-1,
 #reflections-sheet-1 {
+  z-index: 9;
+}
+#reflections-sheet-2 {
   z-index: 8;
 }
 #notebook-sheet-1.flipped,
 #reflections-sheet-1.flipped {
   z-index: 11;
+}
+#reflections-sheet-2.flipped {
+  z-index: 12;
 }
 
 .notebook-flipping-sheet {
@@ -1470,7 +1307,7 @@ svg {
   border-radius: 16px 0 0 16px;
 }
 
-/* Open states */
+
 .notebook-container.open {
   z-index: 2000;
   cursor: default;
@@ -1487,7 +1324,7 @@ svg {
   pointer-events: auto;
 }
 
-/* Scrollbars for sheets */
+
 .notebook-sheet::-webkit-scrollbar {
   width: 6px;
 }
@@ -1505,7 +1342,7 @@ svg {
   background: rgba(160, 120, 70, 0.35);
 }
 
-/* Responsive (Mobile/Tablet) */
+
 @media (max-width: 768px) {
   .notebook-container.open {
     position: fixed !important;
@@ -1516,6 +1353,9 @@ svg {
     height: 80vh !important;
     z-index: 2500 !important;
     overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important; 
+    overscroll-behavior: contain !important;       
+    touch-action: pan-y !important;               
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
     border-radius: 12px !important;
     background-color: #3d2515 !important;
@@ -1524,6 +1364,18 @@ svg {
     border: 4px solid #2e1b0f !important;
     padding: 24px 16px !important;
     box-sizing: border-box !important;
+  }
+
+  .notebook-container.reflections-notebook-theme.open {
+    background-color: #122815 !important;
+    background-image: 
+      radial-gradient(circle at 50% 50%, #1e3f20 0%, #122815 100%) !important;
+    border: 4px solid #142a16 !important;
+  }
+
+  .notebook-container.reflections-notebook-theme.open .notebook-close-button {
+    color: #142a16 !important;
+    border-color: #142a16 !important;
   }
   
   .notebook-container.open .notebook-book {
@@ -1601,12 +1453,13 @@ svg {
   }
 
   .notebook-container.open .notebook-close-button {
-    position: fixed !important;
-    top: calc(10vh + 12px) !important;
-    right: calc(5vw + 12px) !important;
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
     z-index: 2600 !important;
     opacity: 1 !important;
     pointer-events: auto !important;
+    transition: none !important; 
     color: #3a2510;
     font-size: 2.2rem;
     line-height: 1;
@@ -1622,9 +1475,7 @@ svg {
   }
 }
 
-/* =====================
-   Theme Switcher Styles
-   ===================== */
+
 .theme-toggle-btn {
   position: fixed;
   top: 24px;
@@ -1656,9 +1507,7 @@ svg {
   stroke: #3a2510;
 }
 
-/* =====================
-   Theme Override: Warm Drafting Table
-   ===================== */
+
 body.theme-drafting {
   background-color: #faf6ee;
 }
@@ -1678,7 +1527,7 @@ body.theme-drafting .instruction-text {
   text-shadow: none;
 }
 
-/* In the drafting theme, blueprint project sheets turn back into parchment paper */
+
 body.theme-drafting .blueprint-sheet {
   background-color: #fcfcfc !important;
   border: none !important;
@@ -1709,9 +1558,7 @@ body.theme-drafting .blueprint-sheet::before {
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
-/* =====================
-   Photo Fan Spread — Project Overlay
-   ===================== */
+
 
 .spread-content-wrapper {
   position: absolute;
@@ -1726,7 +1573,7 @@ body.theme-drafting .blueprint-sheet::before {
 .spread-overlay {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 1100;
   background: rgba(10, 18, 38, 0.87);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -1740,7 +1587,7 @@ body.theme-drafting .blueprint-sheet::before {
   pointer-events: auto;
 }
 
-/* Close button */
+
 .spread-close {
   position: absolute;
   top: 20px;
@@ -1764,9 +1611,8 @@ body.theme-drafting .blueprint-sheet::before {
   transform: scale(1.15) rotate(8deg);
 }
 
-/* â”€â”€ Photo card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-/* The card sits at left:50% top:50% inside the overlay.
-   GSAP sets xPercent:-50 yPercent:-50 and handles translations. */
+
+
 .spread-photo {
   position: absolute;
   left: 50%;
@@ -1793,7 +1639,7 @@ body.theme-drafting .blueprint-sheet::before {
   filter: contrast(1.03) saturate(0.95);
 }
 
-/* Tape strip â€” default on main card */
+
 .spread-photo::before {
   content: "";
   position: absolute;
@@ -1810,7 +1656,7 @@ body.theme-drafting .blueprint-sheet::before {
   border-radius: 1px;
 }
 
-/* ── Scribble annotations ─────────── */
+
 .spread-scribbles {
   position: absolute;
   inset: 0;
@@ -1823,7 +1669,7 @@ body.theme-drafting .blueprint-sheet::before {
   pointer-events: none;
 }
 
-/* ── SVG arrow / decoration elements ── */
+
 .scribble-arrow-svg,
 .scribble-underline-svg,
 .scribble-wavy-svg {
@@ -1852,7 +1698,7 @@ body.theme-drafting .blueprint-sheet::before {
   stroke: #ffffff !important;
 }
 
-/* Project title — written across the TOP of the main photo */
+
 .scribble-title {
 
   top: 13%;
@@ -1875,7 +1721,7 @@ body.theme-drafting .blueprint-sheet::before {
     2px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Callout tags — flanking the main photo card */
+
 .scribble-tag {
   display: flex;
   align-items: flex-start;
@@ -1890,7 +1736,7 @@ body.theme-drafting .blueprint-sheet::before {
     0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Tag 1 — on the right side, arrow pointing left toward photo */
+
 .scribble-tag-1 {
   top: 36%;
   left: calc(50% + 355px);
@@ -1900,7 +1746,7 @@ body.theme-drafting .blueprint-sheet::before {
   align-items: center;
 }
 
-/* Tag 2 — on the left side, arrow pointing right toward main */
+
 .scribble-tag-2 {
   top: 54%;
   right: calc(50% + 355px);
@@ -1910,7 +1756,7 @@ body.theme-drafting .blueprint-sheet::before {
   align-items: center;
 }
 
-/* Opinion / vibe scrawl — across the BOTTOM of the main photo */
+
 .scribble-vibe {
   top: 81%;
   left: 50%;
@@ -1931,13 +1777,18 @@ body.theme-drafting .blueprint-sheet::before {
   line-height: 1.5;
 }
 
-/* ── Mobile ─ */
+
 @media (max-width: 640px) {
   .spread-overlay {
     overflow-y: auto !important;
     display: block !important;
   }
   
+  /* Fix: .spread-content-wrapper had pointer-events: auto unconditionally on mobile,
+     causing it to intercept all taps on the canvas even when the overlay was closed.
+     Source (APA format):
+     Anthropic. (2026). Claude Sonnet 4.6 [Large language model].
+     (Conversatie over het debuggen van mobiele tap-events die werden geblokkeerd door een onzichtbare overlay-laag.) */
   .spread-content-wrapper {
     position: relative !important;
     width: 100% !important;
@@ -1948,6 +1799,11 @@ body.theme-drafting .blueprint-sheet::before {
     justify-content: flex-start !important;
     padding: 80px 16px 40px 16px !important;
     box-sizing: border-box !important;
+    
+    pointer-events: none !important;
+  }
+
+  .spread-overlay.active .spread-content-wrapper {
     pointer-events: auto !important;
   }
 
@@ -2050,9 +1906,7 @@ body.theme-drafting .blueprint-sheet::before {
   }
 }
 
-/* =====================
-   GitHub Repo Link Button Styles (positioned below the Project Overlay card)
-   ===================== */
+
 .spread-repo-container {
   position: absolute;
   top: 74%; 
@@ -2099,9 +1953,7 @@ body.theme-drafting .blueprint-sheet::before {
   stroke: #3a2510;
 }
 
-/* =====================
-   Reduced Motion — Accessibility
-   ===================== */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

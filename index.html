@@ -7,24 +7,24 @@
     <meta name="description" content="Weekly Nerd" />
 
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=2" />
 
-    <!-- Google Fonts – gecombineerd in één request -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin+Sketch:wght@400;700&family=Caveat:wght@400..700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- GSAP for smooth animations -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <!-- Google Model Viewer -->
+    
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
     ></script>
   </head>
   <body>
-    <!-- Theme Switcher Button -->
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Wissel van thema">
+    
+    <button id="theme-toggle" class="theme-toggle-btn">
       <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="5"></circle>
         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -43,14 +43,14 @@
 
       <section id="canvas-area">
         
-        <!-- Decorations -->
+        
         <span class="eraser-smudge" aria-hidden="true" style="top: 340px; left: 1420px; width: 400px; height: 150px; transform: rotate(15deg);"></span>
         <span class="eraser-smudge" aria-hidden="true" style="top: 3175px; left: 2770px; width: 500px; height: 200px; transform: rotate(-30deg);"></span>
         
         <span class="graphite-smudge" aria-hidden="true" style="top: 745px; left: 1015px; width: 250px; height: 100px; transform: rotate(45deg);"></span>
         <span class="graphite-smudge" aria-hidden="true" style="top: 3850px; left: 1825px; width: 350px; height: 150px; transform: rotate(-15deg);"></span>
 
-        <svg id="decorations-svg" viewBox="0 0 5000 5000" style="position: absolute; top: 0; left: 0; width: 5000px; height: 5000px; pointer-events: none; transform-style: preserve-3d; max-height: none;">
+        <svg id="decorations-svg" viewBox="0 0 5000 5000" style="position: absolute; top: 0; left: 0; width: 5000px; height: 5000px; pointer-events: none; transform-style: preserve-3d; max-height: none;" aria-hidden="true">
 
           <g transform="translate(3310, 2770) rotate(-60) scale(0.6)">
             <path d="M 0 0 Q 20 -20, 40 0 Q 60 -20, 80 0 Q 100 -20, 120 0 Q 100 20, 80 0 Q 60 20, 40 0 Q 20 20, 0 0" fill="#e0ad6c" opacity="0.9"/>
@@ -75,7 +75,7 @@
           </g>
         </svg>
         
-        <img src="assets/images/coffee-stain.png" alt="Coffee Stain" class="coffee-stain" />
+        <img src="assets/images/coffee-stain.png" alt="" class="coffee-stain" />
         
         <aside class="sticky-note note-1">
           <p>TODO: ping-pong winnen van Jad</p>
@@ -84,16 +84,14 @@
           <p>REMINDER: Dinsdag op tijd komen!</p>
         </aside>
 
-        <!-- Paper Screenshots Layer -->
+        
         <section id="paper-layer">
-          <figure class="paper-screenshot screenshot-0 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/Weekly-Nerd">
-            <a href="#" style="text-decoration: none;">
-              <img src="assets/images/sprint0.png" alt="Sprint 0 Screenshot" />
-              <figcaption>
-                <h3 class="screenshot-title">Sprint 0</h3>
-                <p class="screenshot-desc">Opfrisser en creatieve vrijheid</p>
-              </figcaption>
-            </a>
+          <figure class="paper-screenshot screenshot-0 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/AboutMeWebsite" tabindex="0" role="button" aria-label="Sprint 0: Opfrisser en creatieve vrijheid (klik of druk op Enter om te openen)">
+            <img src="assets/images/sprint0.png" alt="Sprint 0 Screenshot" />
+            <figcaption>
+              <h3 class="screenshot-title">Sprint 0</h3>
+              <p class="screenshot-desc">Opfrisser en creatieve vrijheid</p>
+            </figcaption>
             <template class="blog-content-source">
               <h2 class="blog-title">Sprint 0: De Opstart</h2>
               <p class="blog-text">Sprint 0 was weer even een opfrisser van wat code ook alweer kon en deed en de vrijheid die je ermee hebt t.o.v. Figma.</p>
@@ -103,19 +101,18 @@
                 <li>Het direct vertalen van concepten naar werkende HTML en CSS dwingt je om na te denken over de interactieve aspecten van het web vanaf dag één.</li>
               </ul>
               <p class="blog-text"><span class="vibe">Mijn mening:</span> Geweldig om meteen in code te beginnen in plaats van alleen maar in Figma te ontwerpen!</p>
+              <p class="blog-text"><a href="https://github.com/JelleHotting/AboutMeWebsite" target="_blank" rel="noopener noreferrer">Bekijk dit project op GitHub</a></p>
             </template>
           </figure>
 
-          <figure class="paper-screenshot screenshot-1 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/API">
-            <a href="#" style="text-decoration: none;">
-              <img src="assets/images/API.png" alt="API Blueprint Screenshot" />
-              <figcaption>
-                <h3 class="screenshot-title">API</h3>
-                <p class="screenshot-desc">Huidig nieuws & Serverside APIs</p>
-              </figcaption>
-            </a>
+          <figure class="paper-screenshot screenshot-1 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/API" tabindex="0" role="button" aria-label="API: Huidig nieuws & Serverside APIs (klik of druk op Enter om te openen)">
+            <img src="assets/images/API.png" alt="API Blueprint Screenshot" />
+            <figcaption>
+              <h3 class="screenshot-title">API</h3>
+              <p class="screenshot-desc">Huidig nieuws & Serverside APIs</p>
+            </figcaption>
             <template class="blog-content-source">
-              <h2 class="blog-title">API (Application Programming Interfaces)</h2>
+              <h2 class="blog-title">API</h2>
               <p class="blog-text">Bij dit vak heb ik veel geleerd over serverside APIs en hoe je op een veilige manier data opvraagt. Ook kwamen de AI APIs van Google Chrome aan bod. Overal heb ik mega veel geleerd van dit vak wat ik kan meenemen.</p>
               <h3 class="blog-subtitle">Nieuwe Inzichten & Technieken</h3>
               <ul class="blog-list">
@@ -140,14 +137,12 @@ export const GET = async () => {
             </template>
           </figure>
 
-          <figure class="paper-screenshot screenshot-6 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/CSS-To-The-Rescue">
-            <a href="#" style="text-decoration: none;">
-              <img src="assets/images/CSS.png" alt="CSS Project Screenshot" />
-              <figcaption>
-                <h3 class="screenshot-title">CSS to the Rescue</h3>
-                <p class="screenshot-desc">Chernobyl controlepaneel in CSS</p>
-              </figcaption>
-            </a>
+          <figure class="paper-screenshot screenshot-6 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/CSS-To-The-Rescue" tabindex="0" role="button" aria-label="CSS to the Rescue: Chernobyl controlepaneel in CSS (klik of druk op Enter om te openen)">
+            <img src="assets/images/CSS.png" alt="CSS Project Screenshot" />
+            <figcaption>
+              <h3 class="screenshot-title">CSS to the Rescue</h3>
+              <p class="screenshot-desc">Chernobyl controlepaneel in CSS</p>
+            </figcaption>
             <template class="blog-content-source">
               <h2 class="blog-title">CSS to the Rescue</h2>
               <p class="blog-text">Bij dit vak heb ik zonder javascript een volledig functioneel controlepaneel gemaakt. De uitdaging hier was om javascript functionaliteit na te bootsen in CSS. Bij dit vak heb ik geleerd hoe ver CSS eigenlijk al is ontwikkeld.</p>
@@ -170,14 +165,12 @@ export const GET = async () => {
             </template>
           </figure>
 
-          <figure class="paper-screenshot screenshot-7 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/Human-Centered-Design">
-            <a href="#" style="text-decoration: none;">
-              <img src="assets/images/HCD.png" alt="HCD Project Screenshot" />
-              <figcaption>
-                <h3 class="screenshot-title">Human Centered Design</h3>
-                <p class="screenshot-desc">Screenreader-optimalisatie voor Roger</p>
-              </figcaption>
-            </a>
+          <figure class="paper-screenshot screenshot-7 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/Human-Centered-Design" tabindex="0" role="button" aria-label="Human Centered Design: Screenreader-optimalisatie voor Roger (klik of druk op Enter om te openen)">
+            <img src="assets/images/HCD.png" alt="HCD Project Screenshot" />
+            <figcaption>
+              <h3 class="screenshot-title">Human Centered Design</h3>
+              <p class="screenshot-desc">Screenreader-optimalisatie voor Roger</p>
+            </figcaption>
             <template class="blog-content-source">
               <h2 class="blog-title">Human Centered Design</h2>
               <p class="blog-text">Bij dit vak heb ik vooral geleerd dat toegankelijkheid niet een lijstje is die je kan afwerken maar dat je het beste kan testen met de verschillende beperkingen die er zijn.</p>
@@ -192,14 +185,12 @@ export const GET = async () => {
             </template>
           </figure>
 
-          <figure class="paper-screenshot screenshot-8 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/BrowserTechnology">
-            <a href="#" style="text-decoration: none;">
-              <img src="assets/images/bt.png" alt="BT Project Screenshot" />
-              <figcaption>
-                <h3 class="screenshot-title">Browser Technologies</h3>
-                <p class="screenshot-desc">Robuust NS belastingformulier</p>
-              </figcaption>
-            </a>
+          <figure class="paper-screenshot screenshot-8 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/BrowserTechnology" tabindex="0" role="button" aria-label="Browser Technologies: Robuust NS belastingformulier (klik of druk op Enter om te openen)">
+            <img src="assets/images/bt.png" alt="BT Project Screenshot" />
+            <figcaption>
+              <h3 class="screenshot-title">Browser Technologies</h3>
+              <p class="screenshot-desc">Robuust NS belastingformulier</p>
+            </figcaption>
             <template class="blog-content-source">
               <h2 class="blog-title">Browser Technologies</h2>
               <p class="blog-text">Hier was het de opdracht om een zo robuust mogelijk formulier te maken met goeie errorhandeling en duidelijke feedback naar de gebruiker. Ik heb hier vooral geleerd hoe belangrijk het is om een formulier te maken die goed functioneert.</p>
@@ -214,14 +205,12 @@ export const GET = async () => {
             </template>
           </figure>
 
-          <figure class="paper-screenshot screenshot-9 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/Weekly-Nerd">
-            <a href="#" style="text-decoration: none;">
-              <img src="assets/images/hackathon.png" alt="Hackathon Screenshot" />
-              <figcaption>
-                <h3 class="screenshot-title">Hackathon</h3>
-                <p class="screenshot-desc">Samenwerken & prototype bouwen</p>
-              </figcaption>
-            </a>
+          <figure class="paper-screenshot screenshot-9 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/Hackathon" tabindex="0" role="button" aria-label="Hackathon: Samenwerken & prototype bouwen (klik of druk op Enter om te openen)">
+            <img src="assets/images/hackathon.png" alt="Hackathon Screenshot" />
+            <figcaption>
+              <h3 class="screenshot-title">Hackathon</h3>
+              <p class="screenshot-desc">Samenwerken & prototype bouwen</p>
+            </figcaption>
             <template class="blog-content-source">
               <h2 class="blog-title">De Hackathon</h2>
               <p class="blog-text">Bij de hackathon was het belangrijk om binnen een korte tijd in groepsverband een werkend prototype neer te zetten. Ik heb hier dus vooral geleerd hoe belangrijk het is om goed samen te werken met je team en keuzes te maken samen.</p>
@@ -232,12 +221,13 @@ export const GET = async () => {
                 <li>Focus op de core features: het bouwen van een Minimal Viable Product (MVP) is belangrijker dan perfectie op alle details.</li>
               </ul>
               <p class="blog-text"><span class="vibe">Mijn mening:</span> In een team werken onder tijdsdruk dwingt je echt om gefocust te blijven op de belangrijkste features.</p>
+              <p class="blog-text"><a href="https://github.com/JelleHotting/Hackathon" target="_blank" rel="noopener noreferrer">Bekijk dit project op GitHub</a></p>
             </template>
-          </figure>          <!-- The Notebook with Leerdoelen (3D Flipping Book) -->
+          </figure>          
           <article class="paper-screenshot screenshot-10 notebook-container" id="notebook-container" tabindex="0" role="button" aria-label="Notitieboek: Mijn Leerdoelen (klik of druk op Enter om te openen en bladeren)">
             <div class="notebook-book">
               
-              <!-- Back Cover (stationary right backdrop) -->
+              
               <div class="notebook-cover-back">
                 <section class="notebook-sheet right-page page-3">
                   <h3 class="notebook-subtitle" style="margin-top: 0;">3. Inclusieve Web Toegankelijkheid</h3>
@@ -249,9 +239,9 @@ export const GET = async () => {
                 </section>
               </div>
 
-              <!-- Flipping Sheet 1 (contains Page 1 on front, Page 2 on back) -->
+              
               <div class="notebook-flipping-sheet" id="notebook-sheet-1">
-                <!-- Page 1 (Leerdoel 1) - Front side -->
+                
                 <div class="sheet-face sheet-front">
                   <section class="notebook-sheet right-page page-1">
                     <h3 class="notebook-subtitle" style="margin-top: 0;">1. Samenwerken met code</h3>
@@ -259,7 +249,7 @@ export const GET = async () => {
                     <p class="notebook-text"><strong>Waarom?</strong> Dit is een essentieel aspect van professionele softwareontwikkeling.</p>
                   </section>
                 </div>
-                <!-- Page 2 (Leerdoel 2) - Back side -->
+                
                 <div class="sheet-face sheet-back">
                   <section class="notebook-sheet left-page page-2">
                     <h3 class="notebook-subtitle" style="margin-top: 0;">2. CSS Animaties & Keyframes</h3>
@@ -269,17 +259,33 @@ export const GET = async () => {
                 </div>
               </div>
 
-              <!-- Front Cover (Flipped open leftwards) -->
+              
               <div class="notebook-cover-front">
-                <!-- Outer cover (shown when closed) -->
+                
                 <div class="cover-front-outer">
-                  <div class="spiral-rings-left" aria-hidden="true"></div>
+                  <div class="spiral-rings-left" aria-hidden="true">
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                  </div>
                   <div class="cover-title-group">
                     <h3 class="notebook-cover-title">NOTEBOOK</h3>
                     <p class="notebook-cover-subtitle">MIJN LEERDOELEN</p>
                   </div>
                 </div>
-                <!-- Inner cover (shows title page when open) -->
+                
                 <div class="cover-front-inner">
                   <section class="notebook-sheet left-page title-page">
                     <div class="title-page-content" style="margin-top: 0;">
@@ -293,30 +299,44 @@ export const GET = async () => {
                 </div>
               </div>
 
-              <!-- Spine Rings (shows in the middle when open) -->
-              <div class="notebook-spine-rings" aria-hidden="true"></div>
+              
+              <div class="notebook-spine-rings" aria-hidden="true">
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+              </div>
 
-              <!-- Close button (visible only when open) -->
-              <button id="close-notebook" class="notebook-close-button" aria-label="Sluit notitieboek">&times;</button>
+              
+              <button id="close-notebook" class="notebook-close-button" aria-label="Sluit leerdoelen notitieboek">&times;</button>
               
             </div>
           </article>
 
-          <figure class="paper-screenshot screenshot-11 blueprint-sheet" data-repo-url="https://github.com/JelleHotting/Weekly-Nerd">
-            <a href="#" style="text-decoration: none;">
-              <img src="assets/images/meesterproef.png" alt="Meesterproef Screenshot" />
-              <figcaption>
-                <h3 class="screenshot-title">Meesterproef</h3>
-                <p class="screenshot-desc">Opdrachtgever & Reflectie</p>
-              </figcaption>
-            </a>
+          <figure class="paper-screenshot screenshot-11 blueprint-sheet" data-repo-url="https://github.com/Jawattimena/meesterproef-minor-web" tabindex="0" role="button" aria-label="Meesterschap: Opdrachtgever & Reflectie (klik of druk op Enter om te openen)">
+            <img src="assets/images/meesterproef.png" alt="Meesterschap Screenshot" />
+            <figcaption>
+              <h3 class="screenshot-title">Meesterschap</h3>
+              <p class="screenshot-desc">Opdrachtgever & Reflectie</p>
+            </figcaption>
             <template class="blog-content-source">
-              <h2 class="blog-title">De Meesterproef – Amsterdam Project Atlas</h2>
+              <h2 class="blog-title">Meesterschap – Amsterdam Project Atlas</h2>
               <p class="blog-text">Voor de Gemeente Amsterdam hebben we samen met Jean-Carlos, Joshua en Matthew een toegankelijke atlas gebouwd: een interactieve kaart waarmee bewoners Amsterdamse projecten in hun buurt kunnen ontdekken en filteren.</p>
               <h3 class="blog-subtitle">Mijn inbreng</h3>
               <p class="blog-text">In ons team pakte ik vanzelf een coördinerende rol — niet als "de baas", maar meer als degene die het overzicht bewaarde: wie werkt waaraan, wat moet er nog, wat blokkeert iemand? Dat voelde natuurlijk aan en het team werkte er goed mee.</p>
               <h3 class="blog-subtitle">Grootste leermoment</h3>
-              <p class="blog-text">Pull requests. We hebben de hele meesterproef <strong>nooit een merge-conflict of PR-probleem gehad</strong>. Dat klinkt klein, maar dat is het resultaat van consequent branches maken, goede commit messages schrijven en elkaars code écht reviewen voordat je merget. Dat is iets wat ik nu altijd zo ga aanpakken.</p>
+              <p class="blog-text">Pull requests. We hebben de hele meesterschap-periode <strong>nooit een merge-conflict of PR-probleem gehad</strong>. Dat klinkt klein, maar dat is het resultaat van consequent branches maken, goede commit messages schrijven en elkaars code écht reviewen voordat je merget. Dat is iets wat ik nu altijd zo ga aanpakken.</p>
               <h3 class="blog-subtitle">Leerdoelen in de praktijk</h3>
               <ul class="blog-list">
                 <li><strong>Samenwerken met code:</strong> Git-workflow klopte van begin tot eind — branches, reviews, geen conflicten.</li>
@@ -324,29 +344,52 @@ export const GET = async () => {
                 <li><strong>Inclusieve Toegankelijkheid:</strong> De atlas moest werken voor iedereen — ARIA-labels, semantische HTML en toetsenbordnavigatie zaten er van dag één in.</li>
               </ul>
               <p class="blog-text"><span class="vibe">Mijn mening:</span> Alles wat ik geleerd heb kwam samen. Trots op hoe soepel de samenwerking liep en dat we iets gebouwd hebben dat echt werkt voor Amsterdammers.</p>
+              <p class="blog-text"><a href="https://github.com/Jawattimena/meesterproef-minor-web" target="_blank" rel="noopener noreferrer">Bekijk dit project op GitHub</a></p>
             </template>
           </figure>
 
-          <!-- The Reflections Notebook (3D Flipping Book) -->
-          <article class="paper-screenshot screenshot-12 notebook-container reflections-notebook-theme" id="reflections-notebook-container" tabindex="0" role="button" aria-label="Notitieboek: Meesterschap Gesprekken (klik of druk op Enter om te openen en bladeren)">
+          
+          <article class="paper-screenshot screenshot-12 notebook-container reflections-notebook-theme" id="reflections-notebook-container" tabindex="0" role="button" aria-label="Notitieboek: Meesterproef Gesprekken (klik of druk op Enter om te openen en bladeren)">
             <div class="notebook-book">
               
-              <!-- Back Cover (stationary right backdrop) -->
+              
               <div class="notebook-cover-back">
-                <section class="notebook-sheet right-page page-3">
-                  <h3 class="notebook-subtitle" style="margin-top: 0;">3. Gesprek 3: Reflectie (ca. 25 jun)</h3>
-                  <p class="notebook-text"><em>Dit gesprek moet nog plaatsvinden. De reflectie verschijnt hier na het gesprek.</em></p>
-                  <p class="notebook-text" style="margin-top: 20px;"><strong>Blik op de toekomst:</strong></p>
-                  <p class="notebook-text"><em>Nog in te vullen.</em></p>
-                  <div class="notebook-footer">
+                <section class="notebook-sheet right-page page-5">
+                  <h3 class="notebook-subtitle" style="margin-top: 0;">5. Blik op de toekomst</h3>
+                  <p class="notebook-text">Ik wil na deze minor heel graag een frontend-stage gaan lopen. Omdat ik me nu nog echt een junior voel, zal het vinden van een stage best een spannende uitdaging worden. Gelukkig heeft deze minor me een brede en stevige basis gegeven om mezelf verder te ontwikkelen.</p>
+                  <p class="notebook-text" style="margin-top: 15px;"><strong>Weekly Nerd Inspiratie:</strong></p>
+                  <p class="notebook-text">De sessies en methoden van Nils (creatieve CSS), Robbert Broersma (formulier-UX) en Killian Valkhof (CSS boven JS) neem ik zeker mee als inspiratie om mee te blijven oefenen!</p>
+                  <div class="notebook-footer" style="padding-top: 8px; margin-top: auto;">
                     <p class="notebook-tag">Weekly Nerd 2026</p>
                   </div>
                 </section>
               </div>
 
-              <!-- Flipping Sheet 1 (contains Page 1 on front, Page 2 on back) -->
+              
+              <div class="notebook-flipping-sheet" id="reflections-sheet-2">
+                
+                <div class="sheet-face sheet-front">
+                  <section class="notebook-sheet right-page page-3">
+                    <h3 class="notebook-subtitle" style="margin-top: 0;">3. Gesprek 3: Reflectie (25 jun)</h3>
+                    <p class="notebook-text">Tijdens het Meesterschap-project (de Amsterdam Project Atlas) liep de samenwerking binnen ons team uitstekend. We hebben vijf weken lang heel gestructureerd en fijn samengewerkt.</p>
+                    <p class="notebook-text" style="margin-top: 15px;"><strong>Mijn Rol & Coördinatie:</strong></p>
+                    <p class="notebook-text">Ik pakte op een heel natuurlijke manier een coördinerende rol in het team. Niet om de baas te spelen, maar puur om het overzicht te bewaren: wie is waar mee bezig, wat blokkeert er nog en wat moet er nog gebeuren?</p>
+                  </section>
+                </div>
+                
+                <div class="sheet-face sheet-back">
+                  <section class="notebook-sheet left-page page-4">
+                    <h3 class="notebook-subtitle" style="margin-top: 0;">4. Evaluatie Leerdoelen</h3>
+                    <p class="notebook-text"><strong>1. Samenwerken & Git:</strong> Het samenwerken met Git branches en pull requests ging vijf weken lang vlekkeloos. Merge-conflicten lossen we nu soepel zelf op.</p>
+                    <p class="notebook-text" style="margin-top: 10px;"><strong>2. CSS Animaties & GSAP:</strong> Ik ben enorm gegroeid in keyframes en transities, en heb zelfs met GSAP-timelines geoefend.</p>
+                    <p class="notebook-text" style="margin-top: 10px;"><strong>3. Toegankelijkheid (HCD):</strong> Toegankelijkheid is nu een vast onderdeel in mijn workflow. Het inleven blijft uitdagend: wanneer is iets 'toegankelijk'? Een rolstoeler ervaart gebouwen immers heel anders dan iemand op krukken.</p>
+                  </section>
+                </div>
+              </div>
+
+              
               <div class="notebook-flipping-sheet" id="reflections-sheet-1">
-                <!-- Page 1 (Gesprek 1) - Front side -->
+                
                 <div class="sheet-face sheet-front">
                   <section class="notebook-sheet right-page page-1">
                     <h3 class="notebook-subtitle" style="margin-top: 0;">1. Gesprek 1: Plannen (12 feb)</h3>
@@ -355,32 +398,48 @@ export const GET = async () => {
                     <p class="notebook-text">Mijn focus lag op het leren programmeren in teamverband en het ervaren van een gestructureerde workflow om samen aan één codebase te bouwen.</p>
                   </section>
                 </div>
-                <!-- Page 2 (Gesprek 2) - Back side -->
+                
                 <div class="sheet-face sheet-back">
                   <section class="notebook-sheet left-page page-2">
                     <h3 class="notebook-subtitle" style="margin-top: 0;">2. Gesprek 2: Leerdoelen (8 mei)</h3>
                     <p class="notebook-text">Het samenwerken en onder druk presteren in een team ging me al heel goed af, bijvoorbeeld tijdens de hackathon. Waar ik toen nog erg tegenaan liep, was het oplossen van merge-conflicten in Git.</p>
                     <p class="notebook-text" style="margin-top: 20px;"><strong>Blik op de toekomst:</strong></p>
-                    <p class="notebook-text">Ik wilde me richten op het beheersen van Git-tooling om conflicten zelfstandig te kunnen oplossen, zodat we tijdens de Meesterproef een soepele samenwerking konden garanderen.</p>
+                    <p class="notebook-text">Ik wilde me richten op het beheersen van Git-tooling om conflicten zelfstandig te kunnen oplossen, zodat we tijdens Meesterschap een soepele samenwerking konden garanderen.</p>
                   </section>
                 </div>
               </div>
 
-              <!-- Front Cover (Flipped open leftwards) -->
+              
               <div class="notebook-cover-front">
-                <!-- Outer cover (shown when closed) -->
+                
                 <div class="cover-front-outer">
-                  <div class="spiral-rings-left" aria-hidden="true"></div>
+                  <div class="spiral-rings-left" aria-hidden="true">
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                    <div class="ring-loop"></div>
+                  </div>
                   <div class="cover-title-group">
                     <h3 class="notebook-cover-title">NOTEBOOK</h3>
-                    <p class="notebook-cover-subtitle">MEESTERSCHAP</p>
+                    <p class="notebook-cover-subtitle">MEESTERPROEF</p>
                   </div>
                 </div>
-                <!-- Inner cover (shows title page when open) -->
+                
                 <div class="cover-front-inner">
                   <section class="notebook-sheet left-page title-page">
                     <div class="title-page-content" style="margin-top: 0;">
-                      <p class="notebook-text handwritten-intro">Dit zijn mijn persoonlijke reflecties op de drie Meesterschap Gesprekken voor de minor Web Design and Development 2026.</p>
+                      <p class="notebook-text handwritten-intro">Dit zijn mijn persoonlijke reflecties op de drie Meesterproef Gesprekken voor de minor Web Design and Development 2026.</p>
                       <p class="notebook-text handwritten-intro" style="margin-top: 20px;">Klik op de rechterbladzijde om te bladeren!</p>
                     </div>
                     <div class="notebook-footer">
@@ -390,11 +449,27 @@ export const GET = async () => {
                 </div>
               </div>
 
-              <!-- Spine Rings (shows in the middle when open) -->
-              <div class="notebook-spine-rings" aria-hidden="true"></div>
+              
+              <div class="notebook-spine-rings" aria-hidden="true">
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+                <div class="spine-ring"></div>
+              </div>
 
-              <!-- Close button (visible only when open) -->
-              <button id="close-reflections-notebook" class="notebook-close-button" aria-label="Sluit notitieboek">&times;</button>
+              
+              <button id="close-reflections-notebook" class="notebook-close-button" aria-label="Sluit meesterproef notitieboek">&times;</button>
               
             </div>
           </article>
@@ -407,7 +482,7 @@ export const GET = async () => {
           <p class="helptext">Gebruik je muis om over de pagina heen te gaan</p>
         </header>
 
-        <!-- Models Layer -->
+        
         <section id="models-layer">
 
           <article class="interactive-model-wrapper ruler-wrapper" tabindex="0" role="button" aria-label="3D model Metalen Liniaal: Nils - CSS & Creativiteit (klik of druk op Enter om te openen)" data-active-orbit="70deg 0deg 100%" data-default-orbit="90deg 0deg 105%">
@@ -731,17 +806,17 @@ input { appearance: none; }
 
     </section>
 
-    <!-- Photo Fan Spread Overlay (for project paper screenshots) -->
+    
     <div id="spread-overlay" class="spread-overlay" role="dialog" aria-modal="true" aria-label="Project foto spread">
       <button id="close-spread" class="spread-close" aria-label="Sluiten">&times;</button>
 
       <div class="spread-content-wrapper" id="spread-content-wrapper">
-        <!-- Main enlarged project card -->
+        
         <div class="spread-photo spread-photo-main" id="spread-main">
           <img class="spread-img" id="spread-main-img" src="" alt="" />
         </div>
 
-        <!-- GitHub Repo Link Container (handles centering on page) -->
+        
         <div class="spread-repo-container" id="spread-repo-container">
           <a href="" target="_blank" rel="noopener noreferrer" class="spread-repo-btn" id="spread-repo-link" aria-label="GitHub Repository">
             <svg class="repo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -751,10 +826,10 @@ input { appearance: none; }
           </a>
         </div>
 
-        <!-- Floating scribble annotations — SVGs are static, JS only fills text content -->
+        
         <div id="spread-scribbles" class="spread-scribbles">
 
-          <!-- ① Title: written across top of main photo -->
+          
           <div class="spread-scribble scribble-title" id="scribble-title">
             <span id="scribble-title-text"></span>
 
@@ -773,7 +848,7 @@ input { appearance: none; }
             </svg>
           </div>
 
-          <!-- ② Tag 1: on right fan photo, arrow points LEFT toward main -->
+          
           <div class="spread-scribble scribble-tag scribble-tag-1" id="scribble-tag-1">
             <svg class="scribble-arrow-svg arrow-left" viewBox="0 0 52 28" width="52" height="28" aria-hidden="true">
               <path d="M 48 14 Q 30 6 10 14"
@@ -785,7 +860,7 @@ input { appearance: none; }
             <span id="scribble-tag-1-text"></span>
           </div>
 
-          <!-- ③ Tag 2: on left fan photo, arrow points RIGHT toward main -->
+          
           <div class="spread-scribble scribble-tag scribble-tag-2" id="scribble-tag-2">
             <span id="scribble-tag-2-text"></span>
             <svg class="scribble-arrow-svg arrow-right" viewBox="0 0 52 28" width="52" height="28" aria-hidden="true">
@@ -797,7 +872,7 @@ input { appearance: none; }
             </svg>
           </div>
 
-          <!-- ④ Vibe: italic scrawl at bottom of main photo -->
+          
           <div class="spread-scribble scribble-vibe" id="scribble-vibe">
             <span id="scribble-vibe-text"></span>
 
@@ -812,15 +887,15 @@ input { appearance: none; }
       </div>
     </div>
 
-    <!-- Blog Panel -->
+    
     <aside id="blog-panel" class="blog-panel" role="dialog" aria-modal="true" aria-label="Weekly Nerd blog panel">
       <button id="close-blog-panel" class="close-button" aria-label="Sluit venster">&times;</button>
       <section id="blog-panel-content" class="blog-panel-content">
-        <!-- Content will be injected here from templates -->
+        
       </section>
     </aside>
     </main>
 
-    <script src="main.js" defer></script>
+    <script src="main.js?v=2" defer></script>
   </body>
 </html>
