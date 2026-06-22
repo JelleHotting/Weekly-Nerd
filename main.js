@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let isDragging = false;
   let hasDragged = false;
   let startX, startY;
+  let dragStartX = 0;
+  let dragStartY = 0;
   let scrollLeft, scrollTop;
   let activeModel = null;
   let lastFocusedElement = null; // Voor focus-restore bij sluiten van panels
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const blogPanel = document.getElementById("blog-panel");
   const blogPanelContent = document.getElementById("blog-panel-content");
   const closeButton = document.getElementById("close-blog-panel");
+  const notebookContainer = document.getElementById("notebook-container");
   const reflectionsNotebookContainer = document.getElementById("reflections-notebook-container");
   const closeReflectionsNotebookBtn = document.getElementById("close-reflections-notebook");
 
@@ -99,24 +102,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Drag vs. tap detection via pointer events + distance threshold
-  // Source (APA format):
-  // Google. (2026). Gemini 2.5 Pro [Large language model].
-  // (Conversatie over het onderscheid maken tussen een tap en een drag op een pannable canvas via een pixel-threshold.)
-  const DRAG_THRESHOLD = 8;
+  const isAnyPanelOpen = () => {
+    return (
+      (spreadOverlay && spreadOverlay.classList.contains("active")) ||
+      (notebookContainer && notebookContainer.classList.contains("open")) ||
+      (reflectionsNotebookContainer && reflectionsNotebookContainer.classList.contains("open")) ||
+      (blogPanel && blogPanel.classList.contains("active"))
+    );
+  };
 
   function onPointerDown(e) {
     hasDragged = false;
-    if (
-      e.target.closest("a") !== null ||
-      e.target.closest(".interactive-model-wrapper") !== null
-    )
-      return;
-    if (activeModel !== null) return;
+    if (isAnyPanelOpen() || activeModel !== null) return;
 
     isDragging = true;
     startX = e.pageX - viewport.offsetLeft;
     startY = e.pageY - viewport.offsetTop;
+    dragStartX = e.clientX;
+    dragStartY = e.clientY;
     scrollLeft = viewport.scrollLeft;
     scrollTop = viewport.scrollTop;
   }
@@ -129,17 +132,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const walkX = x - startX;
     const walkY = y - startY;
 
-    if (Math.abs(walkX) > DRAG_THRESHOLD || Math.abs(walkY) > DRAG_THRESHOLD) {
-      hasDragged = true;
-    }
-
     viewport.scrollLeft = scrollLeft - walkX;
     viewport.scrollTop = scrollTop - walkY;
   }
 
-  function onPointerUp() {
+  function onPointerUp(e) {
+    if (isDragging) {
+      const dx = Math.abs(e.clientX - dragStartX);
+      const dy = Math.abs(e.clientY - dragStartY);
+      const threshold = e.pointerType === "touch" ? 15 : 6;
+      if (dx > threshold || dy > threshold) {
+        hasDragged = true;
+      } else {
+        hasDragged = false;
+      }
+    }
     isDragging = false;
-    setTimeout(() => { hasDragged = false; }, 50);
+    if (hasDragged) {
+      setTimeout(() => { hasDragged = false; }, 100);
+    }
   }
 
   viewport.addEventListener("pointerdown", onPointerDown);
@@ -198,32 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // On mobile, model-viewer swallows touch events preventing click from bubbling.
-    // Source (APA format):
-    // Google. (2026). Gemini 2.5 Pro [Large language model].
-    // (Conversatie over het oplossen van click-events die niet bubblelen vanuit het <model-viewer> web component op mobiel.)
-    // Detect a quick tap directly on the viewer and fire the wrapper click manually.
-    if (viewer) {
-      let tapStartX, tapStartY, tapStartTime;
-      viewer.addEventListener("touchstart", (e) => {
-        hasDragged = false;
-        tapStartX = e.touches[0].clientX;
-        tapStartY = e.touches[0].clientY;
-        tapStartTime = Date.now();
-      }, { passive: true });
-      viewer.addEventListener("touchend", (e) => {
-        if (activeModel === wrapper) return;
-        const dt = Date.now() - tapStartTime;
-        const dx = Math.abs(e.changedTouches[0].clientX - tapStartX);
-        const dy = Math.abs(e.changedTouches[0].clientY - tapStartY);
-        // Treat as tap: short duration and tiny movement
-        if (dt < 250 && dx < 10 && dy < 10) {
-          e.preventDefault();
-          hasDragged = false;
-          wrapper.click();
-        }
-      }, { passive: false });
-    }
+
 
     wrapper.addEventListener("click", (e) => {
       // Return early if dragging the background, or if this element is already focused
@@ -330,7 +316,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Paper click handlers & 3D Notebook Logic ---
   const paperScreenshots = document.querySelectorAll(".paper-screenshot");
-  const notebookContainer = document.getElementById("notebook-container");
   const closeNotebookBtn = document.getElementById("close-notebook");
 
   function openNotebook() {

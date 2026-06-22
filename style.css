@@ -170,6 +170,7 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   outline: none;
+  pointer-events: none;
 }
 
 .interactive-model::-webkit-scrollbar {
